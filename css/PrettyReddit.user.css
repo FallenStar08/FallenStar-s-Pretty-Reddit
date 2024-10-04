@@ -92,7 +92,6 @@
 	#header {
 		position             : relative;
 		overflow             : hidden;
-		/*background-image   : linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);*/
 		background           : linear-gradient(109.6deg, rgb(43, 1, 91) 13.4%, rgb(122, 2, 54) 100.2%);
 		background-size      : cover;
 		/* Ensures it covers the whole page */
@@ -174,42 +173,34 @@
 	/* Cycling colors for navbar subs*/
 	#RESShortcuts a:nth-child(20n+1) {
 		color: #cb00ff !important;
-		/* Light Pink */
 	}
 
 	#RESShortcuts a:nth-child(20n+3) {
 		color: #f1479c !important;
-		/* Hot Pink */
 	}
 
 	#RESShortcuts a:nth-child(20n+5) {
 		color: #FFD700 !important;
-		/* Gold */
 	}
 
 	#RESShortcuts a:nth-child(20n+7) {
 		color: #ADFF2F !important;
-		/* Green Yellow */
 	}
 
 	#RESShortcuts a:nth-child(20n+9) {
 		color: #00FF7F !important;
-		/* Spring Green */
 	}
 
 	#RESShortcuts a:nth-child(20n+11) {
 		color: #00CED1 !important;
-		/* Dark Turquoise */
 	}
 
 	#RESShortcuts a:nth-child(20n+13) {
 		color: #1E90FF !important;
-		/* Dodger Blue */
 	}
 
 	#RESShortcuts a:nth-child(20n+15) {
 		color: #9370DB !important;
-		/* Medium Purple */
 	}
 
 
@@ -224,29 +215,19 @@
 
 	li.selected>a.choice {
 		border-top-left-radius    : 6px;
-		/* Round top-left corner */
 		border-top-right-radius   : 6px;
-		/* Round top-right corner */
 		border-bottom-left-radius : 0;
-		/* Square bottom-left corner */
 		border-bottom-right-radius: 0;
-		/* Square bottom-right corner */
 		font-size                 : 1.3em !important;
-		/* Optionally increase font size for larger text */
 	}
 
 	li>a.choice,
 	li.res-tabmenu-button>a {
 		border-top-left-radius    : 6px;
-		/* Round top-left corner */
 		border-top-right-radius   : 6px;
-		/* Round top-right corner */
 		border-bottom-left-radius : 0;
-		/* Square bottom-left corner */
 		border-bottom-right-radius: 0;
-		/* Square bottom-right corner */
 		font-size                 : 1.1em !important;
-		/* Optionally increase font size for larger text */
 	}
 
 
@@ -297,11 +278,8 @@
 
 	#sr-header-area a {
 		text-decoration: none;
-		/* Remove underline from links */
 		font-size      : 14px;
-		/* Adjust font size */
 		transition     : color 0.3s ease-in-out;
-		/* Smooth color transition on hover */
 	}
 
 
@@ -320,7 +298,6 @@
 		margin          : 10px 15px;
 		border-radius   : 12px;
 		transition      : box-shadow 0.3s ease-in-out;
-		/* Smooth transition for hover effect */
 	}
 
 	/* Posts entries */
@@ -329,7 +306,6 @@
 		backdrop-filter : blur(10px);
 		border-radius   : 12px;
 		transition      : box-shadow 0.3s ease-in-out;
-		/* Smooth transition for hover effect */
 	}
 
 	/*Posts & Expanded texts*/
@@ -342,7 +318,6 @@
 	/* Hover effect with subtle glow */
 	.link:hover {
 		@hover-effect();
-		/* Subtle white glow */
 	}
 
 	/* Green glow for stickied posts */
@@ -364,7 +339,6 @@
 		border-radius             : 12px;
 		margin                    : 0px 0px 0px 0px;
 		white-space               : nowrap !important;
-		/* Prevents wrapping of child elements */
 		-webkit-overflow-scrolling: touch !important;
 	}
 

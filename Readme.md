@@ -33,6 +33,27 @@ Install the css using Stylus
 
 Install the usercripts using your favorite userscript manager (I recommend [ViolentMonkey](https://violentmonkey.github.io/))
 
+Links for easy install :
+
+Main css file:
+
+[![Static Badge](https://img.shields.io/badge/Css_file-INSTALL-blue?style=for-the-badge&logo=css3)](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css)
+
+Floating Sorting Panel JS
+
+[![Static Badge](https://img.shields.io/badge/Panel-INSTALL-blue?style=for-the-badge&logo=javascript)
+](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js)
+
+SideBar JS
+
+[![Static Badge](https://img.shields.io/badge/SideBar-INSTALL-blue?style=for-the-badge&logo=javascript)
+](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/CollapsibleSidebar.user.js)
+
+NavBar JS
+
+[![Static Badge](https://img.shields.io/badge/NavBar-INSTALL-blue?style=for-the-badge&logo=javascript)
+](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js)
+
 ### Contributing
 
 Don't

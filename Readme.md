@@ -28,7 +28,7 @@ Install the css using Stylus
 -   [Firefox](https://addons.mozilla.org/en-US/firefox/addon/styl-us/)
 -   [Chrome](https://chromewebstore.google.com/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
 
-Install the usercripts using your favorite userscripts manager (I recommend [ViolentMonkey](https://violentmonkey.github.io/))
+Install the usercripts using your favorite userscript manager (I recommend [ViolentMonkey](https://violentmonkey.github.io/))
 
 ### Contributing
 

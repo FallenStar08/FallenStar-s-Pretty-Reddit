@@ -15,7 +15,7 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 
     ![](resources/Panel.gif)
 
--   The Navbar has been enhanced and you can now scroll it horizontally.
+-   The Navbar has been enhanced and you can now scroll it horizontally (like, with the mousewheel not the shitty ugly-ass RES button)
 
     ![](resources/Navbar.gif)
 

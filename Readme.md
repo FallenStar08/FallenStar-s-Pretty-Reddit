@@ -5,6 +5,7 @@ It do be making the old reddit pretty
 ## Overview
 
 ![](resources/Overview.png)
+
 This repository hosts a collection of CSS and JavaScript files designed to improve the visual appearance and functionality of old.reddit.com.
 
 ### Features
@@ -13,6 +14,10 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 -   It even checks if the subreddit exists!
 
     ![](resources/Panel.gif)
+
+-   The Navbar has been enhanced and you can now scroll it horizontally.
+
+    ![](resources/Navbar.gif)
 
 ### Installation
 

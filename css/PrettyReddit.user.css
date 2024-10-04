@@ -4,6 +4,8 @@
 @version        1.0.0
 @description    A new userstyle
 @author         FallenStar
+@downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
+@updateURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
 @preprocessor 	less
 ==/UserStyle== */
 @-moz-document domain("old.reddit.com") {

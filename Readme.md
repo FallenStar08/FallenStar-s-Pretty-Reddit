@@ -19,6 +19,9 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 
     ![](resources/Navbar.gif)
 
+-   The sidebar is hidden and pretty (pretty means transparent)
+    ![](resources/SideBar.gif)
+
 ### Installation
 
 Requires [Reddit Enhancement Suite](https://redditenhancementsuite.com/) with nightmode enabled

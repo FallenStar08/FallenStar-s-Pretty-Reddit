@@ -6,6 +6,8 @@
 // @grant       none
 // @version     1.3
 // @author      FallenStar
+// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
+// @updateURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @description Adds sorting options as a floating panel on Reddit with hover sliding effect and hidden overflow.
 // ==/UserScript==
 

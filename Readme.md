@@ -1,4 +1,4 @@
-# FallenStar's old reddit prettifier
+# FallenStar's Pretty Reddit
 
 It do be making the old reddit pretty
 
@@ -36,4 +36,5 @@ Don't
 
 ### Credits
 
-Snesh
+- Snesh
+- Loky

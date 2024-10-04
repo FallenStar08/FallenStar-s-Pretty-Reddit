@@ -12,7 +12,7 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 -   Cool floating panel for sorting, also includes a "Go To" subreddit feature
 -   It even checks if the subreddit exists!
 
-    ![](resources/Panel.webm)
+    ![](resources/Panel.gif)
 
 ### Installation
 

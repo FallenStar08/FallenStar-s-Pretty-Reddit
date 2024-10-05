@@ -4,8 +4,9 @@
 @version        1.0.1
 @description    A new userstyle
 @author         FallenStar
-@downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
-@updateURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
+@updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
+@var color   gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
+@var color   gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
 @preprocessor 	less
 ==/UserStyle== */
 @-moz-document domain("old.reddit.com") {
@@ -92,7 +93,7 @@
 	#header {
 		position             : relative;
 		overflow             : hidden;
-		background           : linear-gradient(109.6deg, rgb(43, 1, 91) 13.4%, rgb(122, 2, 54) 100.2%);
+		background           : linear-gradient(109.6deg, @gradcolor1 13.4%, @gradcolor2 100.2%);
 		background-size      : cover;
 		/* Ensures it covers the whole page */
 		background-attachment: fixed;

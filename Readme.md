@@ -54,6 +54,11 @@ NavBar JS
 [![Static Badge](https://img.shields.io/badge/NavBar-INSTALL-blue?style=for-the-badge&logo=javascript)
 ](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js)
 
+### TODO
+
+-   Fix floating video thingy when you scroll in comments
+-   Put most of the useless stuff in the sidebar
+
 ### Contributing
 
 Don't

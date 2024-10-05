@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.2
+@version        1.0.3
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -427,9 +427,15 @@
 	form.toggle:nth-child(6),
 	.usertext-body>div>ol,
 	.usertext-body ul,
-	.linkinfo {
+	.linkinfo,
+	.side * {
 		@backdrop-transparent();
 		padding: 0px 0px 5px 5px;
+	}
+
+	.side table,
+	.side tbody {
+		border: 0px !important;
 	}
 
 	.JS_TriggerZone {

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.0
+@version        1.0.1
 @description    A new userstyle
 @author         FallenStar
 @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -15,12 +15,14 @@
 		background-color: rgba(48, 51, 50, .38) !important;
 		backdrop-filter : blur(10px);
 		border-radius   : 12px;
+		transition      : background-color 0.3s ease-in-out;
 	}
 
 	@backdrop-transparent: {
 		background-color: rgba(48, 51, 50, 0.0) !important;
 		backdrop-filter : blur(10px);
 		border-radius   : 12px;
+		transition      : background-color 0.3s ease-in-out;
 	}
 
 	@hover-effect: {
@@ -234,11 +236,8 @@
 		position        : fixed !important;
 		left            : 2% !important;
 		top             : 15vh !important;
-		background-color: rgba(48, 51, 50, .38) !important;
-		backdrop-filter : blur(10px);
-		transition      : background-color 0.3s ease-in-out;
+		@backdrop();
 		box-shadow      : 0 4px 8px rgba(0, 0, 0, .1);
-		border-radius   : 12px;
 		z-index         : 1000;
 		padding         : 5px !important;
 	}
@@ -262,12 +261,9 @@
 		width           : 97%;
 		margin-left     : auto;
 		margin-right    : 1%;
-		background-color: rgba(48, 51, 50, .38) !important;
 		box-shadow      : 0 4px 8px rgba(0, 0, 0, .1);
-		border-radius   : 12px;
 		z-index         : 1000;
-		backdrop-filter : blur(10px);
-		transition      : background-color 0.3s ease-in-out;
+		@backdrop();
 		position        : sticky !important;
 		top             : 3px;
 		/* Stick to the top of the viewport */
@@ -300,10 +296,7 @@
 
 	/* Posts entries */
 	.res-nightmode .entry.res-selected:has(div.top-matter) {
-		background-color: rgba(0, 0, 0, 0) !important;
-		backdrop-filter : blur(10px);
-		border-radius   : 12px;
-		transition      : box-shadow 0.3s ease-in-out;
+		@backdrop-transparent();
 	}
 
 	/*Posts & Expanded texts*/
@@ -332,9 +325,7 @@
 	/* all */
 	button,
 	.edit-btn {
-		background-color          : rgba(0, 0, 0, 0) !important;
-		backdrop-filter           : blur(10px);
-		border-radius             : 12px;
+		@backdrop-transparent();
 		margin                    : 0px 0px 0px 0px;
 		white-space               : nowrap !important;
 		-webkit-overflow-scrolling: touch !important;
@@ -345,9 +336,7 @@
 	/* [INPUTS] */
 	/* all */
 	input {
-		background-color: rgba(0, 0, 0, 0) !important;
-		backdrop-filter : blur(10px);
-		border-radius   : 12px;
+		@backdrop-transparent();
 		margin          : 0px 0px 0px 0px;
 		margin-left     : 20px
 	}
@@ -371,11 +360,8 @@
 	.res-nightmode #alert_message input {
 		left            : 2% !important;
 		top             : 2% !important;
-		background-color: rgba(48, 51, 50, .38) !important;
-		backdrop-filter : blur(10px);
-		transition      : background-color 0.3s ease-in-out;
+		@backdrop();
 		box-shadow      : 0 4px 8px rgba(0, 0, 0, .46);
-		border-radius   : 12px;
 		z-index         : 1000;
 		border          : 0px;
 		padding         : 10px;
@@ -402,8 +388,6 @@
 		width: auto;
 	}
 
-
-
 	/*[HEADER] Subreddit Name*/
 	#header-bottom-left {
 		text-align: center;
@@ -425,11 +409,6 @@
 	#header {
 		border: 0px;
 	}
-
-
-
-
-
 
 	/*[SIDEBAR]*/
 	.side,

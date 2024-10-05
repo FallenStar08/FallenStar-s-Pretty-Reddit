@@ -60,6 +60,7 @@
 	#chat,
 	#chat+span,
 	div.create,
+	.author-tooltip,
 	li>a.noCtrlF,
 	.subreddit-subscribe {
 		display: none !important;
@@ -234,13 +235,13 @@
 
 	/*Sr list theming*/
 	#srList {
-		position        : fixed !important;
-		left            : 2% !important;
-		top             : 15vh !important;
+		position: fixed !important;
+		left    : 2% !important;
+		top     : 15vh !important;
 		@backdrop();
-		box-shadow      : 0 4px 8px rgba(0, 0, 0, .1);
-		z-index         : 1000;
-		padding         : 5px !important;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+		z-index   : 1000;
+		padding   : 5px !important;
 	}
 
 	#srList tr {
@@ -255,18 +256,18 @@
 
 	/* search bar */
 	#sr-header-area {
-		padding         : 5px;
-		border          : 0px;
-		left            : 0;
-		right           : 0;
-		width           : 97%;
-		margin-left     : auto;
-		margin-right    : 1%;
-		box-shadow      : 0 4px 8px rgba(0, 0, 0, .1);
-		z-index         : 1000;
+		padding     : 5px;
+		border      : 0px;
+		left        : 0;
+		right       : 0;
+		width       : 97%;
+		margin-left : auto;
+		margin-right: 1%;
+		box-shadow  : 0 4px 8px rgba(0, 0, 0, .1);
+		z-index     : 1000;
 		@backdrop();
-		position        : sticky !important;
-		top             : 3px;
+		position: sticky !important;
+		top     : 3px;
 		/* Stick to the top of the viewport */
 	}
 
@@ -332,14 +333,18 @@
 		-webkit-overflow-scrolling: touch !important;
 	}
 
-
+	/* user hover modal close button */
+	.RESCloseButtonTopRight,
+	.RESCloseButtonTopRight:after {
+		background-color: transparent !important;
+	}
 
 	/* [INPUTS] */
 	/* all */
 	input {
 		@backdrop-transparent();
-		margin          : 0px 0px 0px 0px;
-		margin-left     : 20px
+		margin     : 0px 0px 0px 0px;
+		margin-left: 20px
 	}
 
 	/* sidebar search expando */
@@ -359,13 +364,11 @@
 	.res-nightmode #liveupdate-statusbar,
 	.res-nightmode #liveupdate-statusbar.complete,
 	.res-nightmode #alert_message input {
-		left            : 2% !important;
-		top             : 2% !important;
 		@backdrop();
-		box-shadow      : 0 4px 8px rgba(0, 0, 0, .46);
-		z-index         : 1000;
-		border          : 0px;
-		padding         : 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, .46);
+		z-index   : 1000;
+		border    : 0px;
+		padding   : 10px;
 	}
 
 	/* srlist navbar menu search */

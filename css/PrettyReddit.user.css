@@ -13,20 +13,21 @@
 @-moz-document domain("old.reddit.com") {
 
 	/*[VARIABLES]*/
-	@backdropBlur: blur(10px);
+	@backdropBlur : blur(10px);
+	@borderRadius : 12px;
 
 	/*[MIXINS]*/
 	@backdrop: {
 		background-color: rgba(48, 51, 50, .38) !important;
 		backdrop-filter : @backdropBlur;
-		border-radius   : 12px;
+		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
 	@backdrop-transparent: {
 		background-color: rgba(48, 51, 50, 0.0) !important;
 		backdrop-filter : @backdropBlur;
-		border-radius   : 12px;
+		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
@@ -296,7 +297,7 @@
 		backdrop-filter : @backdropBlur;
 		padding         : 10px 15px;
 		margin          : 10px 15px;
-		border-radius   : 12px;
+		border-radius   : @borderRadius;
 		transition      : box-shadow 0.3s ease-in-out;
 	}
 
@@ -494,7 +495,7 @@
 }
 
 
-@-moz-document regexp("^https:\\/\\/old\\.reddit\\.com\\/r\\/[^\\/]+\\/(?!comments\\/).*") {
+@-moz-document regexp("^https:\\/\\/old\\.reddit\\.com(\\/r\\/[^\\/]+(?!\\/comments).*)?$") {
 
 	/* [POSTS]{Excludes Comments Page} */
 	.content {

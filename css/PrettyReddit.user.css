@@ -1,40 +1,37 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.3
+@version        1.0.4
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
 @var checkbox	hideUsername "Hide Username" 0
 @var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
 @var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
-@var number     boxShadowIntensity "Box Shadow Intensity" 15px
-@var color      boxShadowColor "Box Shadow Color" rgba(255, 255, 255, 0.3)
 @preprocessor 	less
 ==/UserStyle== */
 @-moz-document domain("old.reddit.com") {
 
 	/*[VARIABLES]*/
 	@backdropBlur: blur(10px);
-	@hoverShadow : 0 0 @boxShadowIntensity @boxShadowColor;
 
 	/*[MIXINS]*/
 	@backdrop: {
 		background-color: rgba(48, 51, 50, .38) !important;
-		backdrop-filter : blur(10px);
+		backdrop-filter : @backdropBlur;
 		border-radius   : 12px;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
 	@backdrop-transparent: {
 		background-color: rgba(48, 51, 50, 0.0) !important;
-		backdrop-filter : blur(10px);
+		backdrop-filter : @backdropBlur;
 		border-radius   : 12px;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
 	@hover-effect: {
-		box-shadow: @hoverShadow  !important;
+		box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
 	}
 
 
@@ -296,7 +293,7 @@
 	/* [POSTS]*/
 	.link {
 		background-color: rgba(48, 51, 50, .5) !important;
-		backdrop-filter : blur(10px);
+		backdrop-filter : @backdropBlur;
 		padding         : 10px 15px;
 		margin          : 10px 15px;
 		border-radius   : 12px;

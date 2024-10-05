@@ -1,12 +1,12 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.1
+@version        1.0.2
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
-@var color   gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
-@var color   gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
+@var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
+@var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
 @preprocessor 	less
 ==/UserStyle== */
 @-moz-document domain("old.reddit.com") {

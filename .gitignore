@@ -25,3 +25,4 @@ resources/.arch-internal-preview.css
 
 # Built Visual Studio Code Extensions
 *.vsix
+.vscode/*

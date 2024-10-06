@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.4
+@version        1.0.5
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -71,7 +71,7 @@
 		display: none !important;
 	}
 
-	/* fix flicker on load for userscript & hide never ending reddit */
+	/* fixes flicker on load for userscript & hide never ending reddit */
 	.side,
 	.NERPageMarker {
 		display: none;
@@ -384,7 +384,7 @@
 		color           : white !important;
 	}
 
-	/*fix ugly white borders on all inputs*/
+	/*fixes ugly white borders on all inputs*/
 	input:focus,
 	textarea:focus,
 	select:focus {
@@ -449,7 +449,7 @@
 
 
 
-	/* [COMMENTS] */
+	/*[COMMENTS] */
 	.RES-keyNav-activeThing:not(.link) {
 		@hover-effect();
 	}
@@ -495,7 +495,7 @@
 }
 
 
-@-moz-document regexp("^https:\\/\\/old\\.reddit\\.com(\\/r\\/[^\\/]+(?!\\/comments).*)?$") {
+@-moz-document regexp("^https:\\/\\/old\\.reddit\\.com(\\/r\\/[^\\/]+\\/(?!comments\\/).*)?$") {
 
 	/* [POSTS]{Excludes Comments Page} */
 	.content {

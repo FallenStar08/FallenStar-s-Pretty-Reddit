@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.14
+@version        1.0.15
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -248,6 +248,7 @@
 		z-index        : 1000;
 		padding        : 5px !important;
 		max-height     : 33vh !important;
+		/*Idk how to fix the scrollbar from going over the rounder corner so fuckit*/
 		scrollbar-color: #00000054 #fafafa00;
 		scrollbar-width: none;
 	}
@@ -467,6 +468,8 @@
 	.flair,
 	.flairrichtext,
 	.flaircolordark,
+	.linkflairlabel,
+	.res-flairSearch,
 	.res-nightmode .flairrichtext[style*="color"] {
 		background-color: transparent !important;
 		border-radius   : 6px !important;

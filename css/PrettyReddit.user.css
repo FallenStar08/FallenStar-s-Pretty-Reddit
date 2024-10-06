@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.7
+@version        1.0.8
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -488,6 +488,7 @@
 	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment {
 		background-color: transparent !important;
 		border-radius   : 12px !important;
+		backdrop-filter : none !important;
 	}
 
 

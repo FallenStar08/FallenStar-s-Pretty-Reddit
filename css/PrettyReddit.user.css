@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.11
+@version        1.0.12
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -247,6 +247,7 @@
 		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
 		z-index   : 1000;
 		padding   : 5px !important;
+		max-height: 33vh !important;
 	}
 
 	/* fix missaligned header */

@@ -453,12 +453,16 @@
 	/*[COMMENTS] */
 
 	/* flairs */
-	.flair {
+	.flair,
+	.flairrichtext,
+	.flaircolordark,
+	.res-nightmode .flairrichtext[style*="color"] {
 		background-color: transparent !important;
 		border-radius   : 6px !important;
 		padding-left    : 4px !important;
 		padding-right   : 4px !important;
 	}
+
 
 	.RES-keyNav-activeThing:not(.link) {
 		@hover-effect();

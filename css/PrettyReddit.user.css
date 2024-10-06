@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.9
+@version        1.0.10
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -444,6 +444,7 @@
 		border: 0px !important;
 	}
 
+	/* TODO doesn't do anything yet */
 	.JS_TriggerZone {
 		@hover-effect();
 	}
@@ -463,7 +464,7 @@
 		padding-right   : 4px !important;
 	}
 
-
+	/* active comment */
 	.RES-keyNav-activeThing:not(.link) {
 		@hover-effect();
 	}

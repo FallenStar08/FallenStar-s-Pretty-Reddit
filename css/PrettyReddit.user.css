@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.10
+@version        1.0.11
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -37,7 +37,7 @@
 
 
 	/*[HIDE]*/
-	/*hide pseudo*/
+	/*{OPTION} hide pseudo*/
 	.user>a {
 		display: if((@hideUsername=1), none, '');
 	}
@@ -242,12 +242,19 @@
 	#srList {
 		position: fixed !important;
 		left    : 2% !important;
-		top     : 15vh !important;
+		top     : 35px !important;
 		@backdrop();
 		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
 		z-index   : 1000;
 		padding   : 5px !important;
 	}
+
+	/* fix missaligned header */
+	#srList th {
+		padding-left : 8px !important;
+		padding-right: 8px !important;
+	}
+
 
 	#srList tr {
 		border: 0px !important;

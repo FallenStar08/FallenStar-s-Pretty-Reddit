@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.13
+@version        1.0.14
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -12,11 +12,11 @@
 ==/UserStyle== */
 @-moz-document domain("old.reddit.com") {
 
-	/*[VARIABLES]*/
+	/*ANCHOR [VARIABLES]*/
 	@backdropBlur : blur(10px);
 	@borderRadius : 12px;
 
-	/*[MIXINS]*/
+	/*ANCHOR [MIXINS]*/
 	@backdrop: {
 		background-color: rgba(48, 51, 50, .38) !important;
 		backdrop-filter : @backdropBlur;
@@ -36,7 +36,7 @@
 	}
 
 
-	/*[HIDE]*/
+	/*ANCHOR [HIDE]*/
 	/*{OPTION} hide pseudo*/
 	.user>a {
 		display: if((@hideUsername=1), none, '');
@@ -94,7 +94,7 @@
 		right: 95vw !important;
 	}
 
-	/*[BACKGROUND]*/
+	/*ANCHOR [BACKGROUND]*/
 	body,
 	#header {
 		position             : relative;
@@ -124,7 +124,7 @@
 	}
 
 
-	/*[NAVBAR]*/
+	/*ANCHOR [NAVBAR]*/
 	/* enable scrolling All of this shit doesn't work but the userscript fixes it*/
 	#RESShortcutsViewport {
 		white-space               : nowrap !important;
@@ -244,10 +244,12 @@
 		left    : 2% !important;
 		top     : 35px !important;
 		@backdrop();
-		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
-		z-index   : 1000;
-		padding   : 5px !important;
-		max-height: 33vh !important;
+		box-shadow     : 0 4px 8px rgba(0, 0, 0, .1);
+		z-index        : 1000;
+		padding        : 5px !important;
+		max-height     : 33vh !important;
+		scrollbar-color: #00000054 #fafafa00;
+		scrollbar-width: none;
 	}
 
 	/* fix missaligned header */
@@ -299,7 +301,7 @@
 
 
 
-	/* [POSTS]*/
+	/*ANCHOR [POSTS]*/
 	.link {
 		background-color: rgba(48, 51, 50, .5) !important;
 		backdrop-filter : @backdropBlur;
@@ -337,7 +339,7 @@
 	}
 
 
-	/* [BUTTONS] */
+	/*ANCHOR [BUTTONS] */
 	/* all */
 	button,
 	.edit-btn {
@@ -353,7 +355,7 @@
 		background-color: transparent !important;
 	}
 
-	/* [INPUTS] */
+	/*ANCHOR [INPUTS] */
 	/* all */
 	input {
 		background-color: transparent !important;
@@ -406,7 +408,7 @@
 		width: auto;
 	}
 
-	/*[HEADER] Subreddit Name*/
+	/*ANCHOR [HEADER] Subreddit Name*/
 	#header-bottom-left {
 		text-align: center;
 	}
@@ -428,7 +430,7 @@
 		border: 0px;
 	}
 
-	/*[SIDEBAR]*/
+	/*ANCHOR [SIDEBAR]*/
 	.side,
 	.titlebox,
 	.redditname,
@@ -459,7 +461,7 @@
 
 
 
-	/*[COMMENTS] */
+	/*ANCHOR [COMMENTS] */
 
 	/* flairs */
 	.flair,
@@ -514,7 +516,7 @@
 	}
 
 
-	/*[JS CREATED ELEMENTS] */
+	/*ANCHOR [JS CREATED ELEMENTS] */
 	#floating-nav-panel:hover {
 		@hover-effect();
 	}
@@ -523,7 +525,7 @@
 
 @-moz-document regexp("^https:\\/\\/old\\.reddit\\.com(\\/r\\/[^\\/]+\\/(?!comments\\/).*)?$|^https:\\/\\/old\\.reddit\\.com\\/?$") {
 
-	/* [POSTS]{Excludes Comments Page} */
+	/*ANCHOR [POSTS]{Excludes Comments Page} */
 	.content {
 		padding-left : 10%;
 		padding-right: 10%;

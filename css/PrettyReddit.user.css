@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.8
+@version        1.0.9
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -451,6 +451,15 @@
 
 
 	/*[COMMENTS] */
+
+	/* flairs */
+	.flair {
+		background-color: transparent !important;
+		border-radius   : 6px !important;
+		padding-left    : 4px !important;
+		padding-right   : 4px !important;
+	}
+
 	.RES-keyNav-activeThing:not(.link) {
 		@hover-effect();
 	}

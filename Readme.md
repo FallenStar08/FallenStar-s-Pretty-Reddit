@@ -58,6 +58,8 @@ NavBar JS
 
 -   Fix floating video thingy when you scroll in comments
 -   Put most of the useless stuff in the sidebar
+-   Display comments without changing page
+-   Probably fix more chromium fuckeries
 
 ### Contributing
 

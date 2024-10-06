@@ -60,6 +60,7 @@ NavBar JS
 -   Put most of the useless stuff in the sidebar
 -   Display comments without changing page
 -   Probably fix more chromium fuckeries
+-   Re add sort button to navbar
 
 ### Contributing
 

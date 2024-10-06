@@ -61,6 +61,7 @@ NavBar JS
 -   Display comments without changing page
 -   Probably fix more chromium fuckeries
 -   Re add sort button to navbar
+-   sort panel for comment section
 
 ### Contributing
 

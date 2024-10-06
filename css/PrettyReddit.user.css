@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.15
+@version        1.0.16
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -477,10 +477,7 @@
 		padding-right   : 4px !important;
 	}
 
-	/* active comment */
-	.RES-keyNav-activeThing:not(.link) {
-		@hover-effect();
-	}
+
 
 	/* Dont ask me why the fuck I have to do that I don't know css */
 	/* Base rule for the first level */
@@ -488,6 +485,7 @@
 	.res-commentBoxes .res-nightmode .thing.comment {
 		@backdrop();
 		border-radius: 12px !important;
+		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
 	}
 
 	/* Nested levels from 2 to 25 */
@@ -516,6 +514,12 @@
 		background-color: transparent !important;
 		border-radius   : 12px !important;
 		backdrop-filter : none !important;
+
+	}
+
+	/* active comment */
+	.RES-keyNav-activeThing:not(.link) {
+		@hover-effect();
 	}
 
 

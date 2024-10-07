@@ -35,6 +35,10 @@
 		box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
 	}
 
+	@shadow-border: {
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+	}
+
 
 	/*ANCHOR [HIDE]*/
 	/*{OPTION} hide pseudo*/
@@ -304,6 +308,7 @@
 
 	/*ANCHOR [POSTS]*/
 	.link {
+		@shadow-border();
 		background-color: rgba(48, 51, 50, .5) !important;
 		backdrop-filter : @backdropBlur;
 		padding         : 10px 15px;
@@ -468,7 +473,7 @@
 
 
 	/*ANCHOR [COMMENTS] */
-
+	/*TODO FIX FLAIRS*/
 	/* flairs */
 	.flair,
 	.flairrichtext,

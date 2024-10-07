@@ -4,7 +4,7 @@
 // @match       https://old.reddit.com/*
 // @grant       GM_getValue
 // @grant       GM_setValue
-// @version     1.6
+// @version     1.6.5
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -40,12 +40,17 @@
 		: currentUrl.replace(/\/(new|top|hot|controversial|rising)\/?$/, "/");
 
 	const sortingOptions = [
-		{ text: "Hot", sort: "hot" },
+		isCommentPage
+			? { text: "Best", sort: "confidence" }
+			: { text: "Hot", sort: "hot" },
 		{ text: "New", sort: "new" },
+		isCommentPage ? { text: "Old", sort: "old" } : {},
 		{ text: "Top", sort: "top" },
 		{ text: "Contro", sort: "controversial" },
-		{ text: "Rising", sort: "rising" },
-	];
+		isCommentPage
+			? { text: "Q&A", sort: "qa" }
+			: { text: "Rising", sort: "rising" },
+	].filter((option) => Object.keys(option).length > 0);
 
 	const inputContainer = document.createElement("div");
 	inputContainer.style.position = "relative";

@@ -3,33 +3,18 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://old.reddit.com/*
 // @exclude-match https://old.reddit.com/r/*/comments/*
-// @grant       none
-// @version     1.3
+// @grant       GM_getValue
+// @grant       GM_setValue
+// @version     1.5
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
-// @updateURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
-// @description Adds sorting options as a floating panel on Reddit with hover sliding effect and hidden overflow.
+// @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
+// @description Adds sorting options as a floating panel on Reddit with hover sliding effect, hidden overflow, drag-and-drop functionality
 // ==/UserScript==
 
 (function () {
 	"use strict";
 
-	const currentUrl = window.location.href;
-	// replace already sorted url with base one
-	const baseUrl = currentUrl.replace(
-		/\/(new|top|hot|controversial|rising)\/?$/,
-		"/"
-	);
-
-	async function checkSubredditExists(subreddit) {
-		const url = `https://old.reddit.com/r/${subreddit}/about.json`;
-		const response = await fetch(url, {
-			method: "HEAD",
-		});
-		return response.status === 200;
-	}
-
-	// sorting pannel element
 	const panel = document.createElement("div");
 	panel.id = "floating-nav-panel";
 	Object.assign(panel.style, {
@@ -45,44 +30,33 @@
 		zIndex: "9999",
 		color: "#fff",
 		maxWidth: "15vw",
+		cursor: "move",
 	});
 
-	// Sorting links list
+	const currentUrl = window.location.href;
+	const baseUrl = currentUrl.replace(
+		/\/(new|top|hot|controversial|rising)\/?$/,
+		"/"
+	);
+
 	const sortingOptions = [
-		{
-			text: "Hot",
-			sort: "hot",
-		},
-		{
-			text: "New",
-			sort: "new",
-		},
-		{
-			text: "Top",
-			sort: "top",
-		},
-		{
-			text: "Contro", //rename to something shorter idk
-			sort: "controversial",
-		},
-		{
-			text: "Rising",
-			sort: "rising",
-		},
+		{ text: "Hot", sort: "hot" },
+		{ text: "New", sort: "new" },
+		{ text: "Top", sort: "top" },
+		{ text: "Contro", sort: "controversial" },
+		{ text: "Rising", sort: "rising" },
 	];
 
-	// Container for the input and icon
 	const inputContainer = document.createElement("div");
 	inputContainer.style.position = "relative";
 
 	panel.appendChild(inputContainer);
 
-	// Search input
 	const searchInput = document.createElement("input");
 	searchInput.classList.add("js-search");
 	searchInput.placeholder = "Go to...";
 	Object.assign(searchInput.style, {
-		backgroundColor: "rgba(0, 0, 0, 0) !important",
+		backgroundColor: "rgba(0, 0, 0, 0)",
 		backdropFilter: "blur(10px)",
 		borderRadius: "0px",
 		margin: "0px",
@@ -94,7 +68,6 @@
 		overflow: "auto",
 	});
 
-	// Search Result Icon
 	const iconContainer = document.createElement("div");
 	iconContainer.id = "iconContainer";
 	iconContainer.style.position = "absolute";
@@ -106,7 +79,6 @@
 	inputContainer.appendChild(searchInput);
 	inputContainer.appendChild(iconContainer);
 
-	// Add links to pannel
 	sortingOptions.forEach((option) => {
 		const anchor = document.createElement("a");
 		anchor.href = `${baseUrl}${option.sort}/`;
@@ -125,7 +97,6 @@
 			textOverflow: "ellipsis",
 		});
 
-		// Probably should use css but yolo
 		anchor.addEventListener("mouseover", () => {
 			anchor.style.transform = "translateX(10px)";
 		});
@@ -138,12 +109,32 @@
 		panel.appendChild(anchor);
 	});
 
-	/* Events stuff */
+	// Drag and drop functionality
+	let isDragging = false;
+	let offset = { x: 0, y: 0 };
+
+	panel.addEventListener("mousedown", (e) => {
+		isDragging = true;
+		offset.x = e.clientX - panel.getBoundingClientRect().left;
+		offset.y = e.clientY - panel.getBoundingClientRect().top;
+	});
+
+	document.addEventListener("mousemove", (e) => {
+		if (isDragging) {
+			panel.style.left = `${e.clientX - offset.x}px`;
+			panel.style.top = `${e.clientY - offset.y}px`;
+		}
+	});
+
+	document.addEventListener("mouseup", () => {
+		if (isDragging) {
+			isDragging = false;
+		}
+	});
 
 	let typingTimer;
 	const doneTypingInterval = 300;
 
-	// Check for Enter key press
 	searchInput.addEventListener("keydown", async (e) => {
 		if (e.code === "Enter") {
 			const subreddit = searchInput.value.trim();
@@ -158,7 +149,6 @@
 		}
 	});
 
-	// Check if subreddit exists when typing stops
 	searchInput.addEventListener("keyup", () => {
 		clearTimeout(typingTimer);
 		typingTimer = setTimeout(async () => {
@@ -174,13 +164,8 @@
 		}, doneTypingInterval);
 	});
 
-	// Hide the icon while typing
 	searchInput.addEventListener("input", () => {
 		iconContainer.style.visibility = "hidden";
-	});
-
-	// Dynamically adjust input width
-	searchInput.addEventListener("input", () => {
 		const value = searchInput.value;
 		const span = document.createElement("span");
 		span.style.position = "absolute";
@@ -195,4 +180,12 @@
 	});
 
 	document.body.appendChild(panel);
+
+	async function checkSubredditExists(subreddit) {
+		const url = `https://old.reddit.com/r/${subreddit}/about.json`;
+		const response = await fetch(url, {
+			method: "HEAD",
+		});
+		return response.status === 200;
+	}
 })();

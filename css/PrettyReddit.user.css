@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.21
+@version        1.0.22
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -488,6 +488,11 @@
 		border-radius   : 6px !important;
 		padding-left    : 4px !important;
 		padding-right   : 4px !important;
+	}
+
+	/* hide the expand thing letter uggly yucky */
+	div.comment>div.entry>p.tagline>a.expand {
+		font-size: 0 !important;
 	}
 
 	/*hide/expand left bar*/

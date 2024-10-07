@@ -98,6 +98,19 @@
 		right: 95vw !important;
 	}
 
+	/*ANCHOR [BODY] */
+	.content {
+		padding-left : 10%;
+		padding-right: 10%;
+	}
+
+	.res-commentBoxes body.comments-page>.content {
+		padding-right: 10% !important;
+	}
+
+
+
+
 	/*ANCHOR [BACKGROUND]*/
 	body,
 	#header {
@@ -556,12 +569,4 @@
 		@hover-effect();
 	}
 
-	.content {
-		padding-left : 10%;
-		padding-right: 10%;
-	}
-
-	.res-commentBoxes body.comments-page>.content {
-		padding-right: 10% !important;
-	}
 }

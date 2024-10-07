@@ -2,10 +2,9 @@
 // @name        Floating Sorting Panel
 // @namespace   Violentmonkey Scripts
 // @match       https://old.reddit.com/*
-// @exclude-match https://old.reddit.com/r/*/comments/*
 // @grant       GM_getValue
 // @grant       GM_setValue
-// @version     1.5
+// @version     1.6
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -34,10 +33,11 @@
 	});
 
 	const currentUrl = window.location.href;
-	const baseUrl = currentUrl.replace(
-		/\/(new|top|hot|controversial|rising)\/?$/,
-		"/"
-	);
+	const isCommentPage =
+		/https:\/\/old\.reddit\.com\/r\/.*\/comments\/.*\/.*/.test(currentUrl);
+	const baseUrl = isCommentPage
+		? currentUrl.replace(/\?sort=.*$/, "")
+		: currentUrl.replace(/\/(new|top|hot|controversial|rising)\/?$/, "/");
 
 	const sortingOptions = [
 		{ text: "Hot", sort: "hot" },
@@ -81,7 +81,10 @@
 
 	sortingOptions.forEach((option) => {
 		const anchor = document.createElement("a");
-		anchor.href = `${baseUrl}${option.sort}/`;
+		const sortUrl = isCommentPage
+			? `${baseUrl}?sort=${option.sort}`
+			: `${baseUrl}${option.sort}/`;
+		anchor.href = sortUrl;
 		anchor.textContent = option.text;
 		Object.assign(anchor.style, {
 			display: "block",

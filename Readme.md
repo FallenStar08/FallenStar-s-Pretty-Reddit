@@ -62,6 +62,7 @@ NavBar JS
 -   Probably fix more chromium fuckeries
 -   Re add sort button to navbar
 -   sort panel for comment section
+-   fix flairs
 
 ### Contributing
 

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.18
+@version        1.0.20
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -392,10 +392,11 @@
 	.res-nightmode #liveupdate-statusbar.complete,
 	.res-nightmode #alert_message input {
 		@backdrop();
-		box-shadow: 0 4px 8px rgba(0, 0, 0, .46);
-		z-index   : 1000;
-		border    : 0px;
-		padding   : 10px;
+		box-shadow : 0 4px 8px rgba(0, 0, 0, .46);
+		z-index    : 1000;
+		border     : 0px;
+		padding    : 10px;
+		margin-left: 5px;
 	}
 
 	/* srlist navbar menu search */

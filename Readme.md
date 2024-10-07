@@ -64,6 +64,7 @@ NavBar JS
 -   Re add sort button to navbar
 -   sort panel for comment section
 -   fix flairs
+-   option to hide vanilla sorting options if using the panel
 
 ### Contributing
 

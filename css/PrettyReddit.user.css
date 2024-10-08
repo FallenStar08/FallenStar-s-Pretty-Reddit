@@ -318,6 +318,11 @@
 		transition     : color 0.3s ease-in-out;
 	}
 
+	#sort-menu {
+		z-index: 999999 !important;
+		@backdrop();
+	}
+
 
 
 
@@ -510,6 +515,8 @@
 
 	/* user flairs */
 	p.tagline>span.flairrichtext.flair {
+		/* small margin from the tag button */
+		margin-left: 5px;
 		@flairs();
 	}
 

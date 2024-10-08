@@ -4,7 +4,7 @@
 // @match       https://old.reddit.com/*
 // @grant       GM_getValue
 // @grant       GM_setValue
-// @version     1.6.5
+// @version     1.6.6
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -61,8 +61,7 @@
 	searchInput.classList.add("js-search");
 	searchInput.placeholder = "Go to...";
 	Object.assign(searchInput.style, {
-		backgroundColor: "rgba(0, 0, 0, 0)",
-		backdropFilter: "blur(10px)",
+		backgroundColor: "transparent",
 		borderRadius: "0px",
 		margin: "0px",
 		border: "0px",

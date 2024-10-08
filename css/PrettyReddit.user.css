@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.23
+@version        1.0.24
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -37,6 +37,13 @@
 
 	@shadow-border: {
 		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+	}
+
+	@flairs: {
+		background-color: transparent !important;
+		border-radius   : 6px !important;
+		padding-left    : 4px !important;
+		padding-right   : 4px !important;
 	}
 
 
@@ -484,11 +491,7 @@
 		@hover-effect();
 	}
 
-
-
-	/*ANCHOR [COMMENTS] */
-	/*TODO FIX FLAIRS*/
-	/* flairs */
+	/*ANCHOR [FLAIRS] */
 	.flair,
 	.flairrichtext,
 	.flaircolordark,
@@ -497,11 +500,20 @@
 	.flaircolorlight,
 	.res-flairSearch,
 	.res-nightmode .flairrichtext[style*="color"] {
-		background-color: transparent !important;
-		border-radius   : 6px !important;
-		padding-left    : 4px !important;
-		padding-right   : 4px !important;
+		@flairs();
 	}
+
+	/* title flairs */
+	p.title>a.title+span.flairrichtext {
+		@flairs();
+	}
+
+	/* user flairs */
+	p.tagline>span.flairrichtext.flair {
+		@flairs();
+	}
+
+	/*ANCHOR [COMMENTS] */
 
 	/* hide the expand thing letter uggly yucky */
 	div.comment>div.entry>p.tagline>a.expand {

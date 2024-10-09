@@ -4,7 +4,7 @@
 // @match       https://old.reddit.com/*
 // @grant       GM_getValue
 // @grant       GM_setValue
-// @version     1.6.6
+// @version     2.0.0
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -31,6 +31,13 @@
 		maxWidth: "15vw",
 		cursor: "move",
 	});
+
+	//Restore panel position from previous session TODO add setting to restore to default
+	const savedLeft = GM_getValue("panelLeft", "1%");
+	const savedTop = GM_getValue("panelTop", "50%");
+	panel.style.left =
+		typeof savedLeft === "number" ? `${savedLeft}px` : savedLeft;
+	panel.style.top = typeof savedTop === "number" ? `${savedTop}px` : savedTop;
 
 	const currentUrl = window.location.href;
 	const isCommentPage =
@@ -116,7 +123,7 @@
 		panel.appendChild(anchor);
 	});
 
-	// Drag and drop functionality
+	// Drag and drop functionality, now with boundary checks!
 	let isDragging = false;
 	let offset = { x: 0, y: 0 };
 
@@ -128,14 +135,33 @@
 
 	document.addEventListener("mousemove", (e) => {
 		if (isDragging) {
-			panel.style.left = `${e.clientX - offset.x}px`;
-			panel.style.top = `${e.clientY - offset.y}px`;
+			let newX = e.clientX - offset.x;
+			let newY = e.clientY - offset.y;
+			newX = Math.max(
+				0,
+				Math.min(newX, window.innerWidth - panel.offsetWidth)
+			);
+			newY = Math.max(
+				panel.offsetHeight / 2,
+				Math.min(
+					newY + panel.offsetHeight / 2,
+					window.innerHeight - panel.offsetHeight / 2
+				)
+			);
+			panel.style.left = `${newX}px`;
+			panel.style.top = `${newY}px`;
 		}
 	});
 
 	document.addEventListener("mouseup", () => {
 		if (isDragging) {
 			isDragging = false;
+
+			//pos save (haha pos)
+			const leftValue = parseInt(panel.style.left, 10);
+			const topValue = parseInt(panel.style.top, 10);
+			GM_setValue("panelLeft", leftValue);
+			GM_setValue("panelTop", topValue);
 		}
 	});
 

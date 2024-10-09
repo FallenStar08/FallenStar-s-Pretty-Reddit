@@ -4,7 +4,8 @@
 // @match       https://old.reddit.com/*
 // @grant       GM_getValue
 // @grant       GM_setValue
-// @version     2.0.0
+// @grant       GM_registerMenuCommand
+// @version     2.1.0
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -13,6 +14,8 @@
 
 (function () {
 	"use strict";
+	const DEFAULT_LEFT = "1%";
+	const DEFAULT_TOP = "50%";
 
 	const panel = document.createElement("div");
 	panel.id = "floating-nav-panel";
@@ -32,12 +35,24 @@
 		cursor: "move",
 	});
 
-	//Restore panel position from previous session TODO add setting to restore to default
-	const savedLeft = GM_getValue("panelLeft", "1%");
-	const savedTop = GM_getValue("panelTop", "50%");
+	//Restore panel position from previous session
+	const savedLeft = GM_getValue("panelLeft", DEFAULT_LEFT);
+	const savedTop = GM_getValue("panelTop", DEFAULT_TOP);
 	panel.style.left =
 		typeof savedLeft === "number" ? `${savedLeft}px` : savedLeft;
 	panel.style.top = typeof savedTop === "number" ? `${savedTop}px` : savedTop;
+
+	// reset position userscript menu entry
+	GM_registerMenuCommand("Reset Panel Position", () => {
+		panel.style.left = DEFAULT_LEFT;
+		panel.style.top = DEFAULT_TOP;
+		panel.style.transform = "translateY(-50%)";
+
+		GM_setValue("panelLeft", DEFAULT_LEFT);
+		GM_setValue("panelTop", DEFAULT_TOP);
+
+		alert("Panel position reset to default.");
+	});
 
 	const currentUrl = window.location.href;
 	const isCommentPage =

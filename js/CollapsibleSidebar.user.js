@@ -15,7 +15,7 @@
 	let sidebar = document.querySelector(".side");
 	if (!sidebar) return;
 
-	// sidebar styling
+	// Sidebar styling
 	sidebar.style.position = "fixed";
 	sidebar.style.top = "0";
 	sidebar.style.right = "0";
@@ -44,7 +44,6 @@
 
 	document.body.appendChild(triggerZone);
 
-	//update the opacity of the trigger zone based on mouse position
 	function updateTriggerZoneOpacity(distance) {
 		let opacity = Math.max(0, (300 - distance) / 300);
 		triggerZone.style.backgroundColor = `rgba(255, 255, 255, ${
@@ -59,17 +58,16 @@
 		// Show
 		if (rightEdgeDistance < 50) {
 			sidebar.style.opacity = "1";
-			sidebar.style.pointerEvents = "auto"; // Enable interactions
+			sidebar.style.pointerEvents = "auto";
 			triggerZone.style.display = "none";
 		}
 		// Hide
 		else if (rightEdgeDistance > 250) {
 			sidebar.style.opacity = "0";
-			sidebar.style.pointerEvents = "none"; // Disable interactions
+			sidebar.style.pointerEvents = "none";
 			triggerZone.style.display = "block";
 		}
 
-		// Update opacity trigger zone
 		updateTriggerZoneOpacity(rightEdgeDistance);
 	}
 

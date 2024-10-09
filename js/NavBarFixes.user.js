@@ -40,7 +40,6 @@
 			"res-srstyle-enabled"
 		);
 		if (styleEnabled.length > 0) {
-			// Set the background color of the other elements
 			let element = document.getElementById("header");
 			element.setAttribute(
 				"style",
@@ -108,7 +107,7 @@
 				dbg("Debug: Added nodes:", mutation.addedNodes);
 				dbg("Debug: Removed nodes:", mutation.removedNodes);
 
-				// Check if the element is being replaced in-place
+				// check if the element is being replaced in-place
 				if (
 					mutation.type === "childList" ||
 					mutation.type === "subtree" ||

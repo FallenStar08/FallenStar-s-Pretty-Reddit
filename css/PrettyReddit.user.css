@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.25
+@version        1.0.26
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -526,6 +526,11 @@
 	}
 
 	/*ANCHOR [COMMENTS] */
+
+	/* archived/locked etc info bar */
+	.reddit-infobar {
+		@backdrop();
+	}
 
 	/* hide the expand thing letter uggly yucky */
 	div.comment>div.entry>p.tagline>a.expand {

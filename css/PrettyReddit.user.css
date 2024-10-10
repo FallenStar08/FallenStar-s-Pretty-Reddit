@@ -1,7 +1,8 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.35
+@version        1.0.36
+>>>>>>> main
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -45,6 +46,7 @@
 		backdrop-filter : @backdropBlur;
 		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
+
 	}
 
 	@hover-effect: {
@@ -57,13 +59,14 @@
 
 	@flairs: {
 		background-color: transparent !important;
-		border-radius   : 6px !important;
-		padding-left    : 4px !important;
-		padding-right   : 4px !important;
+		border-radius: 6px !important;
+		padding-left: 4px !important;
+		padding-right: 4px !important;
 	}
 
 	/*ANCHOR [HIDE]*/
 	/*{OPTION} hide pseudo*/
+
 	.user>a {
 		display: if((@hideUsername=1), none, "");
 	}
@@ -89,12 +92,11 @@
 	#NREPause,
 	.res-wheel-browse,
 	#chat,
-	#chat+span,
+	#chat + span,
 	div.create,
 	.author-tooltip,
-	li>a.noCtrlF,
-	.subreddit-subscribe,
-	.menuarea {
+	li > a.noCtrlF,
+	.subreddit-subscribe {
 		display: none !important;
 	}
 
@@ -117,17 +119,17 @@
 	/* TODO place this shit in the sidebar */
 	/* put useless floater to the left*/
 	.res-floater-visibleAfterScroll {
-		top  : 8vh !important;
+		top: 8vh !important;
 		right: 95vw !important;
 	}
 
 	/*ANCHOR [BODY] */
 	.content {
-		padding-left : 10%;
+		padding-left: 10%;
 		padding-right: 10%;
 	}
 
-	.res-commentBoxes body.comments-page>.content {
+	.res-commentBoxes body.comments-page > .content {
 		padding-right: 10% !important;
 	}
 
@@ -140,10 +142,11 @@
 				@gradcolor1 13.4%,
 				@gradcolor2 100.2%);
 		background-size      : cover;
+
 		/* Ensures it covers the whole page */
 		background-attachment: fixed;
 		/* Keeps the gradient in place */
-		background-repeat    : no-repeat;
+		background-repeat: no-repeat;
 		/* Prevents visible seams from repeating */
 	}
 
@@ -157,17 +160,17 @@
 		width           : 100%;
 		height          : 100%;
 		background-image: url(data:image/png;base64,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);
-		opacity         : 0.5;
-		pointer-events  : none;
+		opacity: 0.5;
+		pointer-events: none;
 	}
 
 	/*ANCHOR [NAVBAR]*/
 	/* enable scrolling All of this shit doesn't work but the userscript fixes it*/
 	#RESShortcutsViewport {
-		white-space               : nowrap !important;
+		white-space: nowrap !important;
 		-webkit-overflow-scrolling: touch !important;
-		position                  : relative;
-		height                    : 100%;
+		position: relative;
+		height: 100%;
 	}
 
 	/*Default link color */
@@ -203,7 +206,7 @@
 	#srDropdown,
 	#RESStaticShortcuts {
 		background-color: #0000 !important;
-		color           : #8cb3d9 !important;
+		color: #8cb3d9 !important;
 	}
 
 	/* Active sub glow*/
@@ -257,16 +260,16 @@
 		border-top-right-radius   : 6px;
 		border-bottom-left-radius : 0;
 		border-bottom-right-radius: 0;
-		font-size                 : 1.3em !important;
+		font-size: 1.3em !important;
 	}
 
-	li>a.choice,
-	li.res-tabmenu-button>a {
-		border-top-left-radius    : 6px;
-		border-top-right-radius   : 6px;
-		border-bottom-left-radius : 0;
+	li > a.choice,
+	li.res-tabmenu-button > a {
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
-		font-size                 : 1.1em !important;
+		font-size: 1.1em !important;
 	}
 
 	/*Sr list theming*/
@@ -286,7 +289,7 @@
 
 	/* fix missaligned header */
 	#srList th {
-		padding-left : 8px !important;
+		padding-left: 8px !important;
 		padding-right: 8px !important;
 	}
 
@@ -296,7 +299,7 @@
 
 	#srList tr:hover {
 		@hover-effect();
-		background   : transparent !important;
+		background: transparent !important;
 		border-radius: 12px !important;
 	}
 
@@ -319,8 +322,8 @@
 
 	#sr-header-area a {
 		text-decoration: none;
-		font-size      : 14px;
-		transition     : color 0.3s ease-in-out;
+		font-size: 14px;
+		transition: color 0.3s ease-in-out;
 	}
 
 	#sort-menu {
@@ -342,7 +345,7 @@
 	/* Posts entries */
 	.res-nightmode .entry.res-selected:has(div.top-matter) {
 		background-color: rgb(0 0 0 / 0%) !important;
-		backdrop-filter : none;
+		backdrop-filter: none;
 	}
 
 	/*Posts & Expanded texts*/
@@ -372,14 +375,13 @@
 	}
 
 	/*Text post container*/
-
 	/*ANCHOR [BUTTONS] */
 	/* all */
 	button,
 	.edit-btn {
 		@backdrop-transparent();
-		margin                    : 0px 0px 0px 0px;
-		white-space               : nowrap !important;
+		margin: 0px 0px 0px 0px;
+		white-space: nowrap !important;
 		-webkit-overflow-scrolling: touch !important;
 	}
 
@@ -400,7 +402,7 @@
 	/* sidebar search expando */
 	#searchexpando {
 		background: transparent !important;
-		border    : 0px;
+		border: 0px;
 	}
 
 	/* comment Text Area styling */
@@ -423,11 +425,11 @@
 	}
 
 	/* srlist navbar menu search */
-	#srList>div:nth-child(2)>input:nth-child(1) {
-		border-radius   : 0px;
+	#srList > div:nth-child(2) > input:nth-child(1) {
+		border-radius: 0px;
 		background-color: transparent !important;
-		border          : 0px !important;
-		color           : white !important;
+		border: 0px !important;
+		color: white !important;
 	}
 
 	/*fixes ugly white borders on all inputs*/
@@ -435,11 +437,11 @@
 	textarea:focus,
 	select:focus {
 		outline: none;
-		border : none;
+		border: none;
 	}
 
 	/*sidebar search input*/
-	#search>input:nth-child(1) {
+	#search > input:nth-child(1) {
 		width: auto;
 	}
 
@@ -450,13 +452,13 @@
 
 	.redditname,
 	body.with-listing-chooser #header .pagename {
-		position   : relative;
-		bottom     : -10px;
+		position: relative;
+		bottom: -10px;
 		margin-left: 0px;
 	}
 
 	.pagename {
-		font-weight : bold;
+		font-weight: bold;
 		font-variant: small-caps;
 		font-size   : 5em;
 	}
@@ -505,31 +507,30 @@
 	}
 
 	/* title flairs */
-	p.title>a.title+span.flairrichtext {
+	p.title > a.title + span.flairrichtext {
 		@flairs();
 	}
 
 	/* more title flairs */
-	div.top-matter>p.title>span.flairrichtext {
+	div.top-matter > p.title > span.flairrichtext {
 		@flairs();
 	}
 
 	/* user flairs */
-	p.tagline>span.flairrichtext.flair {
+	p.tagline > span.flairrichtext.flair {
 		/* small margin from the tag button */
 		margin-left: 5px;
 		@flairs();
 	}
 
 	/*ANCHOR [COMMENTS] */
-
 	/* archived/locked etc info bar */
 	.reddit-infobar {
 		@backdrop();
 	}
 
 	/* hide the expand thing letter uggly yucky */
-	div.comment>div.entry>p.tagline>a.expand {
+	div.comment > div.entry > p.tagline > a.expand {
 		font-size: 0 !important;
 	}
 
@@ -542,7 +543,7 @@
 	:root body.res div.sitetable div.comment .expand:hover {
 		@hover-effect();
 		background-color: transparent !important;
-		z-index         : 1000 !important;
+		z-index: 1000 !important;
 	}
 
 	/* Dont ask me why the fuck I have to do that I don't know css */
@@ -551,7 +552,7 @@
 	.res-commentBoxes .res-nightmode .thing.comment {
 		@backdrop();
 		border-radius: 12px !important;
-		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
 
 	/* up to 25 levels idk don't need more, probably */
@@ -567,7 +568,7 @@
 	}
 
 	/*floating video pin thing */
-	div#siteTable>div>.pinnable-content.pinned {
+	div#siteTable > div > .pinnable-content.pinned {
 		background-color: transparent !important;
 		border          : none !important;
 		box-shadow      : none !important;
@@ -584,27 +585,96 @@
 
 	/* close button*/
 	.pinnable-content.pinned .dismiss-pinnable {
-		position   : static !important;
+		position: static !important;
 		margin-left: 15px;
-		margin-top : 0px !important;
+		margin-top: 0px !important;
 		@shadow-border();
 	}
 
 	/* close button text */
 	a.dismiss-pinnable.c-close.c-hide-text {
-		font-size       : 0px;
-		position        : relative;
+		font-size: 0px;
+		position: relative;
 		/* Set up for   ::before positioning */
 		background-image: url("https://i.imgur.com/kElmTmB.png");
 	}
 
 	/* hide all the shit inside the preview*/
-	div.pinnable-content.pinned>div>div.entry>div.top-matter {
+	div.pinnable-content.pinned > div > div.entry > div.top-matter {
 		display: none !important;
 	}
 
 	/*ANCHOR [JS CREATED ELEMENTS] */
 	#floating-nav-panel:hover {
 		@hover-effect();
+	}
+
+	.RESHover.RESHoverDropdownList.RESDropdownList,
+	.RESDropdownList li:hover a {
+		@backdrop();
+		border: 0px !important;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+		z-index: 1000;
+		background: transparent;
+		padding: 2px !important;
+	}
+
+
+	.res-nightmode .RESDropdownList li a,
+	.RESDropdownList li {
+		border: 0px !important;
+		background-color: transparent !important;
+		padding: 2px !important;
+	}
+
+	.res-nightmode .RESDropdownList li a:hover,
+	div[title^="Toggle"]:hover,
+	#SettingsConsole:hover,
+	body > div.RESHover.RESHoverDropdownList.RESDropdownList > ul > li:nth-child(3):hover,
+	body > div.RESHover.RESHoverDropdownList.RESDropdownList > ul > li:nth-child(4):hover {
+		@hover-effect();
+		background: rgba(255, 0, 0, 0) !important;
+		border-radius: 12px !important;
+	}
+
+	.blueButton,
+	.res-fancy-toggle-button {
+		border: none;
+		background-color: rgba(5, 5, 5, 0) !important;
+		border-radius: 12px;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		padding: 4px;
+	}
+
+
+	.blueButton:hover,
+	.res-fancy-toggle-button:hover {
+		border: none;
+		background-color: rgba(5, 5, 5, 0) !important;
+		border-radius: 12px;
+		box-shadow: 0 4px 10px rgba(255, 255, 255, .37);
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		transform: translateY(-2px);
+		padding: 4px;
+	}
+
+	/* hapwalk */
+	.expando-button {
+		border: none;
+		background-color: rgba(5, 5, 5, 0) !important;
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	}
+
+
+	.expando-button:hover {
+		border: none;
+		background-color: rgba(5, 5, 5, 0) !important;
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		transform: translateY(-0.5px);
 	}
 }

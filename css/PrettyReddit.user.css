@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.33
+@version        1.0.35
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -11,11 +11,10 @@
 @preprocessor 	less
 ==/UserStyle== */
 @-moz-document domain("old.reddit.com") {
-
 	/*ANCHOR [VARIABLES]*/
 
-	@backdropBlur : blur(10px);
-	@borderRadius : 12px;
+	@backdropBlur: blur(10px);
+	@borderRadius: 12px;
 
 	/*ANCHOR [MIXINS]*/
 	/* Comments mixin */
@@ -35,14 +34,14 @@
 
 	/*ANCHOR [DETACHED RULESETS] */
 	@backdrop: {
-		background-color: rgba(48, 51, 50, .38) !important;
+		background-color: rgba(48, 51, 50, 0.38) !important;
 		backdrop-filter : @backdropBlur;
 		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
 	@backdrop-transparent: {
-		background-color: rgba(48, 51, 50, 0.0) !important;
+		background-color: rgba(48, 51, 50, 0) !important;
 		backdrop-filter : @backdropBlur;
 		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
@@ -63,16 +62,15 @@
 		padding-right   : 4px !important;
 	}
 
-
 	/*ANCHOR [HIDE]*/
 	/*{OPTION} hide pseudo*/
 	.user>a {
-		display: if((@hideUsername=1), none, '');
+		display: if((@hideUsername=1), none, "");
 	}
 
 	/* hide res shortcut ugly thingy */
 	#RESShortcutsEditContainer {
-		display: none
+		display: none;
 	}
 
 	/* hide useless left bar and premium banner*/
@@ -133,15 +131,14 @@
 		padding-right: 10% !important;
 	}
 
-
-
-
 	/*ANCHOR [BACKGROUND]*/
 	body,
 	#header {
-		position             : relative;
-		overflow             : hidden;
-		background           : linear-gradient(109.6deg, @gradcolor1 13.4%, @gradcolor2 100.2%);
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(109.6deg,
+				@gradcolor1 13.4%,
+				@gradcolor2 100.2%);
 		background-size      : cover;
 		/* Ensures it covers the whole page */
 		background-attachment: fixed;
@@ -150,11 +147,10 @@
 		/* Prevents visible seams from repeating */
 	}
 
-
 	/*background noise*/
 	body::before,
 	#header::before {
-		content         : '';
+		content         : "";
 		position        : absolute;
 		top             : 0;
 		left            : 0;
@@ -164,7 +160,6 @@
 		opacity         : 0.5;
 		pointer-events  : none;
 	}
-
 
 	/*ANCHOR [NAVBAR]*/
 	/* enable scrolling All of this shit doesn't work but the userscript fixes it*/
@@ -178,13 +173,12 @@
 	/*Default link color */
 	a.subbarlink {
 		color: #8cb3d9 !important;
-		;
 	}
 
 	/* user area styling (the container for the user things) */
 	#header #header-bottom-right {
 		font            : normal small verdana, arial, helvetica, sans-serif !important;
-		background-color: rgba(48, 51, 50, .38) !important;
+		background-color: rgba(48, 51, 50, 0.38) !important;
 		color           : rgb(204, 204, 204) !important;
 		margin          : 0 !important;
 		position        : absolute !important;
@@ -194,10 +188,9 @@
 		top             : 35px !important;
 		bottom          : auto !important;
 		border-radius   : 12px !important;
-		display         : block !important;
 		margin-right    : 1% !important;
+		display         : block !important;
 	}
-
 
 	/* overwrite custom sub css for top bar items */
 	.sr-list,
@@ -218,49 +211,46 @@
 		text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 	}
 
-
 	/* Cycling colors for navbar subs*/
-	#RESShortcuts a:nth-child(20n+1) {
+	#RESShortcuts a:nth-child(20n + 1) {
 		color: #cb00ff !important;
 	}
 
-	#RESShortcuts a:nth-child(20n+3) {
+	#RESShortcuts a:nth-child(20n + 3) {
 		color: #f1479c !important;
 	}
 
-	#RESShortcuts a:nth-child(20n+5) {
-		color: #FFD700 !important;
+	#RESShortcuts a:nth-child(20n + 5) {
+		color: #ffd700 !important;
 	}
 
-	#RESShortcuts a:nth-child(20n+7) {
-		color: #ADFF2F !important;
+	#RESShortcuts a:nth-child(20n + 7) {
+		color: #adff2f !important;
 	}
 
-	#RESShortcuts a:nth-child(20n+9) {
-		color: #00FF7F !important;
+	#RESShortcuts a:nth-child(20n + 9) {
+		color: #00ff7f !important;
 	}
 
-	#RESShortcuts a:nth-child(20n+11) {
-		color: #00CED1 !important;
+	#RESShortcuts a:nth-child(20n + 11) {
+		color: #00ced1 !important;
 	}
 
-	#RESShortcuts a:nth-child(20n+13) {
-		color: #1E90FF !important;
+	#RESShortcuts a:nth-child(20n + 13) {
+		color: #1e90ff !important;
 	}
 
-	#RESShortcuts a:nth-child(20n+15) {
-		color: #9370DB !important;
+	#RESShortcuts a:nth-child(20n + 15) {
+		color: #9370db !important;
 	}
 
-
-	#RESShortcuts a:nth-child(20n+17) {
+	#RESShortcuts a:nth-child(20n + 17) {
 		color: #ff716e !important;
 	}
 
-	#RESShortcuts a:nth-child(20n+19) {
-		color: #DAA520 !important;
+	#RESShortcuts a:nth-child(20n + 19) {
+		color: #daa520 !important;
 	}
-
 
 	li.selected>a.choice {
 		border-top-left-radius    : 6px;
@@ -279,14 +269,13 @@
 		font-size                 : 1.1em !important;
 	}
 
-
 	/*Sr list theming*/
 	#srList {
-		position: fixed !important;
-		left    : 2% !important;
-		top     : 35px !important;
 		@backdrop();
-		box-shadow     : 0 4px 8px rgba(0, 0, 0, .1);
+		position       : fixed !important;
+		left           : 2% !important;
+		top            : 35px !important;
+		box-shadow     : 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index        : 1000;
 		padding        : 5px !important;
 		max-height     : 33vh !important;
@@ -301,7 +290,6 @@
 		padding-right: 8px !important;
 	}
 
-
 	#srList tr {
 		border: 0px !important;
 	}
@@ -314,6 +302,7 @@
 
 	/* search bar */
 	#sr-header-area {
+		@backdrop();
 		padding     : 5px;
 		border      : 0px;
 		left        : 0;
@@ -321,14 +310,12 @@
 		width       : 97%;
 		margin-left : auto;
 		margin-right: 1%;
-		box-shadow  : 0 4px 8px rgba(0, 0, 0, .1);
+		box-shadow  : 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index     : 1000;
-		@backdrop();
-		position: sticky !important;
-		top     : 3px;
+		position    : sticky !important;
+		top         : 3px;
 		/* Stick to the top of the viewport */
 	}
-
 
 	#sr-header-area a {
 		text-decoration: none;
@@ -341,18 +328,10 @@
 		@backdrop();
 	}
 
-
-
-
-
-
-
-
-
 	/*ANCHOR [POSTS]*/
 	.link {
 		@shadow-border();
-		background-color: rgba(48, 51, 50, .5) !important;
+		background-color: rgba(48, 51, 50, 0.5) !important;
 		backdrop-filter : @backdropBlur;
 		padding         : 10px 15px;
 		margin          : 10px 15px;
@@ -380,7 +359,7 @@
 
 	/* Green glow for stickied posts */
 	.stickied {
-		box-shadow: 0 0 10px rgba(0, 248, 8, .53);
+		box-shadow: 0 0 10px rgba(0, 248, 8, 0.53);
 	}
 
 	a.title {
@@ -393,7 +372,6 @@
 	}
 
 	/*Text post container*/
-
 
 	/*ANCHOR [BUTTONS] */
 	/* all */
@@ -416,7 +394,7 @@
 	input {
 		background-color: transparent !important;
 		margin          : 0px 0px 0px 0px;
-		margin-left     : 20px
+		margin-left     : 20px;
 	}
 
 	/* sidebar search expando */
@@ -437,7 +415,7 @@
 	.res-nightmode #liveupdate-statusbar.complete,
 	.res-nightmode #alert_message input {
 		@backdrop();
-		box-shadow : 0 4px 8px rgba(0, 0, 0, .46);
+		box-shadow : 0 4px 8px rgba(0, 0, 0, 0.46);
 		z-index    : 1000;
 		border     : 0px;
 		padding    : 10px;
@@ -480,7 +458,7 @@
 	.pagename {
 		font-weight : bold;
 		font-variant: small-caps;
-		font-size   : 5.0em;
+		font-size   : 5em;
 	}
 
 	#header {
@@ -543,7 +521,6 @@
 		@flairs();
 	}
 
-
 	/*ANCHOR [COMMENTS] */
 
 	/* archived/locked etc info bar */
@@ -558,7 +535,7 @@
 
 	/*hide/expand left bar*/
 	:root body.res div.sitetable div.comment .expand {
-		background-color: rgba(0, 0, 0, .1) !important;
+		background-color: rgba(0, 0, 0, 0.1) !important;
 		border          : 0px;
 	}
 
@@ -577,14 +554,12 @@
 		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
 	}
 
-
 	/* up to 25 levels idk don't need more, probably */
 	.res-commentBoxes {
 		.thing.comment {
 			.comment-nesting(25);
 		}
 	}
-
 
 	/* active comment */
 	.RES-keyNav-activeThing:not(.link) {
@@ -597,7 +572,7 @@
 		border          : none !important;
 		box-shadow      : none !important;
 		max-width       : fit-content !important;
-		margin-top      : 20px
+		margin-top      : 20px;
 	}
 
 	/* video player */
@@ -628,11 +603,8 @@
 		display: none !important;
 	}
 
-
-
 	/*ANCHOR [JS CREATED ELEMENTS] */
 	#floating-nav-panel:hover {
 		@hover-effect();
 	}
-
 }

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1
+@version        1.1.1
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -660,7 +660,6 @@
 		padding         : 4px;
 	}
 
-	/* hapwalk */
 	.expando-button {
 		border          : none;
 		background-color: rgba(5, 5, 5, 0) !important;
@@ -668,12 +667,21 @@
 		transition      : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 	}
 
-
 	.expando-button:hover {
 		border          : none;
 		background-color: rgba(5, 5, 5, 0) !important;
 		backdrop-filter : blur(100px) saturate(110%);
 		transition      : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 		transform       : translateY(-0.5px);
+	}
+
+	/* Ugly ass icon */
+	.RESMenuItemButton {
+		top: 0 !important;
+	}
+
+	.RESMenuItemButton:hover {
+		background      : transparent !important;
+		background-color: transparent !important;
 	}
 }

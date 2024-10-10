@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.30
+@version        1.0.31
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -78,7 +78,8 @@
 	div.create,
 	.author-tooltip,
 	li>a.noCtrlF,
-	.subreddit-subscribe {
+	.subreddit-subscribe,
+	.menuarea {
 		display: none !important;
 	}
 

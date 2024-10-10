@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.31
+@version        1.0.32
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -13,10 +13,19 @@
 @-moz-document domain("old.reddit.com") {
 
 	/*ANCHOR [VARIABLES]*/
+
 	@backdropBlur : blur(10px);
 	@borderRadius : 12px;
 
 	/*ANCHOR [MIXINS]*/
+	/* Comments mixin */
+	.comment-styles {
+		background-color: transparent !important;
+		border-radius   : 12px !important;
+		backdrop-filter : none !important;
+	}
+
+	/*ANCHOR [DETACHED RULESETS] */
 	@backdrop: {
 		background-color: rgba(48, 51, 50, .38) !important;
 		backdrop-filter : @backdropBlur;
@@ -560,34 +569,22 @@
 		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
 	}
 
-	/* Nested levels from 2 to 25 */
-	.res-commentBoxes .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment {
-		background-color: transparent !important;
-		border-radius   : 12px !important;
-		backdrop-filter : none !important;
 
+	/* Recursive mixin for comments nesting */
+	.comment-nesting(@level) when (@level > 0) {
+		.thing.comment {
+			.comment-styles();
+			.comment-nesting(@level - 1);
+		}
 	}
+
+	/* up to 25 levels idk don't need more, probably */
+	.res-commentBoxes {
+		.thing.comment {
+			.comment-nesting(25);
+		}
+	}
+
 
 	/* active comment */
 	.RES-keyNav-activeThing:not(.link) {

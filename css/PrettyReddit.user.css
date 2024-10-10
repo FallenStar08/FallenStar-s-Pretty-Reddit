@@ -375,9 +375,6 @@
 	}
 
 	/*Text post container*/
-	div.usertext-body>div.md {
-		padding-left: 20px !important;
-	}
 
 
 	/*ANCHOR [BUTTONS] */
@@ -483,8 +480,6 @@
 	.res-nightmode .login-form-side,
 	.res-nightmode .interstitial-subreddit-description,
 	form.toggle:nth-child(6),
-	.usertext-body>div>ol,
-	.usertext-body ul,
 	.linkinfo,
 	.side * {
 		@backdrop-transparent();

@@ -2,6 +2,7 @@
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
 @version        1.0.36
+>>>>>>> main
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -34,17 +35,18 @@
 
 	/*ANCHOR [DETACHED RULESETS] */
 	@backdrop: {
-		background-color: rgba(48, 51, 50, .38) !important;
+		background-color: rgba(48, 51, 50, 0.38) !important;
 		backdrop-filter : @backdropBlur;
 		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
 	@backdrop-transparent: {
-		background-color: rgba(48, 51, 50, 0.0) !important;
+		background-color: rgba(48, 51, 50, 0) !important;
 		backdrop-filter : @backdropBlur;
 		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
+
 	}
 
 	@hover-effect: {
@@ -64,8 +66,9 @@
 
 	/*ANCHOR [HIDE]*/
 	/*{OPTION} hide pseudo*/
+
 	.user>a {
-		display: if((@hideUsername=1), none, '');
+		display: if((@hideUsername=1), none, "");
 	}
 
 	/* hide res shortcut ugly thingy */
@@ -133,10 +136,13 @@
 	/*ANCHOR [BACKGROUND]*/
 	body,
 	#header {
-		position             : relative;
-		overflow             : hidden;
-		background           : linear-gradient(109.6deg, @gradcolor1 13.4%, @gradcolor2 100.2%);
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(109.6deg,
+				@gradcolor1 13.4%,
+				@gradcolor2 100.2%);
 		background-size      : cover;
+
 		/* Ensures it covers the whole page */
 		background-attachment: fixed;
 		/* Keeps the gradient in place */
@@ -147,7 +153,7 @@
 	/*background noise*/
 	body::before,
 	#header::before {
-		content         : '';
+		content         : "";
 		position        : absolute;
 		top             : 0;
 		left            : 0;
@@ -175,7 +181,7 @@
 	/* user area styling (the container for the user things) */
 	#header #header-bottom-right {
 		font            : normal small verdana, arial, helvetica, sans-serif !important;
-		background-color: rgba(48, 51, 50, .38) !important;
+		background-color: rgba(48, 51, 50, 0.38) !important;
 		color           : rgb(204, 204, 204) !important;
 		margin          : 0 !important;
 		position        : absolute !important;
@@ -185,8 +191,8 @@
 		top             : 35px !important;
 		bottom          : auto !important;
 		border-radius   : 12px !important;
-		display         : block !important;
 		margin-right    : 1% !important;
+		display         : block !important;
 	}
 
 	/* overwrite custom sub css for top bar items */
@@ -249,10 +255,10 @@
 		color: #daa520 !important;
 	}
 
-	li.selected > a.choice {
-		border-top-left-radius: 6px;
-		border-top-right-radius: 6px;
-		border-bottom-left-radius: 0;
+	li.selected>a.choice {
+		border-top-left-radius    : 6px;
+		border-top-right-radius   : 6px;
+		border-bottom-left-radius : 0;
 		border-bottom-right-radius: 0;
 		font-size: 1.3em !important;
 	}
@@ -268,11 +274,11 @@
 
 	/*Sr list theming*/
 	#srList {
-		position: fixed !important;
-		left    : 2% !important;
-		top     : 35px !important;
 		@backdrop();
-		box-shadow     : 0 4px 8px rgba(0, 0, 0, .1);
+		position       : fixed !important;
+		left           : 2% !important;
+		top            : 35px !important;
+		box-shadow     : 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index        : 1000;
 		padding        : 5px !important;
 		max-height     : 33vh !important;
@@ -299,6 +305,7 @@
 
 	/* search bar */
 	#sr-header-area {
+		@backdrop();
 		padding     : 5px;
 		border      : 0px;
 		left        : 0;
@@ -306,11 +313,10 @@
 		width       : 97%;
 		margin-left : auto;
 		margin-right: 1%;
-		box-shadow  : 0 4px 8px rgba(0, 0, 0, .1);
+		box-shadow  : 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index     : 1000;
-		@backdrop();
-		position: sticky !important;
-		top     : 3px;
+		position    : sticky !important;
+		top         : 3px;
 		/* Stick to the top of the viewport */
 	}
 
@@ -328,7 +334,7 @@
 	/*ANCHOR [POSTS]*/
 	.link {
 		@shadow-border();
-		background-color: rgba(48, 51, 50, .5) !important;
+		background-color: rgba(48, 51, 50, 0.5) !important;
 		backdrop-filter : @backdropBlur;
 		padding         : 10px 15px;
 		margin          : 10px 15px;
@@ -369,8 +375,6 @@
 	}
 
 	/*Text post container*/
-
-
 	/*ANCHOR [BUTTONS] */
 	/* all */
 	button,
@@ -392,7 +396,7 @@
 	input {
 		background-color: transparent !important;
 		margin          : 0px 0px 0px 0px;
-		margin-left     : 20px
+		margin-left     : 20px;
 	}
 
 	/* sidebar search expando */
@@ -413,7 +417,7 @@
 	.res-nightmode #liveupdate-statusbar.complete,
 	.res-nightmode #alert_message input {
 		@backdrop();
-		box-shadow : 0 4px 8px rgba(0, 0, 0, .46);
+		box-shadow : 0 4px 8px rgba(0, 0, 0, 0.46);
 		z-index    : 1000;
 		border     : 0px;
 		padding    : 10px;
@@ -456,7 +460,7 @@
 	.pagename {
 		font-weight: bold;
 		font-variant: small-caps;
-		font-size   : 5.0em;
+		font-size   : 5em;
 	}
 
 	#header {
@@ -532,7 +536,7 @@
 
 	/*hide/expand left bar*/
 	:root body.res div.sitetable div.comment .expand {
-		background-color: rgba(0, 0, 0, .1) !important;
+		background-color: rgba(0, 0, 0, 0.1) !important;
 		border          : 0px;
 	}
 
@@ -551,33 +555,11 @@
 		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
 
-	/* Nested levels from 2 to 25 */
-	.res-commentBoxes .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment,
-	.res-commentBoxes .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment .thing.comment {
-		background-color: transparent !important;
-		border-radius   : 12px !important;
-		backdrop-filter : none !important;
-
+	/* up to 25 levels idk don't need more, probably */
+	.res-commentBoxes {
+		.thing.comment {
+			.comment-nesting(25);
+		}
 	}
 
 	/* active comment */
@@ -591,13 +573,14 @@
 		border          : none !important;
 		box-shadow      : none !important;
 		max-width       : fit-content !important;
-		margin-top      : 20px
+		margin-top      : 20px;
 	}
 
 	/* video player */
 	.pinnable-content.pinned .reddit-video-player-root {
-		position: relative !important;
-		top     : 0;
+		position    : relative !important;
+		top         : 0;
+		margin-right: 10px; //more space for close button
 	}
 
 	/* close button*/
@@ -626,4 +609,72 @@
 		@hover-effect();
 	}
 
+	.RESHover.RESHoverDropdownList.RESDropdownList,
+	.RESDropdownList li:hover a {
+		@backdrop();
+		border: 0px !important;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+		z-index: 1000;
+		background: transparent;
+		padding: 2px !important;
+	}
+
+
+	.res-nightmode .RESDropdownList li a,
+	.RESDropdownList li {
+		border: 0px !important;
+		background-color: transparent !important;
+		padding: 2px !important;
+	}
+
+	.res-nightmode .RESDropdownList li a:hover,
+	div[title^="Toggle"]:hover,
+	#SettingsConsole:hover,
+	body > div.RESHover.RESHoverDropdownList.RESDropdownList > ul > li:nth-child(3):hover,
+	body > div.RESHover.RESHoverDropdownList.RESDropdownList > ul > li:nth-child(4):hover {
+		@hover-effect();
+		background: rgba(255, 0, 0, 0) !important;
+		border-radius: 12px !important;
+	}
+
+	.blueButton,
+	.res-fancy-toggle-button {
+		border: none;
+		background-color: rgba(5, 5, 5, 0) !important;
+		border-radius: 12px;
+		box-shadow: 0 8px 15px rgba(0, 0, 0, 0.37);
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		padding: 4px;
+	}
+
+
+	.blueButton:hover,
+	.res-fancy-toggle-button:hover {
+		border: none;
+		background-color: rgba(5, 5, 5, 0) !important;
+		border-radius: 12px;
+		box-shadow: 0 4px 10px rgba(255, 255, 255, .37);
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		transform: translateY(-2px);
+		padding: 4px;
+	}
+
+	/* hapwalk */
+	.expando-button {
+		border: none;
+		background-color: rgba(5, 5, 5, 0) !important;
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	}
+
+
+	.expando-button:hover {
+		border: none;
+		background-color: rgba(5, 5, 5, 0) !important;
+		backdrop-filter: blur(100px) saturate(110%);
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		transform: translateY(-0.5px);
+	}
 }

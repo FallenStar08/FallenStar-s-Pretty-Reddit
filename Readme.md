@@ -58,14 +58,14 @@ NavBar JS
 ### TODO
 
 -   Fix floating video thingy when you scroll in comments ✅ needs more js to be made less shit
--   Put most of the useless stuff in the sidebar
+-   Put most of the useless stuff in the sidebar 🚧
 -   Display comments without changing page
 -   Probably fix more chromium fuckeries
--   Re add sort button to navbar
+-   Re add sort button to navbar 🚧
 -   sort panel for comment section ✅
 -   fix flairs ✅
 -   option to show/hide vanilla sorting options if using the panel
--   font options (monaspace poggers?)
+-   font options (monaspace poggers?) 🚧
 
 ### Contributing
 

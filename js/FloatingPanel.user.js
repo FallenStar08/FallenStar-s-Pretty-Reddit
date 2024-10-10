@@ -5,7 +5,7 @@
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
-// @version     2.1.0
+// @version     2.1.1
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -28,7 +28,7 @@
 		backdropFilter: "blur(10px)",
 		borderRadius: "12px",
 		padding: "10px",
-		boxShadow: "0 4px 8px rgba(0, 0, 0, .1)",
+		boxShadow: "0 0 1px rgba(255, 255, 255, 0.3)",
 		zIndex: "9999",
 		color: "#fff",
 		maxWidth: "15vw",

@@ -65,7 +65,8 @@ NavBar JS
 -   sort panel for comment section ✅
 -   fix flairs ✅
 -   option to show/hide vanilla sorting options if using the panel
--   font options (monaspace poggers?) 🚧
+-   font options (monaspace poggers?)
+-   fix ugly expando buttons on posts 🚧
 
 ### Contributing
 

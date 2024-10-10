@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.0.26
+@version        1.0.27
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -591,6 +591,42 @@
 	.RES-keyNav-activeThing:not(.link) {
 		@hover-effect();
 	}
+
+	/*floating video pin thing */
+	div#siteTable>div>.pinnable-content.pinned {
+		background-color: transparent !important;
+		border          : none !important;
+		box-shadow      : none !important;
+		max-width       : fit-content !important;
+		margin-top      : 20px
+	}
+
+	/* video player */
+	.pinnable-content.pinned .reddit-video-player-root {
+		position: relative !important;
+	}
+
+	/* close button*/
+	.pinnable-content.pinned .dismiss-pinnable {
+		position   : static !important;
+		margin-left: 15px;
+		margin-top : 0px !important;
+		@shadow-border();
+	}
+
+	/* close button text */
+	a.dismiss-pinnable.c-close.c-hide-text {
+		font-size       : 0px;
+		position        : relative;
+		/* Set up for   ::before positioning */
+		background-image: url("https://i.imgur.com/kElmTmB.png");
+	}
+
+	/* hide all the shit inside the preview*/
+	div.pinnable-content.pinned>div>div.entry>div.top-matter {
+		display: none !important;
+	}
+
 
 
 	/*ANCHOR [JS CREATED ELEMENTS] */

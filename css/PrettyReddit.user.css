@@ -705,7 +705,6 @@
 	}
 
 
-	.blueButton:hover,
 	.res-fancy-toggle-button:hover {
 		border: none;
 		.hover-effect();

@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.10
+@version        1.1.11
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -74,7 +74,26 @@
 	}
 
 	div.commentarea>div.menuarea {
-		display: if((@hideVanillaSort=1), none, "") !important;
+		display: if((@hideVanillaSort=1), none, "") !important;	
+	}
+	
+	/* Make pretty if not hidden */
+	
+	.drop-choices.lightdrop.suggested.inuse {
+		@backdrop();
+		border    : 0px !important;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+		z-index   : 1000;
+		background: transparent;
+		padding   : 2px !important;
+		z-index: 1001 !important;
+	}
+	
+	/* Make pretty if not hidden: hover effect */
+	a.choice:hover {
+		.hover-effect();
+		background   : rgba(255, 0, 0, 0) !important;
+		border-radius: 12px !important;
 	}
 
 	/* hide res shortcut ugly thingy */
@@ -697,6 +716,12 @@
 	.RESMenuItemButton:hover {
 		background      : transparent !important;
 		background-color: transparent !important;
+	}
+	
+	/* Ugly gray thing that only appears when comment is unfocused anyways */ 
+	
+	.res-nightmode .usertext.grayed .usertext-body {
+		    background-color: rgba(68, 68, 68, 0);
 	}
 
 	/* Buttons inside user (u/) hover tab & subreddit hover tab */

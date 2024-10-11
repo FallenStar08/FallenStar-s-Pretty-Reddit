@@ -653,6 +653,8 @@
 
 
 	/*ANCHOR [RES MENUS] */
+
+	/* RES menus backdrop */
 	.RESHover.RESHoverDropdownList.RESDropdownList,
 	.RESDropdownList li:hover a {
 		@backdrop();
@@ -663,7 +665,7 @@
 		padding   : 2px !important;
 	}
 
-
+	/* Background elements of the above menu disappearing magic */
 	.res-nightmode .RESDropdownList li a,
 	.RESDropdownList li {
 		border          : 0px !important;
@@ -671,6 +673,7 @@
 		padding         : 2px !important;
 	}
 
+	/* Hover effects on all the elements of the menus */
 	.res-nightmode .RESDropdownList li a:hover,
 	div[title^="Toggle"]:hover,
 	#SettingsConsole:hover,
@@ -681,6 +684,20 @@
 		border-radius: 12px !important;
 	}
 
+	/* Ugly RES gear menu loupe icon */
+	.RESMenuItemButton {
+		top: 0 !important;
+	}
+
+	/* Ugly RES gear menu loupe background */
+	.RESMenuItemButton:hover {
+		background      : transparent !important;
+		background-color: transparent !important;
+	}
+
+	/* ANCHOR [SNESH NOTE] */
+	/* Maybe put that wherever you styled the comment page */
+	/* Buttons inside user (u/) hover tab */
 	.blueButton,
 	.res-fancy-toggle-button {
 		border          : none;
@@ -703,17 +720,6 @@
 		transition      : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 		transform       : translateY(-2px);
 		padding         : 4px;
-	}
-
-	/* Ugly RES gear menu loupe icon */
-	.RESMenuItemButton {
-		top: 0 !important;
-	}
-
-	/* Ugly RES gear menu loupe background */
-	.RESMenuItemButton:hover {
-		background      : transparent !important;
-		background-color: transparent !important;
 	}
 
 }

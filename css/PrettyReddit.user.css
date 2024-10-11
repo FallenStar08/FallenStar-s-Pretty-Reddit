@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.9
+@version        1.1.10
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -436,6 +436,11 @@
 				transform       : rotate(45deg);
 			}
 		}
+	}
+
+	/* spoiler & nsfw overlay */
+	.expando-button::before {
+		border-radius: 50%
 	}
 
 	/*ANCHOR [INPUTS] */

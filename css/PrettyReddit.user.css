@@ -1,11 +1,12 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.8
+@version        1.1.9
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
 @var checkbox	hideUsername "Hide Username" 0
+@var checkbox	hideVanillaSort "Hide Vanilla Sorting Menus" 0
 @var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
 @var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
 @preprocessor 	less
@@ -70,6 +71,10 @@
 
 	.user>a {
 		display: if((@hideUsername=1), none, "");
+	}
+
+	div.commentarea>div.menuarea {
+		display: if((@hideVanillaSort=1), none, "") !important;
 	}
 
 	/* hide res shortcut ugly thingy */
@@ -693,6 +698,7 @@
 	.res-fancy-toggle-button,
 	.blueButton {
 		@shadow-border();
+		@backdrop();
 		border       : none !important;
 		border-radius: 12px !important;
 		transition   : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -705,7 +711,6 @@
 		border: none;
 		.hover-effect();
 		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		padding   : 4px;
 	}
 
 	/*ANCHOR [JS CREATED ELEMENTS] */

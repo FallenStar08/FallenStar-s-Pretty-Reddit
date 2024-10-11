@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.12
+@version        1.1.13
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -663,7 +663,8 @@
 
 	/* RES gear menus backdrop */
 	.RESHover.RESHoverDropdownList.RESDropdownList,
-	.RESDropdownList li:hover a {
+	.RESDropdownList li:hover a,
+	.RESDashboardComponent {
 		@backdrop();
 		border    : 0px !important;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
@@ -708,9 +709,10 @@
 		background-color: rgba(68, 68, 68, 0);
 	}
 
-	/* Buttons inside user (u/) hover tab & subreddit hover tab */
+	/* Buttons inside user (u/) hover tab & subreddit hover tab - Refactored to all RES buttons tbh could be a button variable */
 	.res-fancy-toggle-button,
-	.blueButton {
+	.blueButton,
+	.addButton {
 		@shadow-border();
 		@backdrop();
 		border       : none !important;
@@ -721,7 +723,8 @@
 
 
 	.res-fancy-toggle-button:hover,
-	.blueButton:hover {
+	.blueButton:hover,
+	.addButton:hover {
 		border: none;
 		.hover-effect();
 		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -745,6 +748,16 @@
 		background   : transparent !important;
 		border-radius: 12px !important;
 	}
+	
+	/* footer */ 
+	
+	.footer {
+		@backdrop();
+		border: 0px; 
+	}
+	 .res-nightmode .footer .col {
+	 	border: 0px;
+	 }
 
 	/*ANCHOR [JS CREATED ELEMENTS] */
 	#floating-nav-panel:hover {

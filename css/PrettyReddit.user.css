@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.6
+@version        1.1.7
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -652,9 +652,9 @@
 	}
 
 
-	/*ANCHOR [RES MENUS] */
+	/*ANCHOR [MENUS] */
 
-	/* RES menus backdrop */
+	/* RES gear menus backdrop */
 	.RESHover.RESHoverDropdownList.RESDropdownList,
 	.RESDropdownList li:hover a {
 		@backdrop();
@@ -696,28 +696,21 @@
 	}
 
 	/* Buttons inside user (u/) hover tab */
-	.blueButton,
 	.res-fancy-toggle-button {
-		border          : none;
-		background-color: rgba(5, 5, 5, 0) !important;
-		border-radius   : 12px;
-		box-shadow      : 0 8px 15px rgba(0, 0, 0, 0.37);
-		backdrop-filter : blur(100px) saturate(110%);
-		transition      : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		padding         : 4px;
+		@shadow-border();
+		border       : none !important;
+		border-radius: 12px !important;
+		transition   : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		padding      : 4px;
 	}
 
 
 	.blueButton:hover,
 	.res-fancy-toggle-button:hover {
-		border          : none;
-		background-color: rgba(5, 5, 5, 0) !important;
-		border-radius   : 12px !important;
-		box-shadow      : 0 4px 10px rgba(255, 255, 255, .37);
-		backdrop-filter : blur(100px) saturate(110%);
-		transition      : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		transform       : translateY(-2px);
-		padding         : 4px;
+		border: none;
+		.hover-effect();
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		padding   : 4px;
 	}
 
 }

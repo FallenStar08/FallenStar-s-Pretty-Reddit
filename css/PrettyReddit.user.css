@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.1
+@version        1.1.2
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -13,8 +13,9 @@
 @-moz-document domain("old.reddit.com") {
 	/*ANCHOR [VARIABLES]*/
 
-	@backdropBlur: blur(10px);
-	@borderRadius: 12px;
+	@backdropBlur : blur(10px);
+	@borderRadius : 12px;
+	@expandoButton: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22currentColor%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
 
 	/*ANCHOR [MIXINS]*/
 	/* Comments mixin */
@@ -32,6 +33,10 @@
 		}
 	}
 
+	.hover-effect(@size: 15px) {
+		box-shadow: 0 0 @size rgba(255, 255, 255, 0.3) !important;
+	}
+
 	/*ANCHOR [DETACHED RULESETS] */
 	@backdrop: {
 		background-color: rgba(48, 51, 50, 0.38) !important;
@@ -46,10 +51,6 @@
 		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
 
-	}
-
-	@hover-effect: {
-		box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
 	}
 
 	@shadow-border: {
@@ -297,7 +298,7 @@
 	}
 
 	#srList tr:hover {
-		@hover-effect();
+		.hover-effect();
 		background   : transparent !important;
 		border-radius: 12px !important;
 	}
@@ -356,7 +357,7 @@
 
 	/* Hover effect with subtle glow */
 	.link:hover {
-		@hover-effect();
+		.hover-effect();
 	}
 
 	/* Green glow for stickied posts */
@@ -490,7 +491,7 @@
 
 	/* TODO doesn't do anything yet */
 	.JS_TriggerZone {
-		@hover-effect();
+		.hover-effect();
 	}
 
 	/*ANCHOR [FLAIRS] */
@@ -540,7 +541,7 @@
 	}
 
 	:root body.res div.sitetable div.comment .expand:hover {
-		@hover-effect();
+		.hover-effect();
 		background-color: transparent !important;
 		z-index         : 1000 !important;
 	}
@@ -563,7 +564,7 @@
 
 	/* active comment */
 	.RES-keyNav-activeThing:not(.link) {
-		@hover-effect();
+		.hover-effect();
 	}
 
 	/*floating video pin thing */
@@ -605,7 +606,7 @@
 
 	/*ANCHOR [JS CREATED ELEMENTS] */
 	#floating-nav-panel:hover {
-		@hover-effect();
+		.hover-effect();
 	}
 
 	.RESHover.RESHoverDropdownList.RESDropdownList,
@@ -631,7 +632,7 @@
 	#SettingsConsole:hover,
 	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(3):hover,
 	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(4):hover {
-		@hover-effect();
+		.hover-effect();
 		background   : rgba(255, 0, 0, 0) !important;
 		border-radius: 12px !important;
 	}
@@ -685,14 +686,34 @@
 		background-color: transparent !important;
 	}
 
-	// button to expand image on posts, wip
-	// .expando-button.collapsed.image {
-	// 	width              : 24px;
-	// 	height             : 24px;
-	// 	background-image   : url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22currentColor%22 stroke-linecap%3D%22round%22 stroke-width%3D%222%22 d%3D%22m21 21-3.5-3.5M10 7v6m-3-3h6m4 0a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z%22/%3E%3C/svg%3E') !important;
-	// 	background-size    : contain;
-	// 	/* Ensure it fits within the element */
-	// 	background-repeat  : no-repeat;
-	// 	background-position: center;
-	// }
+	.expando-button {
+
+		&.image,
+		&.video,
+		&.video-muted,
+		&.selftext {
+
+			&.collapsed,
+			&.expanded {
+				margin-left        : 5px !important;
+				width              : 24px;
+				height             : 24px;
+				background-image   : @expandoButton;
+				background-size    : contain;
+				background-repeat  : no-repeat;
+				background-position: center;
+				border-radius      : 50% !important;
+				box-sizing         : border-box;
+				display            : inline-block;
+				padding            : 0;
+				text-decoration    : none;
+				@shadow-border();
+
+				&:hover {
+					.hover-effect(5px);
+					background-image: @expandoButton;
+				}
+			}
+		}
+	}
 }

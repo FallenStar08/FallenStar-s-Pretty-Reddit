@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.16
+@version        1.1.17
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -12,61 +12,65 @@
 @var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
 @preprocessor 	less
 ==/UserStyle== */
+
+/*ANCHOR [VARIABLES]*/
+
+@backdropBlur      : blur(10px);
+@borderRadius      : 12px;
+@expandoButton     : url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22grey%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
+@expandoButtonClose: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22red%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
+@boxShadow         : 0 4px 8px rgba(0, 0, 0, .1);
+
+/*ANCHOR [MIXINS]*/
+/* Comments mixin */
+.comment-styles {
+	background-color: transparent !important;
+	border-radius   : 12px !important;
+	backdrop-filter : none !important;
+}
+
+/* Recursive mixin for comments nesting */
+.comment-nesting(@level) when (@level > 0) {
+	.thing.comment {
+		.comment-styles();
+		.comment-nesting(@level - 1);
+	}
+}
+
+.hover-effect(@size: 15px) {
+	box-shadow: 0 0 @size rgba(255, 255, 255, 0.3) !important;
+}
+
+/*ANCHOR [DETACHED RULESETS] (could be mixins but I like the @) */
+@backdrop: {
+	background-color: rgba(48, 51, 50, 0.38) !important;
+	backdrop-filter : @backdropBlur;
+	border-radius   : @borderRadius;
+	transition      : background-color 0.3s ease-in-out;
+}
+
+@backdrop-transparent: {
+	background-color: rgba(48, 51, 50, 0) !important;
+	backdrop-filter : @backdropBlur;
+	border-radius   : @borderRadius;
+	transition      : background-color 0.3s ease-in-out;
+
+}
+
+@shadow-border: {
+	box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+@flairs: {
+	background-color: transparent !important;
+	border-radius   : 6px !important;
+	padding-left    : 4px !important;
+	padding-right   : 4px !important;
+}
+
+
+
 @-moz-document domain("old.reddit.com") {
-	/*ANCHOR [VARIABLES]*/
-
-	@backdropBlur      : blur(10px);
-	@borderRadius      : 12px;
-	@expandoButton     : url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22grey%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
-	@expandoButtonClose: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22red%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
-	@boxShadow         : 0 4px 8px rgba(0, 0, 0, .1);
-
-	/*ANCHOR [MIXINS]*/
-	/* Comments mixin */
-	.comment-styles {
-		background-color: transparent !important;
-		border-radius   : 12px !important;
-		backdrop-filter : none !important;
-	}
-
-	/* Recursive mixin for comments nesting */
-	.comment-nesting(@level) when (@level > 0) {
-		.thing.comment {
-			.comment-styles();
-			.comment-nesting(@level - 1);
-		}
-	}
-
-	.hover-effect(@size: 15px) {
-		box-shadow: 0 0 @size rgba(255, 255, 255, 0.3) !important;
-	}
-
-	/*ANCHOR [DETACHED RULESETS] (could be mixins but I like the @) */
-	@backdrop: {
-		background-color: rgba(48, 51, 50, 0.38) !important;
-		backdrop-filter : @backdropBlur;
-		border-radius   : @borderRadius;
-		transition      : background-color 0.3s ease-in-out;
-	}
-
-	@backdrop-transparent: {
-		background-color: rgba(48, 51, 50, 0) !important;
-		backdrop-filter : @backdropBlur;
-		border-radius   : @borderRadius;
-		transition      : background-color 0.3s ease-in-out;
-
-	}
-
-	@shadow-border: {
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
-	}
-
-	@flairs: {
-		background-color: transparent !important;
-		border-radius   : 6px !important;
-		padding-left    : 4px !important;
-		padding-right   : 4px !important;
-	}
 
 	/*ANCHOR [HIDE]*/
 	/*{OPTION} hide pseudo*/
@@ -797,4 +801,16 @@
 		.hover-effect();
 	}
 
+}
+
+@-moz-document url-prefix("https://old.reddit.com/user") {
+
+	/*ANCHOR [USER PAGE] */
+	.thing.comment {
+		@backdrop();
+		border-radius: 12px !important;
+		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
+		padding      : 5px;
+		margin-bottom: 5px;
+	}
 }

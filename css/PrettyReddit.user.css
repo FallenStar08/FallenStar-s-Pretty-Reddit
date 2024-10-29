@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.14
+@version        1.1.15
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -664,6 +664,23 @@
 	div.pinnable-content.pinned>div>div.entry>div.top-matter {
 		display: none !important;
 	}
+
+	/* Deleted Comments */
+	.usertext.grayed {
+
+		&>div,
+		&>div>div.md,
+		div.entry.res-selected>&,
+		.res-nightmode .entry.res-selected &>.tagline,
+		.res-nightmode .entry.res-selected & .md-container>.md,
+		.res-nightmode .entry.res-selected & .md-container>.md p {
+			color         : #f00 !important;
+			background    : none !important;
+			margin-bottom : 0px;
+			padding-bottom: 0px;
+		}
+	}
+
 
 	/*ANCHOR [MENUS] */
 

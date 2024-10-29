@@ -5,7 +5,7 @@
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
-// @version     2.1.1
+// @version     2.2.0
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -57,22 +57,37 @@
 	const currentUrl = window.location.href;
 	const isCommentPage =
 		/https:\/\/old\.reddit\.com\/r\/.*\/comments\/.*\/.*/.test(currentUrl);
-	const baseUrl = isCommentPage
-		? currentUrl.replace(/\?sort=.*$/, "")
-		: currentUrl.replace(/\/(new|top|hot|controversial|rising)\/?$/, "/");
+	const isUserProfilePage =
+		/https:\/\/old\.reddit\.com\/user\/[^/]+(\/(comments|submitted)\/?)?\/?(\?.*)?$/.test(
+			currentUrl
+		);
 
-	const sortingOptions = [
-		isCommentPage
-			? { text: "Best", sort: "confidence" }
-			: { text: "Hot", sort: "hot" },
-		{ text: "New", sort: "new" },
-		isCommentPage ? { text: "Old", sort: "old" } : {},
-		{ text: "Top", sort: "top" },
-		{ text: "Contro", sort: "controversial" },
-		isCommentPage
-			? { text: "Q&A", sort: "qa" }
-			: { text: "Rising", sort: "rising" },
-	].filter((option) => Object.keys(option).length > 0);
+	const baseUrl =
+		isCommentPage || isUserProfilePage
+			? currentUrl.replace(/\?sort=.*$/, "")
+			: currentUrl.replace(
+					/\/(new|top|hot|controversial|rising)\/?$/,
+					"/"
+			  );
+
+	const sortingOptions = isUserProfilePage
+		? [
+				{ text: "New", sort: "new" },
+				{ text: "Top", sort: "top" },
+				{ text: "Hot", sort: "hot" },
+		  ]
+		: [
+				isCommentPage
+					? { text: "Best", sort: "confidence" }
+					: { text: "Hot", sort: "hot" },
+				{ text: "New", sort: "new" },
+				isCommentPage ? { text: "Old", sort: "old" } : {},
+				{ text: "Top", sort: "top" },
+				{ text: "Contro", sort: "controversial" },
+				isCommentPage
+					? { text: "Q&A", sort: "qa" }
+					: { text: "Rising", sort: "rising" },
+		  ].filter((option) => Object.keys(option).length > 0);
 
 	const inputContainer = document.createElement("div");
 	inputContainer.style.position = "relative";
@@ -107,9 +122,10 @@
 
 	sortingOptions.forEach((option) => {
 		const anchor = document.createElement("a");
-		const sortUrl = isCommentPage
-			? `${baseUrl}?sort=${option.sort}`
-			: `${baseUrl}${option.sort}/`;
+		const sortUrl =
+			isCommentPage || isUserProfilePage
+				? `${baseUrl}?sort=${option.sort}`
+				: `${baseUrl}${option.sort}/`;
 		anchor.href = sortUrl;
 		anchor.textContent = option.text;
 		Object.assign(anchor.style, {

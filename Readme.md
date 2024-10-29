@@ -68,7 +68,7 @@ NavBar JS
 -   On top page get panel to become links from : past year/months etc
 -   font options (monaspace poggers?)
 -   fix ugly expando buttons on posts ✅
--   add back sorting by comments/posts to user page
+-   add back sorting by comments/posts to user page ✅
 
 
 

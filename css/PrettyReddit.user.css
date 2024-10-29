@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.17
+@version        1.1.18
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -804,8 +804,10 @@
 }
 
 @-moz-document url-prefix("https://old.reddit.com/user") {
+	div.menuarea {
+		display: if((@hideVanillaSort=1), none, "") !important;
+	}
 
-	/*ANCHOR [USER PAGE] */
 	.thing.comment {
 		@backdrop();
 		border-radius: 12px !important;
@@ -813,4 +815,33 @@
 		padding      : 5px;
 		margin-bottom: 5px;
 	}
+
+	.tabmenu {
+		display: block !important;
+
+		&>li,
+		&>li.res-tabmenu-button {
+			&>a {
+				@backdrop();
+				border       : none !important;
+				border-radius: 12px !important;
+				padding      : 10px;
+
+				&:hover {
+					.hover-effect();
+					@backdrop()
+				}
+			}
+
+			padding      :10px;
+			margin-bottom: 0.5rem;
+			margin-top   :0.5rem;
+		}
+	}
+
+	/* fixes padding on "comments" view */
+	body:has(div.content) {
+		padding-right: 10% !important;
+	}
+
 }

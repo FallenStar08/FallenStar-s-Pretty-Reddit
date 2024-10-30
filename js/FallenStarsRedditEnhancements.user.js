@@ -34,7 +34,4 @@
 		GMStorage.set("panelTop", DEFAULT_PANEL_POSITION.top);
 		alert("All settings reset to defaults.");
 	});
-
-	// Export GMStorage for use in other scripts
-	window.GMStorage;
 })();

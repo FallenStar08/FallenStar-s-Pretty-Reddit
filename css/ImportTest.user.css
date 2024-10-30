@@ -17,8 +17,9 @@
 
 
 @-moz-document domain("old.reddit.com") {
+	/* for local dev */
 	@import url("Variables.css");
-	@import url("Variables.css");
+	@import url("https://raw.githubusercontent.com/FallenStar08/FallenStar-s-Pretty-Reddit/refs/heads/main/css/Variables.css");
 	/*ANCHOR [HIDE]*/
 	/*{OPTION} hide pseudo*/
 
@@ -821,6 +822,10 @@
 }
 
 @-moz-document url-prefix("https://old.reddit.com/user") {
+	/* for local dev */
+	@import url("Variables.css");
+	@import url("https://raw.githubusercontent.com/FallenStar08/FallenStar-s-Pretty-Reddit/refs/heads/main/css/Variables.css");
+
 	div.menuarea {
 		display: if((@hideVanillaSort=1), none, "") !important;
 	}

@@ -460,6 +460,13 @@
 		@backdrop();
 	}
 
+	/* Xpost preview banner */
+	.crosspost-preview.res-crosspost-preview {
+		@backdrop();
+		margin-bottom: 4px;
+	}
+
+
 	/*Text post container*/
 	/*ANCHOR [BUTTONS] */
 	/* all */

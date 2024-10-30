@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        FallenStar's reddit enhancements
 // @namespace   http://tampermonkey.net/
-// @version     1.0.4
+// @version     1.0.5
 // @author      FallenStar
 // @grant       GM_getValue
 // @grant       GM_setValue

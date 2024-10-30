@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Collapsible Sidebar
-// @version     2.0
+// @version     2.0.1
 // @description Collapse the sidebar until the mouse is near the edge, with smooth animation and a visible trigger zone
 // @match       https://old.reddit.com/*
 // @author      FallenStar
@@ -15,8 +15,6 @@
 	let sidebar = document.querySelector(".side");
 	let sortMenu = null;
 	let sortButton = null;
-	let clickX = 0;
-	let clickY = 0;
 	if (!sidebar) return;
 	function positionSortMenu() {
 		if (sortMenu && sortButton) {

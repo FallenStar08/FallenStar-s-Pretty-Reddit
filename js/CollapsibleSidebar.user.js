@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Collapsible Sidebar
-// @version     2.0.1
+// @version     2.0.2
 // @description Collapse the sidebar until the mouse is near the edge, with smooth animation and a visible trigger zone
 // @match       https://old.reddit.com/*
 // @author      FallenStar
@@ -133,6 +133,7 @@
 		sidebar.prepend(container);
 	}
 
+	// Sidebar styling
 	sidebar.style.position = "fixed";
 	sidebar.style.top = "0";
 	sidebar.style.right = "0";
@@ -140,9 +141,7 @@
 	sidebar.style.height = "100%";
 	sidebar.style.backgroundColor = "#333";
 	sidebar.style.color = "white";
-	sidebar.style.display = "flex";
-	sidebar.style.flexDirection = "column";
-	sidebar.style.alignItems = "center";
+	sidebar.style.display = "block";
 	sidebar.style.opacity = "0";
 	sidebar.style.pointerEvents = "none";
 	sidebar.style.transition = "opacity 0.3s ease-in-out";

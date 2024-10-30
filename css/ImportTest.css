@@ -1,0 +1,864 @@
+/* ==UserStyle==
+@name           FallenStar's reddit prettifier
+@namespace      github.com/openstyles/stylus
+@version        1.1.26
+@description    A new userstyle
+@author         FallenStar
+@updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
+@var checkbox	hideUsername "Hide Username" 0
+@var checkbox	hideVanillaSort "Hide Vanilla Sorting Menus" 0
+@var checkbox	hideFooter "Hide Footer" 0
+@var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
+@var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
+@preprocessor 	less
+==/UserStyle== */
+
+
+
+
+@-moz-document domain("old.reddit.com") {
+	@import url("Variables.css");
+	@import url("Variables.css");
+	/*ANCHOR [HIDE]*/
+	/*{OPTION} hide pseudo*/
+
+	.user>a {
+		display: if((@hideUsername=1), none, "");
+	}
+
+	div.commentarea>div.menuarea {
+		display: if((@hideVanillaSort=1), none, "") !important;
+	}
+
+	.footer,
+	.footer-parent {
+		display: if((@hideFooter=1), none, "") !important;
+	}
+
+
+
+	/* hide res shortcut ugly thingy */
+	#RESShortcutsEditContainer {
+		display: none;
+	}
+
+	/* hide useless left bar and premium banner*/
+	.listing-chooser,
+	.grippy,
+	.premium-banner,
+	.res-commentNavToggle,
+	.RESMacroDropdownTitle,
+	.help-toggle,
+	.reddiquette,
+	.commentingAs,
+	.panestack-title,
+	.share,
+	.crosspost-button,
+	.tabmenu,
+	#NREPause,
+	.res-wheel-browse,
+	#chat,
+	#chat+span,
+	div.create,
+	.author-tooltip,
+	li>a.noCtrlF,
+	.subreddit-subscribe {
+		display: none !important;
+	}
+
+	/* fixes flicker on load for userscript & hide never ending reddit */
+	.side,
+	.NERPageMarker {
+		display: none;
+	}
+
+	/*hide promoted shit in the sidebar*/
+	.side div:has(.promoted-tag) {
+		display: none !important;
+	}
+
+	/*hide the ugly separators*/
+	.side hr {
+		display: none;
+	}
+
+	/* TODO place this shit in the sidebar */
+	/* put useless floater to the left*/
+	.res-floater-visibleAfterScroll {
+		top  : 8vh !important;
+		right: 95vw !important;
+	}
+
+	/*ANCHOR [BODY] */
+	.content {
+		padding-left : 10%;
+		padding-right: 10%;
+	}
+
+	.res-commentBoxes body.comments-page>.content {
+		padding-right: 10% !important;
+	}
+
+	/*ANCHOR [BACKGROUND]*/
+	body,
+	#header {
+		position: relative;
+		overflow: hidden;
+		background: linear-gradient(109.6deg,
+				@gradcolor1 13.4%,
+				@gradcolor2 100.2%);
+		background-size: cover;
+
+		/* Ensures it covers the whole page */
+		background-attachment: fixed;
+		/* Keeps the gradient in place */
+		background-repeat    : no-repeat;
+		/* Prevents visible seams from repeating */
+	}
+
+	/*background noise*/
+	body::before,
+	#header::before {
+		content         : "";
+		position        : absolute;
+		top             : 0;
+		left            : 0;
+		width           : 100%;
+		height          : 100%;
+		background-image: url(data:image/png;base64,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);
+		opacity         : 0.5;
+		pointer-events  : none;
+	}
+
+	/*ANCHOR [NAVBAR]*/
+	/* enable scrolling All of this shit doesn't work but the userscript fixes it*/
+	#RESShortcutsViewport {
+		white-space               : nowrap !important;
+		-webkit-overflow-scrolling: touch !important;
+		position                  : relative;
+		height                    : 100%;
+	}
+
+	/*Default link color */
+	a.subbarlink {
+		color: #8cb3d9 !important;
+	}
+
+	/* user area styling (the container for the user things) */
+	#header #header-bottom-right {
+		font            : normal small verdana, arial, helvetica, sans-serif !important;
+		background-color: rgba(48, 51, 50, 0.38) !important;
+		color           : rgb(204, 204, 204) !important;
+		margin          : 0 !important;
+		position        : absolute !important;
+		right           : 0px !important;
+		padding         : 8px !important;
+		line-height     : 12px !important;
+		top             : 35px !important;
+		bottom          : auto !important;
+		border-radius   : 12px !important;
+		margin-right    : 1% !important;
+		display         : block !important;
+	}
+
+	/* overwrite custom sub css for top bar items */
+	.sr-list,
+	.sr-list a,
+	#srDropdownContainer a,
+	#srLeftContainer,
+	#RESShortcutsViewport,
+	#RESStaticShortcuts,
+	#RESShortcuts,
+	#srDropdown,
+	#RESStaticShortcuts {
+		background-color: #0000 !important;
+		color           : #8cb3d9 !important;
+	}
+
+	/* Active sub glow*/
+	.RESShortcutsCurrentSub {
+		text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+	}
+
+	/* Cycling colors for navbar subs*/
+	#RESShortcuts a:nth-child(20n + 1) {
+		color: #cb00ff !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 3) {
+		color: #f1479c !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 5) {
+		color: #ffd700 !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 7) {
+		color: #adff2f !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 9) {
+		color: #00ff7f !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 11) {
+		color: #00ced1 !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 13) {
+		color: #1e90ff !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 15) {
+		color: #9370db !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 17) {
+		color: #ff716e !important;
+	}
+
+	#RESShortcuts a:nth-child(20n + 19) {
+		color: #daa520 !important;
+	}
+
+	li.selected>a.choice {
+		border-top-left-radius    : 6px;
+		border-top-right-radius   : 6px;
+		border-bottom-left-radius : 0;
+		border-bottom-right-radius: 0;
+		font-size                 : 1.3em !important;
+	}
+
+	li>a.choice,
+	li.res-tabmenu-button>a {
+		border-top-left-radius    : 6px;
+		border-top-right-radius   : 6px;
+		border-bottom-left-radius : 0;
+		border-bottom-right-radius: 0;
+		font-size                 : 1.1em !important;
+	}
+
+	/*Sr list theming*/
+	#srList {
+		@backdrop();
+		position       : fixed !important;
+		left           : 2% !important;
+		top            : 35px !important;
+		box-shadow     : 0 4px 8px rgba(0, 0, 0, 0.1);
+		z-index        : 1000;
+		padding        : 5px !important;
+		max-height     : 33vh !important;
+		/*Idk how to fix the scrollbar from going over the rounder corner so fuckit*/
+		scrollbar-color: #00000054 #fafafa00;
+		scrollbar-width: none;
+	}
+
+	/* fix missaligned header */
+	#srList th {
+		padding-left : 8px !important;
+		padding-right: 8px !important;
+	}
+
+	#srList tr {
+		border: 0px !important;
+	}
+
+	#srList tr:hover {
+		.hover-effect();
+		background   : transparent !important;
+		border-radius: 12px !important;
+	}
+
+	/* search bar */
+	#sr-header-area {
+		@backdrop();
+		padding     : 5px;
+		border      : 0px;
+		left        : 0;
+		right       : 0;
+		width       : 97%;
+		margin-left : auto;
+		margin-right: 1%;
+		box-shadow  : 0 4px 8px rgba(0, 0, 0, 0.1);
+		z-index     : 1000;
+		position    : sticky !important;
+		top         : 3px;
+		/* Stick to the top of the viewport */
+	}
+
+	#sr-header-area a {
+		text-decoration: none;
+		font-size      : 14px;
+		transition     : color 0.3s ease-in-out;
+	}
+
+	#sort-menu {
+		z-index: 999999 !important;
+		@backdrop();
+	}
+
+	/*ANCHOR [POSTS]*/
+	.link {
+		@shadow-border();
+		background-color: rgba(48, 51, 50, 0.5) !important;
+		backdrop-filter : @backdropBlur;
+		padding         : 10px 15px;
+		margin          : 10px 15px;
+		border-radius   : @borderRadius;
+		transition      : box-shadow 0.3s ease-in-out;
+	}
+
+	/* Posts entries */
+	.res-nightmode .entry.res-selected:has(div.top-matter) {
+		background-color: rgb(0 0 0 / 0%) !important;
+		backdrop-filter : none;
+	}
+
+	/*Posts & Expanded texts*/
+	.content,
+	.res-nightmode .entry.res-selected,
+	.res-nightmode .entry.res-selected .md-container {
+		background: none !important;
+	}
+
+	/* Hover effect with subtle glow */
+	.link:hover {
+		.hover-effect();
+	}
+
+	/* Green glow for stickied posts */
+	.stickied {
+		box-shadow: 0 0 10px rgba(0, 248, 8, 0.53);
+	}
+
+	a.title {
+		padding-left: 3px !important;
+	}
+
+	/* Ner loading */
+	#progressIndicator {
+		@backdrop();
+	}
+
+	/*Text post container*/
+	/*ANCHOR [BUTTONS] */
+	/* all */
+	button,
+	.edit-btn {
+		.button-style();
+
+		&.save,
+		&.edit-btn {
+			margin-left: 5px
+		}
+	}
+
+	/* user hover modal close button */
+	/* TODO make smaller?*/
+	.RESCloseButtonTopRight {
+		.button-style();
+		background-color: transparent !important;
+		border-radius   : 50% !important;
+
+		&:after {
+			border          : 0px !important;
+			background-color: transparent !important;
+			background-image: @expandoButtonClose;
+			transform       : rotate(45deg);
+			content         : "" !important;
+		}
+
+	}
+
+	/* Posts Expandos */
+	.expando-button {
+
+		&.image,
+		&.video,
+		&.video-muted,
+		&.selftext {
+
+			&.collapsed,
+			&.expanded {
+				margin-left        : 5px !important;
+				width              : 24px;
+				height             : 24px;
+				background-size    : contain;
+				background-repeat  : no-repeat;
+				background-position: center !important;
+				border-radius      : 50% !important;
+				box-sizing         : border-box;
+				display            : inline-block;
+				padding            : 0;
+				text-decoration    : none;
+				backdrop-filter    : none !important;
+				transition         : transform 0.5s ease;
+				@shadow-border();
+
+				&:hover {
+					.hover-effect(5px);
+				}
+			}
+
+			&.collapsed {
+				background-image: @expandoButton;
+			}
+
+			&.expanded {
+				background-image: @expandoButtonClose;
+				transform       : rotate(45deg);
+			}
+		}
+	}
+
+	/* spoiler & nsfw overlay */
+	.expando-button::before {
+		border-radius: 50%
+	}
+
+	/*ANCHOR [INPUTS] */
+	/* all */
+	input {
+		background-color: transparent !important;
+		margin          : 0px 0px 0px 0px;
+		margin-left     : 20px;
+	}
+
+	/* sidebar search expando */
+	#searchexpando {
+		background: transparent !important;
+		border    : 0px;
+	}
+
+	/* comment Text Area styling */
+	.res-nightmode .submit textarea,
+	.res-nightmode .submit #url,
+	.res-nightmode .submit #sr-autocomplete,
+	.res-nightmode .usertext-edit textarea,
+	.res-nightmode .RESDialogSmall,
+	.res-nightmode .c-close,
+	.res-nightmode #BigEditor #BigText,
+	.res-nightmode #liveupdate-statusbar,
+	.res-nightmode #liveupdate-statusbar.complete,
+	.res-nightmode #alert_message input {
+		@backdrop();
+		@shadow-border();
+		z-index    : 1000;
+		border     : 0px;
+		padding    : 10px;
+		margin-left: 5px;
+	}
+
+	/* srlist navbar menu search */
+	#srList>div:nth-child(2)>input:nth-child(1) {
+		border-radius   : 0px;
+		background-color: transparent !important;
+		border          : 0px !important;
+		color           : white !important;
+	}
+
+	/*fixes ugly white borders on all inputs*/
+	input:focus,
+	textarea:focus,
+	select:focus {
+		outline: none;
+		border : none;
+	}
+
+	/*sidebar search input*/
+	#search>input:nth-child(1) {
+		width : auto;
+		margin: 0px;
+	}
+
+	/* ^ selects options */
+	#searchexpando>label>select {
+		color      : white !important;
+		border     : none;
+		margin-left: 5px !important;
+		@shadow-border();
+	}
+
+	/*ANCHOR [HEADER] Subreddit Name*/
+	#header-bottom-left {
+		text-align: center;
+	}
+
+	.redditname,
+	body.with-listing-chooser #header .pagename {
+		position   : relative;
+		bottom     : -10px;
+		margin-left: 0px;
+	}
+
+	.pagename {
+		font-weight : bold;
+		font-variant: small-caps;
+		font-size   : 5em;
+	}
+
+	#header {
+		border: 0px;
+	}
+
+	/*ANCHOR [SIDEBAR]*/
+	.side,
+	.titlebox,
+	.redditname,
+	.morelink,
+	.res-nightmode .sidebox,
+	.res-nightmode .subreddit-info,
+	.res-nightmode .raisedbox,
+	.res-nightmode .login-form-side,
+	.res-nightmode .interstitial-subreddit-description,
+	form.toggle:nth-child(6),
+	.linkinfo,
+	.side * {
+		@backdrop-transparent();
+		padding: 0px 0px 5px 5px;
+	}
+
+	.side table,
+	.side tbody {
+		border: 0px !important;
+	}
+
+	/* TODO doesn't do anything yet */
+	.JS_TriggerZone {
+		.hover-effect();
+	}
+
+	/*ANCHOR [FLAIRS] */
+	.flair,
+	.flairrichtext,
+	.flaircolordark,
+	.linkflairlabel,
+	.res-flairSearch,
+	.flaircolorlight,
+	.res-flairSearch,
+	.res-nightmode .flairrichtext[style*="color"],
+	li>span.flairrichtext.flaircolorlight.flair {
+		@flairs();
+	}
+
+
+	/* title flairs */
+	p.title>a.title+span.flairrichtext {
+		@flairs();
+	}
+
+	/* more title flairs */
+	div.top-matter>p.title>span.flairrichtext {
+		@flairs();
+	}
+
+	/* user flairs */
+	p.tagline>span.flairrichtext.flair {
+		/* small margin from the tag button */
+		margin-left: 5px;
+		@flairs();
+	}
+
+	/*ANCHOR [COMMENTS] */
+	/* archived/locked etc info bar */
+	.reddit-infobar {
+		@backdrop();
+	}
+
+	/* hide the expand thing letter uggly yucky */
+	div.comment>div.entry>p.tagline>a.expand {
+		font-size: 0 !important;
+	}
+
+	/*hide/expand left bar*/
+	:root body.res div.sitetable div.comment .expand {
+		background-color: rgba(0, 0, 0, 0.1) !important;
+		border          : 0px;
+	}
+
+	:root body.res div.sitetable div.comment .expand:hover {
+		.hover-effect();
+		background-color: transparent !important;
+		z-index         : 1000 !important;
+	}
+
+	/* Dont ask me why the fuck I have to do that I don't know css */
+	/* Base rule for the first level */
+	.res-commentBoxes .thing.comment,
+	.res-commentBoxes .res-nightmode .thing.comment {
+		@backdrop();
+		border-radius: 12px !important;
+		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
+	}
+
+	/* up to 25 levels idk don't need more, probably */
+	.res-commentBoxes {
+		.thing.comment {
+			.comment-nesting(25);
+		}
+	}
+
+	/* active comment */
+	.RES-keyNav-activeThing:not(.link) {
+		.hover-effect();
+	}
+
+	/*floating video pin thing */
+	div#siteTable>div>.pinnable-content.pinned {
+		background-color: transparent !important;
+		border          : none !important;
+		box-shadow      : none !important;
+		max-width       : fit-content !important;
+		margin-top      : 20px;
+	}
+
+	/* video player */
+	.pinnable-content.pinned .reddit-video-player-root {
+		position    : relative !important;
+		top         : 0;
+		margin-right: 10px; //more space for close button
+	}
+
+	/* close button*/
+	.pinnable-content.pinned .dismiss-pinnable {
+		position   : static !important;
+		margin-left: 15px;
+		margin-top : 0px !important;
+		@shadow-border();
+	}
+
+	/* close button text */
+	a.dismiss-pinnable.c-close.c-hide-text {
+		font-size       : 0px;
+		position        : relative;
+		/* Set up for   ::before positioning */
+		background-image: url("https://i.imgur.com/kElmTmB.png");
+	}
+
+	/* hide all the shit inside the preview*/
+	div.pinnable-content.pinned>div>div.entry>div.top-matter {
+		display: none !important;
+	}
+
+	/* Deleted Comments */
+	.usertext.grayed {
+
+		&>div,
+		&>div>div.md,
+		div.entry.res-selected>&,
+		.res-nightmode .entry.res-selected &>.tagline,
+		.res-nightmode .entry.res-selected & .md-container>.md,
+		.res-nightmode .entry.res-selected & .md-container>.md p {
+			color         : #f00 !important;
+			background    : none !important;
+			margin-bottom : 0px;
+			padding-bottom: 0px;
+		}
+	}
+
+	/* code blocks & weird quotes text wrap */
+	pre,
+	pre>code {
+		white-space: pre-wrap !important;
+		overflow   : hidden !important;
+		word-wrap  : break-word !important;
+		max-width  : 100% !important;
+		box-sizing : border-box !important;
+	}
+
+	/* Left collapse comment bar styling */
+	.res-commentBoxes .thing.comment {
+		border-left: 4px transparent !important;
+	}
+
+	.res-commentBoxes .thing.comment.collapsed .midcol:not(.unvoted) {
+		visibility: visible;
+		height    : 1.5em !important;
+	}
+
+	.res-commentBoxes .thing.comment.collapsed .midcol.likes .arrow.down,
+	.res-commentBoxes .thing.comment.collapsed .midcol.dislikes .arrow.up {
+		display: none;
+	}
+
+	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .comment .midcol {
+		margin-left: 1em !important;
+		width      : min(15px, calc(2 * 1em)) !important;
+	}
+
+	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .commentarea .comment {
+		margin-left: calc(2 * 1em) !important;
+	}
+
+	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .commentarea .comment .midcol .arrow {
+		position: relative;
+		z-index : 1;
+	}
+
+	.commentarea .entry>.tagline>.expand {
+		background-color: transparent !important;
+	}
+
+	.nestedlisting>.comment+.clearleft {
+		background: transparent !important;
+	}
+
+	/*ANCHOR [MENUS] */
+
+	/* RES gear menus backdrop */
+	.RESHover.RESHoverDropdownList.RESDropdownList,
+	.RESDropdownList li:hover a,
+	.RESDashboardComponent {
+		@backdrop();
+		border    : 0px !important;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+		z-index   : 1000;
+		background: transparent;
+		padding   : 2px !important;
+	}
+
+	/* Ugly arrow poiting toward the username */
+	.RESHoverInfoCard {
+
+		&:after,
+		&:before {
+			display: none !important;
+		}
+	}
+
+	/* Background elements of the above menu disappearing magic */
+	.res-nightmode .RESDropdownList li a,
+	.RESDropdownList li {
+		border          : 0px !important;
+		background-color: transparent !important;
+		padding         : 2px !important;
+	}
+
+	/* Hover effects on all the elements of the menus */
+	.res-nightmode .RESDropdownList li a:hover,
+	div[title^="Toggle"]:hover,
+	#SettingsConsole:hover,
+	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(3):hover,
+	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(4):hover {
+		.hover-effect();
+		background   : rgba(255, 0, 0, 0) !important;
+		border-radius: 12px !important;
+	}
+
+	/* Ugly RES gear menu loupe icon */
+	.RESMenuItemButton {
+		top: 0 !important;
+	}
+
+	/* Ugly RES gear menu loupe background */
+	.RESMenuItemButton:hover {
+		background      : transparent !important;
+		background-color: transparent !important;
+	}
+
+	/* Ugly gray thing that only appears when comment is unfocused anyways */
+
+	.res-nightmode .usertext.grayed .usertext-body {
+		background-color: rgba(68, 68, 68, 0);
+	}
+
+	/* Buttons inside user (u/) hover tab & subreddit hover tab - Refactored to all RES buttons tbh could be a button variable */
+	.res-fancy-toggle-button,
+	.blueButton,
+	.addButton {
+		@shadow-border();
+		@backdrop();
+		border       : none !important;
+		border-radius: 12px !important;
+		transition   : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		padding      : 4px;
+	}
+
+
+	.res-fancy-toggle-button:hover,
+	.blueButton:hover,
+	.addButton:hover {
+		border: none;
+		.hover-effect();
+		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	}
+
+	/* Sort Menu if not hidden */
+
+	.drop-choices.lightdrop.inuse {
+		@backdrop();
+		border    : 0px !important;
+		box-shadow: @boxShadow;
+		z-index   : 1000;
+		background: transparent;
+		padding   : 2px !important;
+		z-index   : 1001 !important;
+	}
+
+	/* ^: hover effect */
+	a.choice:hover {
+		.hover-effect();
+		background   : transparent !important;
+		border-radius: 12px !important;
+	}
+
+	/* footer */
+
+	.footer {
+		@backdrop();
+		border: 0px;
+	}
+
+	.res-nightmode .footer .col {
+		border: 0px;
+	}
+
+	/*ANCHOR [JS CREATED ELEMENTS] */
+	#floating-nav-panel:hover {
+		.hover-effect();
+	}
+
+}
+
+@-moz-document url-prefix("https://old.reddit.com/user") {
+	div.menuarea {
+		display: if((@hideVanillaSort=1), none, "") !important;
+	}
+
+	.thing.comment {
+		@backdrop();
+		border-radius: 12px !important;
+		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
+		padding      : 5px;
+		margin-bottom: 5px;
+	}
+
+	.tabmenu {
+		display: block !important;
+
+		&>li,
+		&>li.res-tabmenu-button {
+			&>a {
+				@backdrop();
+				border       : none !important;
+				border-radius: 12px !important;
+				padding      : 10px;
+
+				&:hover {
+					.hover-effect();
+					@backdrop()
+				}
+			}
+
+			padding      :10px;
+			margin-bottom: 0.5rem;
+			margin-top   :0.5rem;
+		}
+	}
+
+	/* fixes padding on "comments" view */
+	body.listing-page>div.content {
+		padding-right: 10% !important;
+	}
+
+}

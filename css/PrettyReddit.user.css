@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.27
+@version        1.1.3
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -61,6 +61,16 @@
 			.hover-effect(5px);
 		}
 
+	}
+
+	.post-style() {
+		@shadow-border();
+		background-color: rgba(48, 51, 50, 0.5) !important;
+		backdrop-filter : @backdropBlur;
+		padding         : 10px 15px;
+		margin          : 10px 15px;
+		border-radius   : @borderRadius;
+		transition      : box-shadow 0.3s ease-in-out;
 	}
 
 	/*ANCHOR [DETACHED RULESETS] (could be mixins but I like the @) */
@@ -372,13 +382,7 @@
 
 	/*ANCHOR [POSTS]*/
 	.link {
-		@shadow-border();
-		background-color: rgba(48, 51, 50, 0.5) !important;
-		backdrop-filter : @backdropBlur;
-		padding         : 10px 15px;
-		margin          : 10px 15px;
-		border-radius   : @borderRadius;
-		transition      : box-shadow 0.3s ease-in-out;
+		.post-style();
 	}
 
 	/* Posts entries */
@@ -932,5 +936,47 @@
 	/* fixes padding on "comments" view */
 	body.listing-page>div.content {
 		padding-right: 10% !important;
+	}
+
+	/*ANCHOR SEARCH PAGE */
+
+
+	/* res subreddit results */
+	.res-search-subreddits {
+		@backdrop();
+		margin-top: 10px !important;
+	}
+
+	.res-search-tabs {
+		background-color: transparent !important;
+
+		&>.res-search-tab-subs,
+		&>.res-search-tab-options {
+			background-color: transparent !important;
+			background      : transparent !important;
+
+			&>a {
+				background-color: transparent !important;
+				@shadow-border();
+				@backdrop();
+				border: none !important;
+			}
+		}
+	}
+
+	.search-result {
+		.post-style();
+		white-space: auto !important;
+		overflow   : hidden !important;
+		max-width  : 100% !important;
+
+		&:hover {
+			.hover-effect();
+		}
+	}
+
+	/* Ugly fake shadow thing */
+	div.search-expando.collapsed::before {
+		background: none !important;
 	}
 }

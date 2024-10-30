@@ -61,7 +61,7 @@ NavBar JS
 -   Put most of the useless stuff in the sidebar 🚧
 -   Display comments without changing page
 -   Probably fix more chromium fuckeries ✅
--   Re add sort button to navbar 🚧
+-   Re add sort button to navbar ✅ added to sidebar
 -   sort panel for comment section ✅
 -   fix flairs ✅
 -   option to show/hide vanilla sorting options if using the panel ✅
@@ -69,12 +69,6 @@ NavBar JS
 -   font options (monaspace poggers?)
 -   fix ugly expando buttons on posts ✅
 -   add back sorting by comments/posts to user page ✅
-
-
-
-
-
-
 
 ### Contributing
 

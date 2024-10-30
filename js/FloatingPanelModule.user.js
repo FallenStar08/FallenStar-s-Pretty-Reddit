@@ -1,5 +1,3 @@
-
-
 (function () {
 	"use strict";
 	const DEFAULT_LEFT = "1%";
@@ -24,8 +22,8 @@
 	});
 
 	//Restore panel position from previous session
-	const savedLeft = GM_getValue("panelLeft", DEFAULT_LEFT);
-	const savedTop = GM_getValue("panelTop", DEFAULT_TOP);
+	const savedLeft = window.GMStorage.get("panelLeft", DEFAULT_LEFT);
+	const savedTop = window.GMStorage.get("panelTop", DEFAULT_TOP);
 	panel.style.left =
 		typeof savedLeft === "number" ? `${savedLeft}px` : savedLeft;
 	panel.style.top = typeof savedTop === "number" ? `${savedTop}px` : savedTop;
@@ -36,8 +34,8 @@
 		panel.style.top = DEFAULT_TOP;
 		panel.style.transform = "translateY(-50%)";
 
-		GM_setValue("panelLeft", DEFAULT_LEFT);
-		GM_setValue("panelTop", DEFAULT_TOP);
+		window.GMStorage.set("panelLeft", DEFAULT_LEFT);
+		window.GMStorage.set("panelTop", DEFAULT_TOP);
 
 		alert("Panel position reset to default.");
 	});
@@ -179,8 +177,8 @@
 			//pos save (haha pos)
 			const leftValue = parseInt(panel.style.left, 10);
 			const topValue = parseInt(panel.style.top, 10);
-			GM_setValue("panelLeft", leftValue);
-			GM_setValue("panelTop", topValue);
+			window.GMStorage.set("panelLeft", leftValue);
+			window.GMStorage.set("panelTop", topValue);
 		}
 	});
 

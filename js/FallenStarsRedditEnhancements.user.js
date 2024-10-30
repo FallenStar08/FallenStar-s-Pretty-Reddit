@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name        Master Userscript for old reddit
+// @name        FallenStar's reddit enhancements
 // @namespace   http://tampermonkey.net/
-// @version     1.0.0
+// @version     1.0.1
 // @author      FallenStar
 // @grant       GM_getValue
 // @grant       GM_setValue
@@ -17,4 +17,24 @@
 
 (function () {
 	"use strict";
+
+	const GMStorage = {
+		get: (key, defaultValue) => {
+			return GM_getValue(key, defaultValue);
+		},
+		set: (key, value) => {
+			GM_setValue(key, value);
+		},
+	};
+
+	const DEFAULT_PANEL_POSITION = { left: "1%", top: "50%" };
+
+	GM_registerMenuCommand("Reset All Settings", () => {
+		GMStorage.set("panelLeft", DEFAULT_PANEL_POSITION.left);
+		GMStorage.set("panelTop", DEFAULT_PANEL_POSITION.top);
+		alert("All settings reset to defaults.");
+	});
+
+	// Export GMStorage for use in other scripts
+	window.GMStorage = GMStorage;
 })();

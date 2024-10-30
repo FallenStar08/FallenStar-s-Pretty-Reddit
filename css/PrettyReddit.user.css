@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.20
+@version        1.1.21
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -39,6 +39,22 @@
 
 .hover-effect(@size: 15px) {
 	box-shadow: 0 0 @size rgba(255, 255, 255, 0.3) !important;
+}
+
+.button-style() {
+	@backdrop();
+	@shadow-border();
+	border                    : 0px !important;
+	margin                    : 0px 0px 0px 0px;
+	padding                   : 0.3rem;
+	white-space               : nowrap !important;
+	-webkit-overflow-scrolling: touch !important;
+
+	&:hover {
+		transform: scale(1.05);
+		.hover-effect(5px);
+	}
+
 }
 
 /*ANCHOR [DETACHED RULESETS] (could be mixins but I like the @) */
@@ -398,16 +414,29 @@
 	/* all */
 	button,
 	.edit-btn {
-		@backdrop-transparent();
-		margin                    : 0px 0px 0px 0px;
-		white-space               : nowrap !important;
-		-webkit-overflow-scrolling: touch !important;
+		.button-style();
+
+		&.save,
+		&.edit-btn {
+			margin-left: 5px
+		}
 	}
 
 	/* user hover modal close button */
-	.RESCloseButtonTopRight,
-	.RESCloseButtonTopRight:after {
+	/* TODO make smaller?*/
+	.RESCloseButtonTopRight {
+		.button-style();
 		background-color: transparent !important;
+		border-radius   : 50% !important;
+
+		&:after {
+			border          : 0px !important;
+			background-color: transparent !important;
+			background-image: @expandoButtonClose;
+			transform       : rotate(45deg);
+			content         : "" !important;
+		}
+
 	}
 
 	/* Posts Expandos */
@@ -482,7 +511,7 @@
 	.res-nightmode #liveupdate-statusbar.complete,
 	.res-nightmode #alert_message input {
 		@backdrop();
-		box-shadow : 0 4px 8px rgba(0, 0, 0, 0.46);
+		@shadow-border();
 		z-index    : 1000;
 		border     : 0px;
 		padding    : 10px;
@@ -707,6 +736,15 @@
 		z-index   : 1000;
 		background: transparent;
 		padding   : 2px !important;
+	}
+
+	/* Ugly arrow poiting toward the username */
+	.RESHoverInfoCard {
+
+		&:after,
+		&:before {
+			display: none !important;
+		}
 	}
 
 	/* Background elements of the above menu disappearing magic */

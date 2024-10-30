@@ -1,13 +1,14 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.30
+@version        1.1.32
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
 @var checkbox	hideUsername "Hide Username" 0
 @var checkbox	hideVanillaSort "Hide Vanilla Sorting Menus" 0
 @var checkbox	hideFooter "Hide Footer" 0
+@var checkbox	ColoredCommentsLevel "Color comments by nesting level" 1
 @var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
 @var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
 @preprocessor 	less
@@ -26,6 +27,48 @@
 	@expandoButton     : url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22grey%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
 	@expandoButtonClose: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22red%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
 	@boxShadow         : 0 4px 8px rgba(0, 0, 0, .1);
+
+	/*colors for progressively nested comments */
+	@comments-colors: rgba(181, 204, 24, 0.5),
+	// Yellow-green
+	rgba(142, 198, 34, 0.5),
+	// Greenish-yellow
+	rgba(98, 186, 50, 0.5),
+	// Light green
+	rgba(33, 186, 69, 0.5),
+	// Green
+	rgba(0, 181, 101, 0.5),
+	// Emerald green
+	rgba(0, 168, 145, 0.5),
+	// Teal
+	rgba(0, 153, 173, 0.5),
+	// Cyan
+	rgba(0, 133, 188, 0.5),
+	// Light blue
+	rgba(33, 113, 198, 0.5),
+	// Blue
+	rgba(51, 85, 190, 0.5),
+	// Indigo blue
+	rgba(76, 53, 173, 0.5),
+	// Indigo
+	rgba(112, 45, 161, 0.5),
+	// Violet
+	rgba(144, 40, 149, 0.5),
+	// Purple
+	rgba(173, 35, 129, 0.5),
+	// Magenta
+	rgba(186, 51, 97, 0.5),
+	// Pinkish-red
+	rgba(196, 66, 66, 0.5),
+	// Red
+	rgba(208, 90, 56, 0.5),
+	// Orange-red
+	rgba(227, 115, 48, 0.5),
+	// Orange
+	rgba(235, 142, 33, 0.5),
+	// Yellow-orange
+	rgba(242, 170, 28, 0.5);
+
 
 	/*ANCHOR [MIXINS]*/
 	/* Comments mixin */
@@ -743,42 +786,31 @@
 		box-sizing : border-box !important;
 	}
 
-	/* Left collapse comment bar styling */
-	.res-commentBoxes .thing.comment {
-		border-left: 4px transparent !important;
-	}
 
-	.res-commentBoxes .thing.comment.collapsed .midcol:not(.unvoted) {
-		visibility: visible;
-		height    : 1.5em !important;
-	}
 
-	.res-commentBoxes .thing.comment.collapsed .midcol.likes .arrow.down,
-	.res-commentBoxes .thing.comment.collapsed .midcol.dislikes .arrow.up {
-		display: none;
-	}
+
+
 
 	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .comment .midcol {
 		margin-left: 1em !important;
-		width      : min(15px, calc(2 * 1em)) !important;
 	}
 
-	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .commentarea .comment {
-		margin-left: calc(2 * 1em) !important;
+
+	.res-commentBoxes.res-commentBoxes when (@ColoredCommentsLevel =1) {
+
+		.thing.comment {
+			.setBorder(@level: 1) when (@level <=length(@comments-colors)) {
+				border-color: extract(@comments-colors, @level) !important;
+
+				.thing.comment {
+					.setBorder(@level + 1);
+				}
+			}
+
+			.setBorder();
+		}
 	}
 
-	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .commentarea .comment .midcol .arrow {
-		position: relative;
-		z-index : 1;
-	}
-
-	.commentarea .entry>.tagline>.expand {
-		background-color: transparent !important;
-	}
-
-	.nestedlisting>.comment+.clearleft {
-		background: transparent !important;
-	}
 
 	/*ANCHOR [MENUS] */
 

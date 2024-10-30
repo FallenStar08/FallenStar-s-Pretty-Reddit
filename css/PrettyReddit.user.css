@@ -586,6 +586,7 @@
 	.side * {
 		@backdrop-transparent();
 		padding: 0px 0px 5px 5px;
+		display: block;
 	}
 
 	.side table,

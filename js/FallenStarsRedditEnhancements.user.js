@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        FallenStar's reddit enhancements
 // @namespace   http://tampermonkey.net/
-// @version     1.0.3
+// @version     1.0.4
 // @author      FallenStar
 // @grant       GM_getValue
 // @grant       GM_setValue
@@ -18,7 +18,7 @@
 (function () {
 	"use strict";
 
-	GMStorage = {
+	window.GMStorage = {
 		get: (key, defaultValue) => {
 			return GM_getValue(key, defaultValue);
 		},

@@ -733,6 +733,43 @@
 		box-sizing : border-box !important;
 	}
 
+	/* Left collapse comment bar styling */
+	.res-commentBoxes .thing.comment {
+		border-left: 4px transparent !important;
+	}
+
+	.res-commentBoxes .thing.comment.collapsed .midcol:not(.unvoted) {
+		visibility: visible;
+		height    : 1.5em !important;
+	}
+
+	.res-commentBoxes .thing.comment.collapsed .midcol.likes .arrow.down,
+	.res-commentBoxes .thing.comment.collapsed .midcol.dislikes .arrow.up {
+		display: none;
+	}
+
+	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .comment .midcol {
+		margin-left: 1em !important;
+		width      : min(15px, calc(2 * 1em)) !important;
+	}
+
+	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .commentarea .comment {
+		margin-left: calc(2 * 1em) !important;
+	}
+
+	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .commentarea .comment .midcol .arrow {
+		position: relative;
+		z-index : 1;
+	}
+
+	.commentarea .entry>.tagline>.expand {
+		background-color: transparent !important;
+	}
+
+	.nestedlisting>.comment+.clearleft {
+		background: transparent !important;
+	}
+
 	/*ANCHOR [MENUS] */
 
 	/* RES gear menus backdrop */

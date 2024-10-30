@@ -1,14 +1,3 @@
-// ==UserScript==
-// @name        Collapsible Sidebar
-// @version     2.0
-// @description Collapse the sidebar until the mouse is near the edge, with smooth animation and a visible trigger zone
-// @match       https://old.reddit.com/*
-// @author      FallenStar
-// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/CollapsibleSidebar.user.js
-// @updateURL 	https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/CollapsibleSidebar.user.js
-// @grant       none
-// ==/UserScript==
-
 (function () {
 	"use strict";
 

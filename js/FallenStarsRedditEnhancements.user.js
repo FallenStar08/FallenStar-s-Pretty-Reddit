@@ -3,6 +3,9 @@
 // @namespace   http://tampermonkey.net/
 // @version     1.0.0
 // @author      FallenStar
+// @grant       GM_getValue
+// @grant       GM_setValue
+// @grant       GM_registerMenuCommand
 // @description Master script to include other userscripts
 // @match       https://old.reddit.com/*
 // @grant       none

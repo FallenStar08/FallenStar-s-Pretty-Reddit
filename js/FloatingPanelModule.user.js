@@ -1,16 +1,4 @@
-// ==UserScript==
-// @name        Floating Sorting Panel
-// @namespace   Violentmonkey Scripts
-// @match       https://old.reddit.com/*
-// @grant       GM_getValue
-// @grant       GM_setValue
-// @grant       GM_registerMenuCommand
-// @version     2.2.0
-// @author      FallenStar
-// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
-// @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
-// @description Adds sorting options as a floating panel on Reddit with hover sliding effect, hidden overflow, drag-and-drop functionality
-// ==/UserScript==
+
 
 (function () {
 	"use strict";

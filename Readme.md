@@ -23,6 +23,10 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 -   The sidebar is hidden and pretty (pretty means transparent)
     ![](resources/SideBar.gif)
 
+    You can configure the colors used in the gradient & some minor cosmetic changes through stylus options :
+
+    ![](resources/StylusOptions.png)
+
 ### Installation
 
 Requires [Reddit Enhancement Suite](https://redditenhancementsuite.com/) with nightmode enabled
@@ -55,9 +59,13 @@ NavBar JS
 [![Static Badge](https://img.shields.io/badge/NavBar-INSTALL-blue?style=for-the-badge&logo=javascript)
 ](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js)
 
+To get the fancy bar used to collapse comments on the left side of the comments you need to enable this option in the Reddit enhancement suite dashboard
+
+![](resources/ToggleCommentsLeftEdge.png)
+
 ### TODO
 
--   Fix floating video thingy when you scroll in comments ✅ needs more js to be made less shit
+-   Fix floating video thingy when you scroll in comments ✅ needs more js to be made less shit, also let's make it draggable too this aint 2005
 -   Put most of the useless stuff in the sidebar 🚧
 -   Display comments without changing page
 -   Probably fix more chromium fuckeries ✅
@@ -76,6 +84,6 @@ Don't
 
 ### Credits
 
--   Snesh
--   Loky
--   Zoey
+-   [Snesh](https://github.com/senshastic) ❤️
+-   Loky 🐈
+-   Zoey 🐈‍⬛

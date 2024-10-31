@@ -13,6 +13,7 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 
     -   It even checks if the subreddit exists!
     -   Draggable for added coolness
+
         ![Panel](resources/Panel.gif)
 
 -   **Enhanced Navbar** with horizontal scrolling (using the mousewheel, not the ugly RES button)

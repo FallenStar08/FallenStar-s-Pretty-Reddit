@@ -5,7 +5,7 @@
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
-// @version     2.2.0
+// @version     2.5.0
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -61,10 +61,14 @@
 		/https:\/\/old\.reddit\.com\/user\/[^/]+(\/(comments|submitted)\/?)?\/?(\?.*)?$/.test(
 			currentUrl
 		);
+	const isSubredditTopPage =
+		/https:\/\/old\.reddit\.com\/r\/[^/]+\/top\/?.*/.test(currentUrl);
 
 	const baseUrl =
 		isCommentPage || isUserProfilePage
 			? currentUrl.replace(/\?sort=.*$/, "")
+			: isSubredditTopPage
+			? currentUrl.replace(/\/top\/?.*$/, "/")
 			: currentUrl.replace(
 					/\/(new|top|hot|controversial|rising)\/?$/,
 					"/"
@@ -82,7 +86,22 @@
 					: { text: "Hot", sort: "hot" },
 				{ text: "New", sort: "new" },
 				isCommentPage ? { text: "Old", sort: "old" } : {},
-				{ text: "Top", sort: "top" },
+				isSubredditTopPage ? {} : { text: "Top", sort: "top" },
+				isSubredditTopPage
+					? { text: "Top - H", sort: "top/?sort=top&t=hour" }
+					: {},
+				isSubredditTopPage
+					? { text: "Top - D", sort: "top/?sort=top&t=day" }
+					: {},
+				isSubredditTopPage
+					? { text: "Top - W", sort: "top/?sort=top&t=week" }
+					: {},
+				isSubredditTopPage
+					? { text: "Top - M", sort: "top/?sort=top&t=month" }
+					: {},
+				isSubredditTopPage
+					? { text: "Top - Y", sort: "top/?sort=top&t=year" }
+					: {},
 				{ text: "Contro", sort: "controversial" },
 				isCommentPage
 					? { text: "Q&A", sort: "qa" }
@@ -125,7 +144,7 @@
 		const sortUrl =
 			isCommentPage || isUserProfilePage
 				? `${baseUrl}?sort=${option.sort}`
-				: `${baseUrl}${option.sort}/`;
+				: `${baseUrl}${option.sort}`;
 		anchor.href = sortUrl;
 		anchor.textContent = option.text;
 		Object.assign(anchor.style, {

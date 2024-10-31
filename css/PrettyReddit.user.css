@@ -695,6 +695,7 @@
 	/* hide the expand thing letter uggly yucky */
 	div.comment>div.entry>p.tagline>a.expand {
 		font-size: 0 !important;
+		color    : transparent !important;
 	}
 
 	/*hide/expand left bar*/

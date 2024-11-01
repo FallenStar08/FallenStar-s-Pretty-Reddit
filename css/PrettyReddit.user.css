@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.35
+@version        1.1.36
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -670,10 +670,9 @@
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
 	}
 	
-	.res-nightmode a, .res-nightmode .md a, .res-nightmode .pagename a, .res-nightmode .share-button .option, .res-nightmode #subscribe a, .res-nightmode .share .option, .res-nightmode .wired a, .res-nightmode .side a, .res-nightmode .link .score.dislikes, .res-nightmode .linkcompressed .score.dislikes, .res-nightmode a[rel="tag"], .res-nightmode .dsq-help, .res-nightmode #authorInfoToolTip h3 a, .res-nightmode .reddiquette, .res-nightmode .parent .author, .res-nightmode .parent .subreddit, .res-nightmode .combined-search-page .search-result a, .res-nightmode .combined-search-page .search-result a > mark, .res-nightmode .hoverHelp, .res-nightmode .deepthread a, .res-nightmode .policy-page .md h1 a, .res-nightmode .policy-page .md h3 a{
+	.res-nightmode .side * {
 		color: white !important;
 	}
-	
 	
 	/*ANCHOR [SUBMIT A NEW LINK]*/
 	
@@ -755,6 +754,16 @@
 	.RESNotificationHeader{
 	background: none;
 	}
+	
+	/*join leave in subreddit page res thingy */ 
+	
+	.multi-selector.hover-bubble.anchor-right,
+	.searchpane.raisedbox {
+		@backdrop();
+		border:none;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+	}
+	
 	
 	div[id="RESShortcutsAddFormContainer"],
 	.RESNotifications {

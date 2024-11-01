@@ -409,7 +409,6 @@
 		z-index     : 1000;
 		position    : sticky !important;
 		top         : 3px;
-		/* Stick to the top of the viewport */
 	}
 
 	#sr-header-area a {
@@ -796,15 +795,9 @@
 		box-sizing : border-box !important;
 	}
 
-
-
-
-
-
 	.res-commentQuickCollapse-toggleCommentsOnClickLeftEdge .comment .midcol {
 		margin-left: 1em !important;
 	}
-
 
 	.res-commentBoxes.res-commentBoxes when (@ColoredCommentsLevel =1) {
 
@@ -1023,7 +1016,7 @@
 	}
 
 
-	/* ANCHOR inbox */
+	/* ANCHOR [INBOX] */
 	.message {
 		.post-style();
 	}

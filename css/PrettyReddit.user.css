@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.36
+@version        1.1.37
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -14,21 +14,17 @@
 @preprocessor 	less
 ==/UserStyle== */
 
-
-
-
-
 @-moz-document domain("old.reddit.com") {
-
 	/*ANCHOR [VARIABLES]*/
 
 	@backdropBlur      : blur(10px);
 	@borderRadius      : 12px;
-	@expandoButton     : url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22grey%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
-	@expandoButtonClose: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22red%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
-	@boxShadow         : 0 4px 8px rgba(0, 0, 0, .1);
-	@creamColor			: #d0b575;
-	@creamColorMuted	: #4f4733;
+	@expandoButton     : url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22grey%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E") !important;
+	@expandoButtonClose: url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22red%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E") !important;
+	@boxShadow         : 0 4px 8px rgba(0, 0, 0, 0.1);
+	@creamColor        : #d0b575;
+	@creamColorMuted   : #4f4733;
+	@defaultLinkColor  : #8cb3d9;
 
 	/*colors for progressively nested comments */
 	@comments-colors: rgba(181, 204, 24, 0.5),
@@ -71,7 +67,6 @@
 	// Yellow-orange
 	rgba(242, 170, 28, 0.5);
 
-
 	/*ANCHOR [MIXINS]*/
 	/* Comments mixin */
 	.comment-styles {
@@ -105,7 +100,6 @@
 			transform: scale(1.05);
 			.hover-effect(5px);
 		}
-
 	}
 
 	.post-style() {
@@ -126,17 +120,22 @@
 		transition      : background-color 0.3s ease-in-out;
 	}
 
+	;
+
 	@backdrop-transparent: {
 		background-color: rgba(48, 51, 50, 0) !important;
 		backdrop-filter : @backdropBlur;
 		border-radius   : @borderRadius;
 		transition      : background-color 0.3s ease-in-out;
-
 	}
+
+	;
 
 	@shadow-border: {
 		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
+
+	;
 
 	@flairs: {
 		background-color: transparent !important;
@@ -146,6 +145,7 @@
 		margin-left     : 4px !important;
 	}
 
+	;
 
 	/*ANCHOR [HIDE]*/
 	/*{OPTION} hide pseudo*/
@@ -162,8 +162,6 @@
 	.footer-parent {
 		display: if((@hideFooter=1), none, "") !important;
 	}
-
-
 
 	/* hide res shortcut ugly thingy */
 	#RESShortcutsEditContainer {
@@ -469,7 +467,6 @@
 		margin-bottom: 4px;
 	}
 
-
 	/*Text post container*/
 	/*ANCHOR [BUTTONS] */
 	/* all */
@@ -479,7 +476,7 @@
 
 		&.save,
 		&.edit-btn {
-			margin-left: 5px
+			margin-left: 5px;
 		}
 	}
 
@@ -497,7 +494,6 @@
 			transform       : rotate(45deg);
 			content         : "" !important;
 		}
-
 	}
 
 	/* Posts Expandos */
@@ -543,7 +539,7 @@
 
 	/* spoiler & nsfw overlay */
 	.expando-button::before {
-		border-radius: 50%
+		border-radius: 50%;
 	}
 
 	/*ANCHOR [INPUTS] */
@@ -652,144 +648,150 @@
 	.side tbody {
 		border: 0px !important;
 	}
-	
+
 	.morelink {
-   	box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
-    border: none;
-    background-color: #555;
-    color: white !important;
-    cursor: pointer;
-    max-width: 200px;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		box-shadow      : 0 0 1px rgba(255, 255, 255, 0.3);
+		border          : none;
+		background-color: #555;
+		color           : white !important;
+		cursor          : pointer;
+		max-width       : 200px;
+		transition      : transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 	}
 
 	.morelink:hover {
-	color: white !important;
-    transform: scale(1.05);
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
+		color     : white !important;
+		transform : scale(1.05);
+		box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
 	}
-	
+
 	.res-nightmode .side * {
 		color: white !important;
+
+		a {
+			color: @defaultLinkColor  !important;
+		}
 	}
-	
+
 	/*ANCHOR [SUBMIT A NEW LINK]*/
-	
-	
-	.res-nightmode .content .roundfield, .res-nightmode .content.submit .roundfield, .res-nightmode .traffic-table tr:nth-of-type(2n){
+
+	.res-nightmode .content .roundfield,
+	.res-nightmode .content.submit .roundfield,
+	.res-nightmode .traffic-table tr:nth-of-type(2n) {
 		background: none !important;
 	}
-	
+
 	#sr-drop-down,
-	#newlink-with-image-upload .image-upload-drop-target{
+	#newlink-with-image-upload .image-upload-drop-target {
 		@backdrop();
 	}
-	
-	.infobar, {
+
+	.infobar {
 		@backdrop-transparent();
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
-		
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
-	
+
 	div[id="link-desc"],
 	div[id="text-desc"],
-	.infobar{
-		border:none !important;
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+	.infobar {
+		border    : none !important;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
-	
+
 	/*ANCHOR [ADD BUTTON STYLING + RES NOTIFS]*/
-	
+
 	input[id="newShortcut"],
 	input[id="displayName"],
 	input[name="submit"] {
-		margin-top:5px;
-		border:none !important;
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
-	}
-	
-	input[name="submit"]:hover{
-		transform: scale(1.05);
-    	box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
-	}
-	.formtabs-content{
-		border:none;
+		margin-top: 5px;
+		border    : none !important;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
 
-	.sr-name-row.sr-selected{
+	input[name="submit"]:hover {
+		transform : scale(1.05);
+		box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
+	}
+
+	.formtabs-content {
+		border: none;
+	}
+
+	.sr-name-row.sr-selected {
 		.hover-effect();
 		background: none;
 	}
-	
-	.content.submit .info-notice{
-		border:none !important;
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+
+	.content.submit .info-notice {
+		border    : none !important;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
-	
+
 	.res-nightmode .subreddit .usertext .md {
-		border:none;
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+		border    : none;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 		@backdrop();
 	}
-	
-	.res-nightmode .RESNotification{
-		border:none;
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+
+	.res-nightmode .RESNotification {
+		border    : none;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 		@backdrop();
-		}
-	
-	.RESNotificationHeader{
+	}
+
+	.RESNotificationHeader {
 		background: none !important;
 	}
-	.res-nightmode #RESSubredditGroupDropdown a, .res-nightmode .RESNotificationContent, .res-nightmode .RESNotificationFooter, .res-nightmode .sr-bar a{
-		color: white !important;
-		border:none;
+
+	.res-nightmode #RESSubredditGroupDropdown a,
+	.res-nightmode .RESNotificationContent,
+	.res-nightmode .RESNotificationFooter,
+	.res-nightmode .sr-bar a {
+		color : white !important;
+		border: none;
 	}
-	.RESNotificationHeader{
+
+	.RESNotificationHeader {
 		background: none;
 	}
-	
-	
-	.RESNotificationHeader{
-	background: none;
+
+	.RESNotificationHeader {
+		background: none;
 	}
-	
-	/*join leave in subreddit page res thingy */ 
-	
+
+	/*join leave in subreddit page res thingy */
+
 	.multi-selector.hover-bubble.anchor-right,
 	.searchpane.raisedbox {
 		@backdrop();
-		border:none;
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+		border    : none;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
-	
-	
+
 	div[id="RESShortcutsAddFormContainer"],
 	.RESNotifications {
-    z-index: 999999 !important;
-    background-color: rgba(48, 51, 50, 0.38) !important;
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    transition: background-color 0.3s ease-in-out;
+		z-index         : 999999 !important;
+		background-color: rgba(48, 51, 50, 0.38) !important;
+		backdrop-filter : blur(10px);
+		border-radius   : 12px;
+		transition      : background-color 0.3s ease-in-out;
 	}
-	
+
 	#res-trash-overlay {
-    position: fixed;
-    @backdrop();
-    z-index: 999;
-    transition: opacity 0.2s;
-    inset: 20px 0px 0px;
-	}
-	
-	#res-shortcut-trash{
-		 @backdrop();
-		 color: white;
-		 border: none;
-		 box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+		position: fixed;
+		@backdrop();
+		z-index   : 999;
+		transition: opacity 0.2s;
+		inset     : 20px 0px 0px;
 	}
 
+	#res-shortcut-trash {
+		@backdrop();
+		color     : white;
+		border    : none;
+		box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+	}
 
-	
 	/* TODO doesn't do anything yet */
 	.JS_TriggerZone {
 		.hover-effect();
@@ -807,7 +809,6 @@
 	li>span.flairrichtext.flaircolorlight.flair {
 		@flairs();
 	}
-
 
 	/* title flairs */
 	p.title>a.title+span.flairrichtext {
@@ -939,7 +940,6 @@
 	}
 
 	.res-commentBoxes.res-commentBoxes when (@ColoredCommentsLevel =1) {
-
 		.thing.comment {
 			.setBorder(@level: 1) when (@level <=length(@comments-colors)) {
 				border-color: extract(@comments-colors, @level) !important;
@@ -953,7 +953,6 @@
 		}
 	}
 
-
 	/*ANCHOR [MENUS] */
 
 	/* RES gear menus backdrop */
@@ -962,7 +961,7 @@
 	.RESDashboardComponent {
 		@backdrop();
 		border    : 0px !important;
-		box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index   : 1000;
 		background: transparent;
 		padding   : 2px !important;
@@ -1021,17 +1020,18 @@
 		@backdrop();
 		border       : none !important;
 		border-radius: 12px !important;
-		transition   : background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-		padding      : 4px;
+		transition   : background-color 0.3s ease-in-out,
+			box-shadow 0.3s ease-in-out;
+		padding: 4px;
 	}
-
 
 	.res-fancy-toggle-button:hover,
 	.blueButton:hover,
 	.addButton:hover {
 		border: none;
 		.hover-effect();
-		transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		transition: background-color 0.3s ease-in-out,
+			box-shadow 0.3s ease-in-out;
 	}
 
 	/* Sort Menu if not hidden */
@@ -1069,8 +1069,6 @@
 		.hover-effect();
 	}
 
-
-
 	/*ANCHOR USER PAGE */
 	div.menuarea {
 		display: if((@hideVanillaSort=1), none, "") !important;
@@ -1097,13 +1095,13 @@
 
 				&:hover {
 					.hover-effect();
-					@backdrop()
+					@backdrop();
 				}
 			}
 
-			padding      :10px;
+			padding      : 10px;
 			margin-bottom: 0.5rem;
-			margin-top   :0.5rem;
+			margin-top   : 0.5rem;
 		}
 	}
 
@@ -1113,7 +1111,6 @@
 	}
 
 	/*ANCHOR SEARCH PAGE */
-
 
 	/* res subreddit results */
 	.res-search-subreddits {
@@ -1153,7 +1150,6 @@
 	div.search-expando.collapsed::before {
 		background: none !important;
 	}
-
 
 	/* ANCHOR [INBOX] */
 	.message {

@@ -74,6 +74,7 @@
 					"/"
 			  );
 
+	//clean up this abomination
 	const sortingOptions = isUserProfilePage
 		? [
 				{ text: "New", sort: "new" },

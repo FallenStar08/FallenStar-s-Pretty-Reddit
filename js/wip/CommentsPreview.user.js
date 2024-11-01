@@ -6,6 +6,7 @@
 // @match        https://old.reddit.com/*
 // @grant        GM_xmlhttpRequest
 // @require      https://code.jquery.com/jquery-3.6.0.min.js
+// @author       FallenStar
 // ==/UserScript==
 
 (function () {

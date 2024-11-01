@@ -267,7 +267,7 @@
 
 	/*Default link color */
 	a.subbarlink {
-		color: #8cb3d9 !important;
+		color: @defaultLinkColor  !important;
 	}
 
 	/* user area styling (the container for the user things) */
@@ -298,7 +298,7 @@
 	#srDropdown,
 	#RESStaticShortcuts {
 		background-color: #0000 !important;
-		color           : #8cb3d9 !important;
+		color           : @defaultLinkColor  !important;
 	}
 
 	/* Active sub glow*/

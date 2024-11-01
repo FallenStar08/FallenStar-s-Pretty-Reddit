@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.35
+@version        1.1.36
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -27,6 +27,8 @@
 	@expandoButton     : url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22grey%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
 	@expandoButtonClose: url('data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22red%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E') !important;
 	@boxShadow         : 0 4px 8px rgba(0, 0, 0, .1);
+	@creamColor			: #d0b575;
+	@creamColorMuted	: #4f4733;
 
 	/*colors for progressively nested comments */
 	@comments-colors: rgba(181, 204, 24, 0.5),
@@ -651,7 +653,144 @@
 	.side tbody {
 		border: 0px !important;
 	}
+	
+	.morelink {
+   	box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+    border: none;
+    background-color: #555;
+    color: white !important;
+    cursor: pointer;
+    max-width: 200px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+	}
 
+	.morelink:hover {
+	color: white !important;
+    transform: scale(1.05);
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
+	}
+	
+	.res-nightmode .side * {
+		color: white !important;
+	}
+	
+	/*ANCHOR [SUBMIT A NEW LINK]*/
+	
+	
+	.res-nightmode .content .roundfield, .res-nightmode .content.submit .roundfield, .res-nightmode .traffic-table tr:nth-of-type(2n){
+		background: none !important;
+	}
+	
+	#sr-drop-down,
+	#newlink-with-image-upload .image-upload-drop-target{
+		@backdrop();
+	}
+	
+	.infobar, {
+		@backdrop-transparent();
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+		
+	}
+	
+	div[id="link-desc"],
+	div[id="text-desc"],
+	.infobar{
+		border:none !important;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+	}
+	
+	/*ANCHOR [ADD BUTTON STYLING + RES NOTIFS]*/
+	
+	input[id="newShortcut"],
+	input[id="displayName"],
+	input[name="submit"] {
+		margin-top:5px;
+		border:none !important;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+	}
+	
+	input[name="submit"]:hover{
+		transform: scale(1.05);
+    	box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
+	}
+	.formtabs-content{
+		border:none;
+	}
+
+	.sr-name-row.sr-selected{
+		.hover-effect();
+		background: none;
+	}
+	
+	.content.submit .info-notice{
+		border:none !important;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+	}
+	
+	.res-nightmode .subreddit .usertext .md {
+		border:none;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+		@backdrop();
+	}
+	
+	.res-nightmode .RESNotification{
+		border:none;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+		@backdrop();
+		}
+	
+	.RESNotificationHeader{
+		background: none !important;
+	}
+	.res-nightmode #RESSubredditGroupDropdown a, .res-nightmode .RESNotificationContent, .res-nightmode .RESNotificationFooter, .res-nightmode .sr-bar a{
+		color: white !important;
+		border:none;
+	}
+	.RESNotificationHeader{
+		background: none;
+	}
+	
+	
+	.RESNotificationHeader{
+	background: none;
+	}
+	
+	/*join leave in subreddit page res thingy */ 
+	
+	.multi-selector.hover-bubble.anchor-right,
+	.searchpane.raisedbox {
+		@backdrop();
+		border:none;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3); 
+	}
+	
+	
+	div[id="RESShortcutsAddFormContainer"],
+	.RESNotifications {
+    z-index: 999999 !important;
+    background-color: rgba(48, 51, 50, 0.38) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    transition: background-color 0.3s ease-in-out;
+	}
+	
+	#res-trash-overlay {
+    position: fixed;
+    @backdrop();
+    z-index: 999;
+    transition: opacity 0.2s;
+    inset: 20px 0px 0px;
+	}
+	
+	#res-shortcut-trash{
+		 @backdrop();
+		 color: white;
+		 border: none;
+		 box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); 
+	}
+
+
+	
 	/* TODO doesn't do anything yet */
 	.JS_TriggerZone {
 		.hover-effect();

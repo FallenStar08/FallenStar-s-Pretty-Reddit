@@ -747,7 +747,7 @@
 	.res-nightmode .RESNotificationContent,
 	.res-nightmode .RESNotificationFooter,
 	.res-nightmode .sr-bar a {
-		color : white !important;
+		color : @defaultLinkColor  !important;
 		border: none;
 	}
 

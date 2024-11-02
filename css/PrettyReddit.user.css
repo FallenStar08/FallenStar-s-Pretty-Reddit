@@ -189,6 +189,7 @@
 	div.create,
 	.author-tooltip,
 	li>a.noCtrlF,
+	.premium-banner-outer,
 	.subreddit-subscribe {
 		display: none !important;
 	}

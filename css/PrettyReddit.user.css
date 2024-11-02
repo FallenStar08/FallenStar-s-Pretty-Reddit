@@ -806,9 +806,11 @@
 	.flaircolorlight,
 	.res-flairSearch,
 	.res-nightmode .flairrichtext[style*="color"],
-	li>span.flairrichtext.flaircolorlight.flair {
+	li>span.flairrichtext.flaircolorlight.flair,
+	span.flairrichtext.flaircolorlight.flair {
 		@flairs();
 	}
+
 
 	/* title flairs */
 	p.title>a.title+span.flairrichtext {

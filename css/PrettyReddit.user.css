@@ -474,7 +474,7 @@
 	/* all */
 	button,
 	.edit-btn {
-		.button-style();
+		.button-style(@backdrop, @shadow-border);
 
 		&.save,
 		&.edit-btn {
@@ -485,7 +485,7 @@
 	/* user hover modal close button */
 	/* TODO make smaller?*/
 	.RESCloseButtonTopRight {
-		.button-style();
+		.button-style(@backdrop, @shadow-border);
 		background-color: transparent !important;
 		border-radius   : 50% !important;
 

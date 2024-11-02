@@ -652,19 +652,13 @@
 	}
 
 	.morelink {
-		box-shadow      : 0 0 1px rgba(255, 255, 255, 0.3);
-		border          : none;
-		background-color: #555;
-		color           : white !important;
-		cursor          : pointer;
-		max-width       : 200px;
-		transition      : transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+		.button-style(@backdrop-transparent, @shadow-border);
 	}
 
-	.morelink:hover {
-		color     : white !important;
-		transform : scale(1.05);
-		box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
+
+	div.sidebox.submit.submit-link {
+		align-content: center !important;
+		max-width    : 230px !important;
 	}
 
 	.res-nightmode .side * {
@@ -713,7 +707,7 @@
 		box-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 	}
 
-	/*ANCHOR [ADD BUTTON STYLING + RES NOTIFS]*/
+	/*ANCHOR [RES ADD SUBREDDIT BUTTON STYLING & NOTIFS]*/
 
 	input[id="newShortcut"],
 	input[id="displayName"],

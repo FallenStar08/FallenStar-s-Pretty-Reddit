@@ -839,6 +839,16 @@
 	}
 
 	/*ANCHOR [COMMENTS] */
+
+	/* Post content */
+	div.entry>div>form>div.usertext-body>div.md {
+		@shadow-border();
+		border     : none !important;
+		margin-left: 4px !important;
+	}
+
+
+
 	/* archived/locked etc info bar */
 	.reddit-infobar {
 		@backdrop();

@@ -15,8 +15,11 @@
 ==/UserStyle== */
 
 @-moz-document domain("old.reddit.com") {
-	/*ANCHOR [VARIABLES]*/
 
+	/*ANCHOR [VARIABLES]*/
+	@nill: {}
+
+	;
 	@backdropBlur      : blur(10px);
 	@borderRadius      : 12px;
 	@expandoButton     : url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22grey%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E") !important;
@@ -28,44 +31,44 @@
 
 	/*colors for progressively nested comments */
 	@comments-colors: rgba(181, 204, 24, 0.5),
-	// Yellow-green
-	rgba(142, 198, 34, 0.5),
-	// Greenish-yellow
-	rgba(98, 186, 50, 0.5),
-	// Light green
-	rgba(33, 186, 69, 0.5),
-	// Green
-	rgba(0, 181, 101, 0.5),
-	// Emerald green
-	rgba(0, 168, 145, 0.5),
-	// Teal
-	rgba(0, 153, 173, 0.5),
-	// Cyan
-	rgba(0, 133, 188, 0.5),
-	// Light blue
-	rgba(33, 113, 198, 0.5),
-	// Blue
-	rgba(51, 85, 190, 0.5),
-	// Indigo blue
-	rgba(76, 53, 173, 0.5),
-	// Indigo
-	rgba(112, 45, 161, 0.5),
-	// Violet
-	rgba(144, 40, 149, 0.5),
-	// Purple
-	rgba(173, 35, 129, 0.5),
-	// Magenta
-	rgba(186, 51, 97, 0.5),
-	// Pinkish-red
-	rgba(196, 66, 66, 0.5),
-	// Red
-	rgba(208, 90, 56, 0.5),
-	// Orange-red
-	rgba(227, 115, 48, 0.5),
-	// Orange
-	rgba(235, 142, 33, 0.5),
-	// Yellow-orange
-	rgba(242, 170, 28, 0.5);
+		// Yellow-green
+		rgba(142, 198, 34, 0.5),
+		// Greenish-yellow
+		rgba(98, 186, 50, 0.5),
+		// Light green
+		rgba(33, 186, 69, 0.5),
+		// Green
+		rgba(0, 181, 101, 0.5),
+		// Emerald green
+		rgba(0, 168, 145, 0.5),
+		// Teal
+		rgba(0, 153, 173, 0.5),
+		// Cyan
+		rgba(0, 133, 188, 0.5),
+		// Light blue
+		rgba(33, 113, 198, 0.5),
+		// Blue
+		rgba(51, 85, 190, 0.5),
+		// Indigo blue
+		rgba(76, 53, 173, 0.5),
+		// Indigo
+		rgba(112, 45, 161, 0.5),
+		// Violet
+		rgba(144, 40, 149, 0.5),
+		// Purple
+		rgba(173, 35, 129, 0.5),
+		// Magenta
+		rgba(186, 51, 97, 0.5),
+		// Pinkish-red
+		rgba(196, 66, 66, 0.5),
+		// Red
+		rgba(208, 90, 56, 0.5),
+		// Orange-red
+		rgba(227, 115, 48, 0.5),
+		// Orange
+		rgba(235, 142, 33, 0.5),
+		// Yellow-orange
+		rgba(242, 170, 28, 0.5);
 
 	/*ANCHOR [MIXINS]*/
 	/* Comments mixin */
@@ -87,14 +90,12 @@
 		box-shadow: 0 0 @size rgba(255, 255, 255, 0.3) !important;
 	}
 
-	.button-style() {
-		@backdrop();
-		@shadow-border();
-		border                    : 0px !important;
-		margin                    : 0px 0px 0px 0px;
-		padding                   : 0.3rem;
-		white-space               : nowrap !important;
-		-webkit-overflow-scrolling: touch !important;
+	.button-style(@backdrop-set: @backdrop; @border-set: @nill) {
+		@backdrop-set();
+		@border-set();
+		border : 0px !important;
+		margin : 0px;
+		padding: 0.3rem;
 
 		&:hover {
 			transform: scale(1.05);
@@ -672,6 +673,19 @@
 			color: @defaultLinkColor  !important;
 		}
 	}
+
+	/* weird border */
+	div.bottom {
+		border: 0px !important;
+	}
+
+	/* message the mods button */
+
+	a.c-btn {
+		.button-style(@backdrop-transparent, @shadow-border)
+	}
+
+
 
 	/*ANCHOR [SUBMIT A NEW LINK]*/
 

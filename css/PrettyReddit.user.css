@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.40
+@version        1.1.41
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -149,16 +149,19 @@
 	;
 
 	/*ANCHOR [HIDE]*/
+
 	/*{OPTION} hide pseudo*/
 
 	.user>a {
 		display: if((@hideUsername=1), none, "");
 	}
 
+	/*{OPTION} hide sort*/
 	div.commentarea>div.menuarea {
 		display: if((@hideVanillaSort=1), none, "") !important;
 	}
 
+	/*{OPTION} hide footer*/
 	.footer,
 	.footer-parent {
 		display: if((@hideFooter=1), none, "") !important;
@@ -190,7 +193,8 @@
 	.author-tooltip,
 	li>a.noCtrlF,
 	.premium-banner-outer,
-	.subreddit-subscribe {
+	.subreddit-subscribe,
+	.debuginfo {
 		display: none !important;
 	}
 
@@ -235,13 +239,9 @@
 		background: linear-gradient(109.6deg,
 				@gradcolor1 13.4%,
 				@gradcolor2 100.2%);
-		background-size: cover;
-
-		/* Ensures it covers the whole page */
+		background-size      : cover;
 		background-attachment: fixed;
-		/* Keeps the gradient in place */
 		background-repeat    : no-repeat;
-		/* Prevents visible seams from repeating */
 	}
 
 	/*background noise*/

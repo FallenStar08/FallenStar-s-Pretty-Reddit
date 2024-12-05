@@ -5,7 +5,7 @@
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
-// @version     2.5.1
+// @version     3.0.0
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -87,25 +87,9 @@
 					: { text: "Hot", sort: "hot" },
 				{ text: "New", sort: "new" },
 				isCommentPage ? { text: "Old", sort: "old" } : {},
-				isSubredditTopPage ? {} : { text: "Top", sort: "top" },
 				isSubredditTopPage
-					? { text: "Top - H", sort: "top/?sort=top&t=hour" }
-					: {},
-				isSubredditTopPage
-					? { text: "Top - D", sort: "top/?sort=top&t=day" }
-					: {},
-				isSubredditTopPage
-					? { text: "Top - W", sort: "top/?sort=top&t=week" }
-					: {},
-				isSubredditTopPage
-					? { text: "Top - M", sort: "top/?sort=top&t=month" }
-					: {},
-				isSubredditTopPage
-					? { text: "Top - Y", sort: "top/?sort=top&t=year" }
-					: {},
-				isSubredditTopPage
-					? { text: "Top - A", sort: "top/?sort=top&t=all" }
-					: {},
+					? { text: "Top", sort: "top" }
+					: { text: "Top", sort: "top" },
 				{ text: "Contro", sort: "controversial" },
 				isCommentPage
 					? { text: "Q&A", sort: "qa" }
@@ -151,6 +135,7 @@
 				: `${baseUrl}${option.sort}`;
 		anchor.href = sortUrl;
 		anchor.textContent = option.text;
+		anchor.setAttribute("data-option", option.text);
 		Object.assign(anchor.style, {
 			display: "block",
 			color: "#fff",
@@ -176,7 +161,7 @@
 
 		panel.appendChild(anchor);
 	});
-
+	//SECTION DRAG & DROP
 	// Drag and drop functionality, now with boundary checks!
 	let isDragging = false;
 	let offset = { x: 0, y: 0 };
@@ -267,6 +252,122 @@
 	});
 
 	document.body.appendChild(panel);
+	//SECTION TOP DROPDOWN
+	if (isSubredditTopPage || isUserProfilePage) {
+		const topDropdown = document.createElement("div");
+		topDropdown.style.display = "none";
+		topDropdown.style.position = "absolute";
+		topDropdown.style.top = "0";
+		topDropdown.style.left = "100%";
+		topDropdown.style.backgroundColor = "rgba(48, 51, 50, .38)";
+		topDropdown.style.backdropFilter = "blur(10px)";
+		topDropdown.style.borderRadius = "12px";
+		topDropdown.style.padding = "10px";
+		topDropdown.style.boxShadow = "0 0 1px rgba(255, 255, 255, 0.3)";
+		topDropdown.style.zIndex = "9999";
+		topDropdown.style.color = "#fff";
+		topDropdown.style.maxWidth = "15vw";
+
+		const topOption = sortingOptions.find(
+			(option) => option.text === "Top"
+		);
+		if (topOption) {
+			const topElement = document.querySelector(`[data-option="Top"]`);
+			if (topElement) {
+				const topAnchor = topElement;
+				topAnchor.href = `${baseUrl}${topOption.sort}`;
+				topAnchor.textContent = topOption.text;
+				Object.assign(topAnchor.style, {
+					display: "block",
+					color: "#fff",
+					textDecoration: "none",
+					fontSize: "12px",
+					padding: "5px",
+					borderRadius: "3px",
+					transition: "all 0.3s ease",
+					width: "50px",
+					overflow: "hidden",
+					whiteSpace: "nowrap",
+					textOverflow: "ellipsis",
+				});
+
+				topAnchor.addEventListener("click", (e) => {
+					e.preventDefault();
+					topDropdown.style.display =
+						topDropdown.style.display === "none" ? "block" : "none";
+				});
+
+				//Close if click outside
+				document.addEventListener("click", (e) => {
+					const isClickInside =
+						topAnchor.contains(e.target) ||
+						topDropdown.contains(e.target);
+					if (!isClickInside) {
+						topDropdown.style.display = "none";
+					}
+				});
+				panel.appendChild(topAnchor);
+				panel.appendChild(topDropdown);
+
+				const topSubOptions =
+					isSubredditTopPage || isUserProfilePage
+						? [
+								{
+									text: "Top - H",
+									sort: "top/?sort=top&t=hour",
+								},
+								{
+									text: "Top - D",
+									sort: "top/?sort=top&t=day",
+								},
+
+								{
+									text: "Top - W",
+									sort: "top/?sort=top&t=week",
+								},
+
+								{
+									text: "Top - M",
+									sort: "top/?sort=top&t=month",
+								},
+
+								{
+									text: "Top - Y",
+									sort: "top/?sort=top&t=year",
+								},
+
+								{
+									text: "Top - A",
+									sort: "top/?sort=top&t=all",
+								},
+						  ]
+						: [{}].filter(
+								(option) => Object.keys(option).length > 0
+						  );
+
+				topSubOptions.forEach((option) => {
+					const subAnchor = document.createElement("a");
+					subAnchor.href = `${baseUrl}${option.sort}`;
+					subAnchor.textContent = option.text;
+					Object.assign(subAnchor.style, {
+						display: "block",
+						color: "#fff",
+						textDecoration: "none",
+						fontSize: "12px",
+						padding: "5px",
+						borderRadius: "3px",
+						transition: "all 0.3s ease",
+						width: "50px",
+						overflow: "hidden",
+						whiteSpace: "nowrap",
+						textOverflow: "ellipsis",
+					});
+
+					topDropdown.appendChild(subAnchor);
+				});
+			}
+		}
+	}
 
 	async function checkSubredditExists(subreddit) {
 		const url = `https://old.reddit.com/r/${subreddit}/about.json`;

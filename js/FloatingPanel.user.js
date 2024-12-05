@@ -5,7 +5,7 @@
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
-// @version     2.5.0
+// @version     2.5.1
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -102,6 +102,9 @@
 					: {},
 				isSubredditTopPage
 					? { text: "Top - Y", sort: "top/?sort=top&t=year" }
+					: {},
+				isSubredditTopPage
+					? { text: "Top - A", sort: "top/?sort=top&t=all" }
 					: {},
 				{ text: "Contro", sort: "controversial" },
 				isCommentPage

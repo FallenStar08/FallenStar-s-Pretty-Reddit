@@ -5,11 +5,12 @@
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
-// @version     3.0.0
+// @grant        GM_xmlhttpRequest
+// @version     3.1.0
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
-// @description Adds sorting options as a floating panel on Reddit with hover sliding effect, hidden overflow, drag-and-drop functionality
+// @description Adds sorting options as a floating panel on Reddit, drag-and-drop functionality, list all searchable flairs & more
 // ==/UserScript==
 
 (function () {
@@ -161,7 +162,114 @@
 
 		panel.appendChild(anchor);
 	});
-	//SECTION DRAG & DROP
+
+	//Flair menu
+	const subreddit = window.location.pathname.split("/")[2];
+	if (subreddit) {
+		const flairDropdown = document.createElement("div");
+		flairDropdown.style.display = "none";
+		flairDropdown.style.position = "absolute";
+		flairDropdown.style.top = "0";
+		flairDropdown.style.left = "100%";
+		flairDropdown.style.backgroundColor = "rgba(48, 51, 50, .38)";
+		flairDropdown.style.backdropFilter = "blur(10px)";
+		flairDropdown.style.borderRadius = "12px";
+		flairDropdown.style.padding = "10px";
+		flairDropdown.style.boxShadow = "0 0 1px rgba(255, 255, 255, 0.3)";
+		flairDropdown.style.zIndex = "9999";
+		flairDropdown.style.color = "#fff";
+		flairDropdown.style.maxWidth = "15vw";
+		flairDropdown.style.overflow = "auto";
+		flairDropdown.style.maxHeight = "200px";
+
+		const flairAnchor = document.createElement("a");
+		flairAnchor.href = "#";
+		flairAnchor.textContent = "Flairs >";
+		Object.assign(flairAnchor.style, {
+			display: "block",
+			color: "#fff",
+			textDecoration: "none",
+			fontSize: "12px",
+			padding: "5px",
+			borderRadius: "3px",
+			transition: "all 0.3s ease",
+			width: "50px",
+			overflow: "hidden",
+			whiteSpace: "nowrap",
+			textOverflow: "ellipsis",
+		});
+
+		flairAnchor.addEventListener("click", (e) => {
+			e.preventDefault();
+			flairDropdown.style.display =
+				flairDropdown.style.display === "none" ? "block" : "none";
+		});
+
+		flairAnchor.addEventListener("mouseover", () => {
+			flairAnchor.style.transform = "translateX(10px)";
+		});
+
+		flairAnchor.addEventListener("mouseout", () => {
+			flairAnchor.style.backgroundColor = "transparent";
+			flairAnchor.style.transform = "translateX(0)";
+		});
+
+		document.addEventListener("click", (e) => {
+			if (
+				!flairAnchor.contains(e.target) &&
+				!flairDropdown.contains(e.target)
+			) {
+				flairDropdown.style.display = "none";
+			}
+		});
+		panel.appendChild(flairAnchor);
+		panel.appendChild(flairDropdown);
+
+		// Fetch flairs from reddit api
+		const apiUrl = `https://old.reddit.com/r/${subreddit}/api/link_flair.json`;
+
+		GM_xmlhttpRequest({
+			method: "GET",
+			url: apiUrl,
+			onload: function (response) {
+				try {
+					const flairs = JSON.parse(response.responseText);
+					if (!flairs || flairs.length === 0) {
+						flairDropdown.innerHTML = "<p>No flairs found.</p>";
+						return;
+					}
+
+					flairs.forEach((flair) => {
+						const flairAnchor = document.createElement("a");
+						const encodedFlair = encodeURIComponent(
+							flair.text.replace(/\s+/g, "+")
+						);
+						flairAnchor.href = `https://old.reddit.com/r/${subreddit}/search?q=flair%3A${encodedFlair}`;
+						//flairAnchor.target = "_blank"; // to open in new tab, maybe an option
+						flairAnchor.textContent = flair.text;
+
+						Object.assign(flairAnchor.style, {
+							display: "block",
+							color: "#fff",
+							textDecoration: "none",
+							fontSize: "auto",
+							padding: "5px",
+							borderRadius: "3px",
+							transition: "all 0.3s ease",
+							width: "50px",
+							cursor: "pointer",
+						});
+
+						flairDropdown.appendChild(flairAnchor);
+					});
+				} catch (error) {
+					flairDropdown.innerHTML = "<p>Error loading flairs.</p>";
+					console.error("Flair Fetch Error:", error);
+				}
+			},
+		});
+	}
+
 	// Drag and drop functionality, now with boundary checks!
 	let isDragging = false;
 	let offset = { x: 0, y: 0 };
@@ -252,7 +360,7 @@
 	});
 
 	document.body.appendChild(panel);
-	//SECTION TOP DROPDOWN
+
 	if (isSubredditTopPage || isUserProfilePage) {
 		const topDropdown = document.createElement("div");
 		topDropdown.style.display = "none";
@@ -297,7 +405,7 @@
 						topDropdown.style.display === "none" ? "block" : "none";
 				});
 
-				//Close if click outside
+				// Close the dropdown if clicking outside
 				document.addEventListener("click", (e) => {
 					const isClickInside =
 						topAnchor.contains(e.target) ||

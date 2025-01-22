@@ -6,7 +6,7 @@
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
 // @grant       GM_xmlhttpRequest
-// @version     3.1.0
+// @version     3.1.1
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
@@ -163,7 +163,7 @@
 		panel.appendChild(anchor);
 	});
 
-	//Flair menu
+	//SECTION Flair Menu
 	const subreddit = window.location.pathname.split("/")[2];
 	if (subreddit) {
 		const flairDropdown = document.createElement("div");
@@ -225,7 +225,7 @@
 		panel.appendChild(flairAnchor);
 		panel.appendChild(flairDropdown);
 
-		// Fetch flairs from reddit api
+		//SECTION Flairs API
 		const apiUrl = `https://old.reddit.com/r/${subreddit}/api/link_flair.json`;
 
 		GM_xmlhttpRequest({
@@ -263,6 +263,7 @@
 						flairDropdown.appendChild(flairAnchor);
 					});
 				} catch (error) {
+					flairAnchor.style.display = "none";
 					flairDropdown.innerHTML = "<p>Error loading flairs.</p>";
 					console.error("Flair Fetch Error:", error);
 				}
@@ -476,7 +477,7 @@
 			}
 		}
 	}
-
+	//SECTION Utils
 	async function checkSubredditExists(subreddit) {
 		const url = `https://old.reddit.com/r/${subreddit}/about.json`;
 		const response = await fetch(url, {

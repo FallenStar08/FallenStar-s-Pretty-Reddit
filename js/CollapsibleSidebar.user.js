@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Collapsible Sidebar
-// @version     2.0.2
+// @version     2.1.0
 // @description Collapse the sidebar until the mouse is near the edge, with smooth animation and a visible trigger zone
 // @match       https://old.reddit.com/*
 // @author      FallenStar
@@ -178,13 +178,24 @@
 			sidebar.style.pointerEvents = "auto";
 			triggerZone.style.display = "none";
 		} else if (rightEdgeDistance > 250) {
-			sidebar.style.opacity = "0";
-			sidebar.style.pointerEvents = "none";
-			triggerZone.style.display = "block";
+			hideSidebar();
 		}
 
 		updateTriggerZoneOpacity(rightEdgeDistance);
 	}
 
+	function hideSidebar() {
+		sidebar.style.opacity = "0";
+		sidebar.style.pointerEvents = "none";
+		triggerZone.style.display = "block";
+	}
+
+	function handleMouseOut(e) {
+		if (!e.relatedTarget) {
+			hideSidebar();
+		}
+	}
+
 	document.addEventListener("mousemove", handleMouseMove);
+	document.addEventListener("mouseout", handleMouseOut, true); // Detect when mouse leaves the window
 })();

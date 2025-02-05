@@ -1,13 +1,13 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.42
+@version        1.1.43
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
 @var checkbox	hideUsername "Hide Username" 0
 @var checkbox	hideVanillaSort "Hide Vanilla Sorting Menus" 0
-@var checkbox	hideFooter "Hide Footer" 0
+@var checkbox	hideFooter "Hide Footer" 1
 @var checkbox	ColoredCommentsLevel "Color comments by nesting level" 1
 @var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
 @var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)

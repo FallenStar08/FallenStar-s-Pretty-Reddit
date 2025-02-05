@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.41
+@version        1.1.42
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -162,9 +162,50 @@
 	}
 
 	/*{OPTION} hide footer*/
-	.footer,
-	.footer-parent {
-		display: if((@hideFooter=1), none, "") !important;
+    
+    .footer when (@hideFooter=1) {
+        color: transparent !important;
+        background: transparent !important;
+        border: none !important;
+    } 
+    
+    .footerparent when (@hideFooter=1) {
+        color: transparent !important;
+        background: transparent !important;
+    } 
+    
+    .flat-vert.title when (@hideFooter=1) {
+        color: transparent !important;
+        background: transparent !important;
+    } 
+    
+     .flat-vert.hover > li > .choice when (@hideFooter=1) {
+        color: transparent !important;
+        background: transparent !important;
+    } 
+    
+    .bottommenu when (@hideFooter=1) {
+        color: transparent !important;
+        background: transparent !important;
+    }
+    .bottommenu > a when (@hideFooter=1) {
+        color: transparent !important;
+        background: transparent !important;
+    }
+    
+    .footer > .col when (@hideFooter=1) {
+       border: none !important;
+    } 
+    
+    /* footer styling when visible*/
+
+	.footer when (@hideFooter=0) {
+		@backdrop();
+		border: 0px;
+	}
+
+	.res-nightmode .footer .col when (@hideFooter=0) {
+		border: 0px;
 	}
 
 	/* hide res shortcut ugly thingy */
@@ -1074,16 +1115,7 @@
 		border-radius: 12px !important;
 	}
 
-	/* footer */
 
-	.footer {
-		@backdrop();
-		border: 0px;
-	}
-
-	.res-nightmode .footer .col {
-		border: 0px;
-	}
 
 	/*ANCHOR [JS CREATED ELEMENTS] */
 	#floating-nav-panel:hover {

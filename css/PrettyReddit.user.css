@@ -162,42 +162,19 @@
 	}
 
 	/*{OPTION} hide footer*/
-    
-    .footer when (@hideFooter=1) {
-        color: transparent !important;
-        background: transparent !important;
-        border: none !important;
-    } 
-    
-    .footerparent when (@hideFooter=1) {
-        color: transparent !important;
-        background: transparent !important;
-    } 
-    
-    .flat-vert.title when (@hideFooter=1) {
-        color: transparent !important;
-        background: transparent !important;
-    } 
-    
-     .flat-vert.hover > li > .choice when (@hideFooter=1) {
-        color: transparent !important;
-        background: transparent !important;
-    } 
-    
-    .bottommenu when (@hideFooter=1) {
-        color: transparent !important;
-        background: transparent !important;
-    }
-    .bottommenu > a when (@hideFooter=1) {
-        color: transparent !important;
-        background: transparent !important;
-    }
-    
-    .footer > .col when (@hideFooter=1) {
-       border: none !important;
-    } 
-    
-    /* footer styling when visible*/
+	.footer,
+	.footerparent,
+	.flat-vert.title,
+	.flat-vert.hover>li>.choice,
+	.bottommenu,
+	.bottommenu>a,
+	.footer>.col {
+		color     : if((@hideFooter=1), transparent, inherit) !important;
+		background: if((@hideFooter=1), transparent, inherit) !important;
+		border    : if((@hideFooter=1), none, inherit) !important;
+	}
+
+	/* footer styling when visible*/
 
 	.footer when (@hideFooter=0) {
 		@backdrop();
@@ -696,7 +673,6 @@
 		.button-style(@backdrop-transparent, @shadow-border);
 	}
 
-
 	div.sidebox.submit.submit-link {
 		align-content: center !important;
 		max-width    : 230px !important;
@@ -720,8 +696,6 @@
 	a.c-btn {
 		.button-style(@backdrop-transparent, @shadow-border)
 	}
-
-
 
 	/*ANCHOR [SUBMIT A NEW LINK]*/
 
@@ -861,7 +835,6 @@
 		@flairs();
 	}
 
-
 	/* title flairs */
 	p.title>a.title+span.flairrichtext {
 		@flairs();
@@ -887,8 +860,6 @@
 		border     : none !important;
 		margin-left: 4px !important;
 	}
-
-
 
 	/* archived/locked etc info bar */
 	.reddit-infobar {
@@ -1114,8 +1085,6 @@
 		background   : transparent !important;
 		border-radius: 12px !important;
 	}
-
-
 
 	/*ANCHOR [JS CREATED ELEMENTS] */
 	#floating-nav-panel:hover {

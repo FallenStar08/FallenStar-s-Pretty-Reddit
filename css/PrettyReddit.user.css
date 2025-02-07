@@ -169,9 +169,10 @@
 	.bottommenu,
 	.bottommenu>a,
 	.footer>.col {
-		color     : if((@hideFooter=1), transparent, inherit) !important;
-		background: if((@hideFooter=1), transparent, inherit) !important;
-		border    : if((@hideFooter=1), none, inherit) !important;
+		color         : if((@hideFooter=1), transparent, inherit) !important;
+		background    : if((@hideFooter=1), transparent, inherit) !important;
+		border        : if((@hideFooter=1), none, inherit) !important;
+		pointer-events: none !important;
 	}
 
 	/* footer styling when visible*/

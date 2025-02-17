@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.44
+@version        1.1.45
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -162,17 +162,11 @@
 	}
 
 	/*{OPTION} hide footer*/
-	.footer,
-	.footerparent,
-	.flat-vert.title,
-	.flat-vert.hover>li>.choice,
-	.bottommenu,
-	.bottommenu>a,
-	.footer>.col {
-		color         : if((@hideFooter=1), transparent, inherit) !important;
-		background    : if((@hideFooter=1), transparent, inherit) !important;
-		border        : if((@hideFooter=1), none, inherit) !important;
+	.footer-parent * when (@hideFooter=1) {
 		pointer-events: none !important;
+		color         : transparent !important;
+		background    : transparent !important;
+		border        : none !important;
 	}
 
 	/* footer styling when visible*/

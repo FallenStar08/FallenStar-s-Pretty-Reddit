@@ -10,6 +10,7 @@
 @var checkbox	hideFooter "Hide Footer" 1
 @var checkbox	ColoredCommentsLevel "Color comments by nesting level" 1
 @var checkbox   enableGrain "Enable Grainy texture" 1
+@var checkbox 	enableBackgroundTransparency "Enable transparent background for supported browsers" 0
 @var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
 @var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
 @preprocessor 	less

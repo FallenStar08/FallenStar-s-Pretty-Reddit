@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.1.5
+@version        1.2.0
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -257,6 +257,11 @@
 		background-size      : cover;
 		background-attachment: fixed;
 		background-repeat    : no-repeat;
+	}
+
+	body,
+	#header {
+		background: if((@enableBackgroundTransparency=1), transparent, "") !important;
 	}
 
 	/*background noise*/
@@ -629,9 +634,10 @@
 
 	.redditname,
 	body.with-listing-chooser #header .pagename {
-		position   : relative;
-		bottom     : -10px;
-		margin-left: 0px;
+		position       : relative;
+		bottom         : -10px;
+		margin-left    : 0px;
+		backdrop-filter: none !important;
 	}
 
 	.pagename {

@@ -33,6 +33,7 @@
 	@upvoteColor       :#85ff00;
 	@downvoteColor     :#f00;
 	@transparentBlack  : #0000008c;
+	@softTransparency  : rgba(0, 0, 0, .1);
 	@navbarHeight      : 28px;
 
 	/*colors for progressively nested comments */
@@ -80,7 +81,7 @@
 	/* Comments mixin */
 	.comment-styles {
 		background-color: transparent !important;
-		border-radius   : 12px !important;
+		border-radius   : @borderRadius  !important;
 		backdrop-filter : none !important;
 	}
 
@@ -111,7 +112,7 @@
 
 	.post-style() {
 		@shadow-border();
-		background-color: @transparentBlack;
+		background-color: @softTransparency  !important;
 		padding         : 10px 15px;
 		margin-top      : 0px !important;
 		margin-bottom   : 0px !important;
@@ -123,7 +124,7 @@
 	@backdrop: {
 		background-color: rgba(48, 51, 50, 0.38) !important;
 		backdrop-filter : @backdropBlur;
-		border-radius   : @borderRadius;
+		border-radius   : @borderRadius  !important;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
@@ -132,7 +133,7 @@
 	@backdrop-transparent: {
 		background-color: rgba(48, 51, 50, 0) !important;
 		backdrop-filter : @backdropBlur;
-		border-radius   : @borderRadius;
+		border-radius   : @borderRadius  !important;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
@@ -417,26 +418,27 @@
 	#srList tr:hover {
 		.hover-effect();
 		background   : transparent !important;
-		border-radius: 12px !important;
+		border-radius: @borderRadius  !important;
 	}
 
 	/* search bar */
 	#sr-header-area {
-		background-color: @transparentBlack  !important;
-		padding         : 5px;
-		border          : 0px;
-		left            : 0;
-		right           : 0;
-		width           : 100%;
-		margin-left     : 0;
-		margin-right    : 1%;
-		box-shadow      : 0 4px 8px rgba(0, 0, 0, 0.1);
-		z-index         : 1000;
-		position        : fixed !important;
-		top             : 0px !important;
-		overflow-x      : auto !important;
-		overflow-y      : hidden !important;
-		white-space     : nowrap !important;
+		background-color          : @transparentBlack  !important;
+		padding                   : 5px;
+		border                    : 0px;
+		left                      : 0;
+		right                     : 0;
+		width                     : 100%;
+		margin-left               : 0;
+		margin-right              : 1%;
+		box-shadow                : 0 4px 8px rgba(0, 0, 0, 0.1);
+		z-index                   : 1000;
+		position                  : fixed !important;
+		top                       : 0px !important;
+		overflow-x                : auto !important;
+		overflow-y                : hidden !important;
+		scrollbar-width           : thin;
+		-webkit-overflow-scrolling: touch;
 	}
 
 	#sr-header-area a {
@@ -518,7 +520,8 @@
 	.content,
 	.res-nightmode .entry.res-selected,
 	.res-nightmode .entry.res-selected .md-container {
-		background: none !important;
+		background : none !important;
+		margin-left: 5px !important;
 	}
 
 	/* Hover effect with subtle glow */
@@ -647,18 +650,21 @@
 	.res-nightmode #BigEditor #BigText,
 	.res-nightmode #liveupdate-statusbar,
 	.res-nightmode #liveupdate-statusbar.complete,
-	.res-nightmode #alert_message input {
-		@backdrop();
+	.res-nightmode #alert_message input,
+	.commentarea>form {
+		background: @softTransparency  !important;
 		@shadow-border();
-		z-index    : 1000;
-		border     : 0px;
-		padding    : 10px;
-		margin-left: 5px;
+		z-index      : 1000;
+		border       : 0px;
+		padding      : 10px;
+		margin-left  : 0px !important;
+		margin-top   : 0px !important;
+		margin-bottom: 10px !important;
 	}
 
 	/* srlist navbar menu search */
 	#srList>div:nth-child(2)>input:nth-child(1) {
-		border-radius   : 0px;
+		border-radius   : @borderRadius  !important;
 		background-color: transparent !important;
 		border          : 0px !important;
 		color           : white !important;
@@ -859,7 +865,7 @@
 		z-index         : 999999 !important;
 		background-color: rgba(48, 51, 50, 0.38) !important;
 		backdrop-filter : blur(10px);
-		border-radius   : 12px;
+		border-radius   : @borderRadius  !important;
 		transition      : background-color 0.3s ease-in-out;
 	}
 
@@ -950,8 +956,8 @@
 	/* Base rule for the first level */
 	.res-commentBoxes .thing.comment,
 	.res-commentBoxes .res-nightmode .thing.comment {
-		@backdrop();
-		border-radius: 12px !important;
+		background   : @softTransparency  !important;
+		border-radius: @borderRadius  !important;
 		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
 	}
 
@@ -1054,12 +1060,14 @@
 	.RESHover.RESHoverDropdownList.RESDropdownList,
 	.RESDropdownList li:hover a,
 	.RESDashboardComponent {
-		@backdrop();
 		border    : 0px !important;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index   : 1000;
-		background: transparent;
+		background: @transparentBlack  !important;
 		padding   : 2px !important;
+		margin-top: 7px !important;
+		right     : 50px !important;
+
 	}
 
 	/* Ugly arrow poiting toward the username */
@@ -1084,11 +1092,7 @@
 	div[title^="Toggle"]:hover,
 	#SettingsConsole:hover,
 	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(3):hover,
-	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(4):hover {
-		.hover-effect();
-		background   : rgba(255, 0, 0, 0) !important;
-		border-radius: 12px !important;
-	}
+	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(4):hover {}
 
 	/* Ugly RES gear menu loupe icon */
 	.RESMenuItemButton {
@@ -1145,7 +1149,7 @@
 	a.choice:hover {
 		.hover-effect();
 		background   : transparent !important;
-		border-radius: 12px !important;
+		border-radius: @borderRadius  !important;
 	}
 
 	/*ANCHOR [JS CREATED ELEMENTS] */
@@ -1158,14 +1162,6 @@
 		display: if((@hideVanillaSort=1), none, "") !important;
 	}
 
-	.thing.comment {
-		@backdrop();
-		border-radius: 12px !important;
-		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
-		padding      : 5px;
-		margin-bottom: 5px;
-	}
-
 	.pagename:not(.redditname)+.tabmenu {
 		display: block !important;
 
@@ -1174,7 +1170,7 @@
 			&>a {
 				@backdrop();
 				border       : none !important;
-				border-radius: 12px !important;
+				border-radius: @borderRadius  !important;
 				padding      : 10px;
 
 				&:hover {

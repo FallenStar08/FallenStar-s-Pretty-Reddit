@@ -30,10 +30,10 @@
 	@creamColor        : #d0b575;
 	@creamColorMuted   : #4f4733;
 	@defaultLinkColor  : #8cb3d9;
-	@upvoteColor :#85ff00;
-	@downvoteColor :#f00 ;
-	@transparentBlack : #0000008c;
-	@navbarHeight: 28px;
+	@upvoteColor       :#85ff00;
+	@downvoteColor     :#f00;
+	@transparentBlack  : #0000008c;
+	@navbarHeight      : 28px;
 
 	/*colors for progressively nested comments */
 	@comments-colors: rgba(181, 204, 24, 0.5),
@@ -111,12 +111,10 @@
 
 	.post-style() {
 		@shadow-border();
-		background-color: rgba(48, 51, 50, 0.5) !important;
-		backdrop-filter : @backdropBlur;
+		background-color: @transparentBlack;
 		padding         : 10px 15px;
-		margin-top: 0px !important;
-		margin-bottom: 0px !important;
-		
+		margin-top      : 0px !important;
+		margin-bottom   : 0px !important;
 		border-radius   : 0px !important;
 		transition      : box-shadow 0.3s ease-in-out;
 	}
@@ -311,7 +309,7 @@
 		top             : 28px !important;
 		bottom          : auto !important;
 
-		display         : block !important;
+		display: block !important;
 	}
 
 	/* overwrite custom sub css for top bar items */
@@ -393,17 +391,17 @@
 
 	/*Sr list theming*/
 	#srList {
-		background-color: @transparentBlack !important;
-		position       : fixed !important;
-		left           : 0% !important;
-		top            : 28px !important;
-		box-shadow     : 0 4px 8px rgba(0, 0, 0, 0.1);
-		z-index        : 1000;
-		padding        : 5px !important;
-		max-height     : 33vh !important;
+		background-color: @transparentBlack  !important;
+		position        : fixed !important;
+		left            : 0% !important;
+		top             : 28px !important;
+		box-shadow      : 0 4px 8px rgba(0, 0, 0, 0.1);
+		z-index         : 1000;
+		padding         : 5px !important;
+		max-height      : 33vh !important;
 		/*Idk how to fix the scrollbar from going over the rounder corner so fuckit*/
-		scrollbar-color: #00000054 #fafafa00;
-		scrollbar-width: none;
+		scrollbar-color : #00000054 #fafafa00;
+		scrollbar-width : none;
 	}
 
 	/* fix missaligned header */
@@ -424,18 +422,21 @@
 
 	/* search bar */
 	#sr-header-area {
-		background-color: @transparentBlack !important;
-		padding     : 5px;
-		border      : 0px;
-		left        : 0;
-		right       : 0;
-		width       : 100%;
-		margin-left : 0;
-		margin-right: 1%;
-		box-shadow  : 0 4px 8px rgba(0, 0, 0, 0.1);
-		z-index     : 1000;
-		position    : fixed !important;
-		top         : 0px !important;
+		background-color: @transparentBlack  !important;
+		padding         : 5px;
+		border          : 0px;
+		left            : 0;
+		right           : 0;
+		width           : 100%;
+		margin-left     : 0;
+		margin-right    : 1%;
+		box-shadow      : 0 4px 8px rgba(0, 0, 0, 0.1);
+		z-index         : 1000;
+		position        : fixed !important;
+		top             : 0px !important;
+		overflow-x      : auto !important;
+		overflow-y      : hidden !important;
+		white-space     : nowrap !important;
 	}
 
 	#sr-header-area a {
@@ -450,47 +451,62 @@
 	}
 
 	/*ANCHOR [POSTS]*/
-	
-	.rank {
-		color:#afafaf !important;
-	}
-	.score{
-		&.unvoted{}
-		&.dislikes{color:@downvoteColor !important; }
-		&.likes{color: @upvoteColor !important; }
-	}
-	.likes>.arrow[data-event-action="upvote"]{filter: saturate(3000%) brightness(100%) hue-rotate(100deg) }
 
-	.dislikes>.arrow[data-event-action="downvote"]{filter: saturate(500%) brightness(70%) hue-rotate(150deg)}
-	
+	.rank {
+		color: #afafaf !important;
+	}
+
+	.score {
+		&.unvoted {}
+
+		&.dislikes {
+			color: @downvoteColor  !important;
+		}
+
+		&.likes {
+			color: @upvoteColor  !important;
+		}
+	}
+
+	.likes>.arrow[data-event-action="upvote"] {
+		filter: saturate(3000%) brightness(100%) hue-rotate(100deg)
+	}
+
+	.dislikes>.arrow[data-event-action="downvote"] {
+		filter: saturate(500%) brightness(70%) hue-rotate(150deg)
+	}
+
 	.link {
 		.post-style();
+
 		&:has(.midcol.likes)::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 50px 50px 0;
-  border-color: transparent @upvoteColor transparent transparent;
-}
+			content     : '';
+			position    : absolute;
+			top         : 0;
+			right       : 0;
+			width       : 0;
+			height      : 0;
+			border-style: solid;
+			border-width: 0 50px 50px 0;
+			border-color: transparent @upvoteColor transparent transparent;
+		}
+
 		&:has(.midcol.dislikes) {
-			opacity:50% !important;
-			&::before{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 0 50px 50px;
-				border-color: transparent transparent @downvoteColor transparent;}
-}
+			opacity: 50% !important;
+
+			&::before {
+				content     : '';
+				position    : absolute;
+				bottom      : 0;
+				right       : 0;
+				width       : 0;
+				height      : 0;
+				border-style: solid;
+				border-width: 0 0 50px 50px;
+				border-color: transparent transparent @downvoteColor transparent;
+			}
+		}
 	}
-	
 
 	/* Posts entries */
 	.res-nightmode .entry.res-selected:has(div.top-matter) {
@@ -1223,7 +1239,5 @@
 	.message {
 		.post-style();
 	}
-	
-	
 
 }

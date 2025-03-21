@@ -111,13 +111,21 @@
 	}
 
 	.post-style() {
-		@shadow-border();
+		border          : 1px !important;
+		border-color    : black !important;
 		background-color: @softTransparency  !important;
 		padding         : 10px 15px;
 		margin-top      : 0px !important;
 		margin-bottom   : 0px !important;
 		border-radius   : 0px !important;
 		transition      : box-shadow 0.3s ease-in-out;
+	}
+
+	.posts-black-borders() {
+		border-top  : 1px solid !important;
+		border-left : 1px solid !important;
+		border-right: 1px solid !important;
+		border-color: black !important;
 	}
 
 	/*ANCHOR [DETACHED RULESETS] (could be mixins but I like the @) */
@@ -479,18 +487,24 @@
 	}
 
 	.link {
-		.post-style();
 
-		&:has(.midcol.likes)::before {
-			content     : '';
-			position    : absolute;
-			top         : 0;
-			right       : 0;
-			width       : 0;
-			height      : 0;
-			border-style: solid;
-			border-width: 0 50px 50px 0;
-			border-color: transparent @upvoteColor transparent transparent;
+		.post-style();
+		position: relative;
+		.posts-black-borders();
+
+		&:has(.midcol.likes) {
+
+			&::before {
+				content     : '';
+				position    : absolute;
+				top         : 0;
+				right       : 0;
+				width       : 0;
+				height      : 0;
+				border-style: solid;
+				border-width: 0 50px 50px 0;
+				border-color: transparent @upvoteColor transparent transparent;
+			}
 		}
 
 		&:has(.midcol.dislikes) {
@@ -805,9 +819,7 @@
 		box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
 	}
 
-	.formtabs-content {
-		border: none;
-	}
+	.formtabs-content {}
 
 	.sr-name-row.sr-selected {
 		.hover-effect();
@@ -839,8 +851,8 @@
 	.res-nightmode .RESNotificationContent,
 	.res-nightmode .RESNotificationFooter,
 	.res-nightmode .sr-bar a {
-		color : @defaultLinkColor  !important;
-		border: none;
+		color: @defaultLinkColor  !important;
+
 	}
 
 	.RESNotificationHeader {
@@ -925,7 +937,7 @@
 	/* Post content */
 	div.entry>div>form>div.usertext-body>div.md {
 		@shadow-border();
-		border     : none !important;
+
 		margin-left: 4px !important;
 	}
 

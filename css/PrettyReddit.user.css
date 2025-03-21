@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        1.2.0
+@version        2.0.0
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css
@@ -23,13 +23,17 @@
 
 	;
 	@backdropBlur      : blur(10px);
-	@borderRadius      : 12px;
+	@borderRadius      : 0px;
 	@expandoButton     : url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22grey%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E") !important;
 	@expandoButtonClose: url("data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 width%3D%2224%22 height%3D%2224%22 fill%3D%22none%22 viewBox%3D%220 0 24 24%22%3E%3Cpath stroke%3D%22red%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%222%22 d%3D%22M5 12h14m-7 7V5%22/%3E%3C/svg%3E") !important;
 	@boxShadow         : 0 4px 8px rgba(0, 0, 0, 0.1);
 	@creamColor        : #d0b575;
 	@creamColorMuted   : #4f4733;
 	@defaultLinkColor  : #8cb3d9;
+	@upvoteColor :#85ff00;
+	@downvoteColor :#f00 ;
+	@transparentBlack : #0000008c;
+	@navbarHeight: 28px;
 
 	/*colors for progressively nested comments */
 	@comments-colors: rgba(181, 204, 24, 0.5),
@@ -110,8 +114,10 @@
 		background-color: rgba(48, 51, 50, 0.5) !important;
 		backdrop-filter : @backdropBlur;
 		padding         : 10px 15px;
-		margin          : 10px 15px;
-		border-radius   : @borderRadius;
+		margin-top: 0px !important;
+		margin-bottom: 0px !important;
+		
+		border-radius   : 0px !important;
 		transition      : box-shadow 0.3s ease-in-out;
 	}
 
@@ -295,17 +301,16 @@
 	/* user area styling (the container for the user things) */
 	#header #header-bottom-right {
 		font            : normal small verdana, arial, helvetica, sans-serif !important;
-		background-color: rgba(48, 51, 50, 0.38) !important;
+		background-color: @transparentBlack;
 		color           : rgb(204, 204, 204) !important;
 		margin          : 0 !important;
-		position        : absolute !important;
+		position        : fixed !important;
 		right           : 0px !important;
 		padding         : 8px !important;
 		line-height     : 12px !important;
-		top             : 35px !important;
+		top             : 28px !important;
 		bottom          : auto !important;
-		border-radius   : 12px !important;
-		margin-right    : 1% !important;
+
 		display         : block !important;
 	}
 
@@ -388,10 +393,10 @@
 
 	/*Sr list theming*/
 	#srList {
-		@backdrop();
+		background-color: @transparentBlack !important;
 		position       : fixed !important;
-		left           : 2% !important;
-		top            : 35px !important;
+		left           : 0% !important;
+		top            : 28px !important;
 		box-shadow     : 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index        : 1000;
 		padding        : 5px !important;
@@ -419,18 +424,18 @@
 
 	/* search bar */
 	#sr-header-area {
-		@backdrop();
+		background-color: @transparentBlack !important;
 		padding     : 5px;
 		border      : 0px;
 		left        : 0;
 		right       : 0;
-		width       : 97%;
-		margin-left : auto;
+		width       : 100%;
+		margin-left : 0;
 		margin-right: 1%;
 		box-shadow  : 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index     : 1000;
-		position    : sticky !important;
-		top         : 3px;
+		position    : fixed !important;
+		top         : 0px !important;
 	}
 
 	#sr-header-area a {
@@ -445,9 +450,47 @@
 	}
 
 	/*ANCHOR [POSTS]*/
+	
+	.rank {
+		color:#afafaf !important;
+	}
+	.score{
+		&.unvoted{}
+		&.dislikes{color:@downvoteColor !important; }
+		&.likes{color: @upvoteColor !important; }
+	}
+	.likes>.arrow[data-event-action="upvote"]{filter: saturate(3000%) brightness(100%) hue-rotate(100deg) }
+
+	.dislikes>.arrow[data-event-action="downvote"]{filter: saturate(500%) brightness(70%) hue-rotate(150deg)}
+	
 	.link {
 		.post-style();
+		&:has(.midcol.likes)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 50px 50px 0;
+  border-color: transparent @upvoteColor transparent transparent;
+}
+		&:has(.midcol.dislikes) {
+			opacity:50% !important;
+			&::before{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 50px 50px;
+				border-color: transparent transparent @downvoteColor transparent;}
+}
 	}
+	
 
 	/* Posts entries */
 	.res-nightmode .entry.res-selected:has(div.top-matter) {
@@ -1180,4 +1223,7 @@
 	.message {
 		.post-style();
 	}
+	
+	
+
 }

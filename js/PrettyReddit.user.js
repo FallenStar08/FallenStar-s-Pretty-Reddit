@@ -5,8 +5,10 @@
 // @grant       none
 // @version     1.0
 // @run-at      document-end
-// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js
-// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/CollapsibleSidebar.user.js
+// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.js
+// @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.js
+// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/NavBarFixes.user.js
+// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/CollapsibleSidebar.user.js
 // @author      FallenStar
 // @description Main script for a better reddit
 // ==/UserScript==

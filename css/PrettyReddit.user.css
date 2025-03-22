@@ -30,8 +30,8 @@
 	@creamColor        : #d0b575;
 	@creamColorMuted   : #4f4733;
 	@defaultLinkColor  : #8cb3d9;
-	@upvoteColor       :#85ff00;
-	@downvoteColor     :#f00;
+	@upvoteColor       : #85ff00;
+	@downvoteColor     : #f00;
 	@transparentBlack  : #0000008c;
 	@softTransparency  : rgba(0, 0, 0, .1);
 	@navbarHeight      : 28px;
@@ -544,9 +544,7 @@
 	}
 
 	/* Green glow for stickied posts */
-	.stickied {
-		box-shadow: 0 0 10px rgba(0, 248, 8, 0.53);
-	}
+	.stickied {}
 
 	a.title {
 		padding-left: 3px !important;

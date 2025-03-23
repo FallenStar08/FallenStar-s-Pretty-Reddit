@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        FallenStar's Pretty Reddit
 // @namespace   Violentmonkey Scripts
-// @match       https://old.reddit.com/r/all/*
+// @match       https://old.reddit.com/r/*
 // @grant       none
 // @version     1.0
 // @run-at      document-end

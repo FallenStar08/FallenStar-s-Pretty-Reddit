@@ -88,8 +88,10 @@
 	/* Recursive mixin for comments nesting */
 	.comment-nesting(@level) when (@level > 0) {
 		.thing.comment {
+
 			.comment-styles();
 			.comment-nesting(@level - 1);
+
 		}
 	}
 
@@ -462,6 +464,18 @@
 
 	/*ANCHOR [POSTS]*/
 
+	@keyframes fadeInTop {
+		0% {
+			opacity  : 0;
+			transform: translateY(-10px);
+		}
+
+		100% {
+			opacity  : 1;
+			transform: translateY(0);
+		}
+	}
+
 	.rank {
 		color: #afafaf !important;
 	}
@@ -721,6 +735,7 @@
 		font-weight : bold;
 		font-variant: small-caps;
 		font-size   : 5em;
+
 	}
 
 	#header {
@@ -1052,6 +1067,8 @@
 
 	.res-commentBoxes.res-commentBoxes when (@ColoredCommentsLevel =1) {
 		.thing.comment {
+			margin-left: 0px !important;
+
 			.setBorder(@level: 1) when (@level <=length(@comments-colors)) {
 				border-color: extract(@comments-colors, @level) !important;
 

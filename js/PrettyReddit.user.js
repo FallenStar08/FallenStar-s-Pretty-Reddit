@@ -3,12 +3,10 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://old.reddit.com/r/*
 // @grant       none
-// @version     1.0
+// @version     1.0.1
 // @run-at      document-end
-// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.js
-// @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.js
-// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/NavBarFixes.user.js
-// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/CollapsibleSidebar.user.js
+// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js
+// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/CollapsibleSidebar.user.js
 // @author      FallenStar
 // @description Main script for a better reddit
 // ==/UserScript==
@@ -18,6 +16,14 @@
 	const columns = 2;
 
 	function fixPostsDisplay() {
+		const currentUrl = window.location.href; // .href is a property, not a function
+		const re =
+			/https?:\/\/(old\.|www\.)?reddit\.com\/r\/[^\/]+\/comments\/[^\/]+\/[^\/]*\//;
+
+		const isRedditCommentPage = re.test(currentUrl);
+		if (isRedditCommentPage) {
+			return;
+		}
 		//invisible element that fucks up grid
 		var clearLeft = document.querySelectorAll(".clearleft");
 		clearLeft.forEach((element) =>

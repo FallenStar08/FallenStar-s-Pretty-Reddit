@@ -570,11 +570,12 @@
 	}
 
 	/* Xpost preview banner */
-	.crosspost-preview,
-	.crosspost-preview.res-crosspost-preview,
-	.crosspost-preview-header {
-		@backdrop();
+	.crosspost-preview {
+		background: @softTransparency  !important;
+		@shadow-border();
+		border       : none !important;
 		margin-bottom: 4px;
+		margin-left  : 1px;
 	}
 
 	/*Text post container*/

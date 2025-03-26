@@ -4,8 +4,8 @@
 // @version     1.0
 // @author      FallenStar
 // @run-at   document-end
-// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js
-// @updateURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js
+// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/ScrollableNavbar.user.js
+// @updateURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/ScrollableNavbar.user.js
 // @description 9/28/2024, 8:22:44 AM
 // ==/UserScript==
 

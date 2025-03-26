@@ -9,7 +9,7 @@
 // @grant       GM_registerMenuCommand
 // @grant       GM_xmlhttpRequest
 // @run-at      document-end
-// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js
+// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/ScrollableNavbar.user.js
 // @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/CollapsibleSidebar.user.js
 // @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/FloatingPanel.user.js
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.js

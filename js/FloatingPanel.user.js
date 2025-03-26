@@ -8,8 +8,8 @@
 // @grant       GM_xmlhttpRequest
 // @version     3.1.2
 // @author      FallenStar
-// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
-// @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js
+// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/FloatingPanel.user.js
+// @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/FloatingPanel.user.js
 // @description Adds sorting options as a floating panel on Reddit, drag-and-drop functionality, list all searchable flairs & more
 // ==/UserScript==
 

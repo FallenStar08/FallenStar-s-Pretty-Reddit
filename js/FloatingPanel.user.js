@@ -25,9 +25,8 @@
 		top: "50%",
 		left: "1%",
 		transform: "translateY(-50%)",
-		backgroundColor: "rgba(48, 51, 50, .38)",
-		backdropFilter: "blur(10px)",
-		borderRadius: "12px",
+		backgroundColor: "#0000008c",
+
 		padding: "10px",
 		boxShadow: "0 0 1px rgba(255, 255, 255, 0.3)",
 		zIndex: "9999",

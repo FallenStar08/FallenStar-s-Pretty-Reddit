@@ -1,10 +1,9 @@
 // ==UserScript==
 // @name        FallenStar's Pretty Reddit
 // @namespace   Violentmonkey Scripts
-// @match       https://old.reddit.com
 // @match       https://old.reddit.com/*
 // @grant       none
-// @version     1.0.2
+// @version     1.0.3
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand

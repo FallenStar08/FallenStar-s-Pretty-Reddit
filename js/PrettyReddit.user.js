@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        FallenStar's Pretty Reddit
 // @namespace   Violentmonkey Scripts
-// @match       https://old.reddit.com/r/*
+// @match       https://old.reddit.com/*
 // @grant       none
 // @version     1.0
 // @grant       GM_getValue

@@ -4,8 +4,8 @@
 // @description Split posts into X columns
 // @match       https://old.reddit.com/*
 // @author      FallenStar
-// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/RedditGridView.user.js
-// @updateURL 	https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/RedditGridView.user.js
+// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-grid.user.js
+// @updateURL 	https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-grid.user.js
 // @grant       none
 // ==/UserScript==
 

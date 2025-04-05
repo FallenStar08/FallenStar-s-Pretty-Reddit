@@ -1,0 +1,16 @@
+/* ==UserStyle==
+@name           test
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    A new userstyle
+@author         FallenStar
+@updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/css/test.user.css
+@preprocessor 	less
+==/UserStyle== */
+
+@-moz-document domain("old.reddit.com") {
+
+    * {
+        color: red !important;
+    }
+}

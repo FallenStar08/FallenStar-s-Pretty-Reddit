@@ -15,6 +15,7 @@
 
 (function () {
 	"use strict";
+	const NAVBAR_HEIGH = 28;
 	const DEFAULT_LEFT = "1%";
 	const DEFAULT_TOP = "50%";
 

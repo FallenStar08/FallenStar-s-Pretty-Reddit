@@ -27,7 +27,6 @@
 		left: "1%",
 		transform: "translateY(-50%)",
 		backgroundColor: "#0000008c",
-
 		padding: "10px",
 		boxShadow: "0 0 1px rgba(255, 255, 255, 0.3)",
 		zIndex: "9999",

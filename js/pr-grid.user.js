@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Reddit Grid view
-// @version     1.0.1
+// @version     1.0.2
 // @description Split posts into X columns
 // @match       https://old.reddit.com/*
 // @author      FallenStar

@@ -13,7 +13,7 @@
 	"use strict";
 
 	const columns = 2;
-	const minWidthForColumns = 800;
+	const minWidthForColumns = 750;
 
 	const style = document.createElement("style");
 

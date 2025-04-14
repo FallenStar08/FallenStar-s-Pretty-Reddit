@@ -1,0 +1,12 @@
+{
+	"name": "fallenstar-s-pretty-reddit",
+	"version": "1.0.0",
+	"description": "Making old Reddit pretty again! (not that it ever was)\r ![Overview](resources/Overview.png)",
+	"main": "update.js",
+	"scripts": {
+		"update-version": "node update.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}

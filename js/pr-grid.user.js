@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Reddit Grid view
-// @version     1.0.2
+// @version     1.0.3
 // @description Split posts into X columns
 // @match       https://old.reddit.com/*
 // @author      FallenStar
@@ -8,7 +8,6 @@
 // @updateURL 	https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-grid.user.js
 // @grant       none
 // ==/UserScript==
-
 (function () {
 	"use strict";
 

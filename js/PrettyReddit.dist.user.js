@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://old.reddit.com/*
 // @grant       none
-// @version     1.0.7
+// @version     1.0.8
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
@@ -12,8 +12,8 @@
 // @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-navbar.user.js?v=1.0
 // @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-sidebar.user.js?v=2.1.0
 // @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-panel.user.js?v=3.1.2
-// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.js
-// @updateURL 	https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.js
+// @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.dist.js
+// @updateURL 	https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.user.dist.js
 // @author      FallenStar
 // @description Main script for a better reddit
 // ==/UserScript==

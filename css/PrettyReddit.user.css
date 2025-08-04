@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        2.0.1
+@version        2.0.2
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/css/PrettyReddit.user.css
@@ -229,8 +229,9 @@
 	}
 
 	/* fixes flicker on load for userscript & hide never ending reddit */
-	.side,
-	.NERPageMarker {
+
+	.NERPageMarker,
+	.side {
 		display: none;
 	}
 
@@ -317,7 +318,7 @@
 		right           : 0px !important;
 		padding         : 8px !important;
 		line-height     : 12px !important;
-		top             : 28px !important;
+		top             : @navbarHeight  !important;
 		bottom          : auto !important;
 
 		display: block !important;
@@ -405,7 +406,7 @@
 		background-color: @transparentBlack  !important;
 		position        : fixed !important;
 		left            : 0% !important;
-		top             : 28px !important;
+		top             : @navbarHeight  !important;
 		box-shadow      : 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index         : 1000;
 		padding         : 5px !important;
@@ -705,15 +706,9 @@
 		border : none;
 	}
 
-	/*sidebar search input*/
-	#search>input:nth-child(1) {
-		width : auto;
-		margin: 0px;
-	}
-
 	/* ^ selects options */
 	#searchexpando>label>select {
-		color      : white !important;
+		color      : #fff !important;
 		border     : none;
 		margin-left: 5px !important;
 		@shadow-border();
@@ -745,19 +740,28 @@
 
 	/*ANCHOR [SIDEBAR]*/
 	.side,
-	.titlebox,
-	.redditname,
 	.morelink,
-	.res-nightmode .sidebox,
 	.res-nightmode .subreddit-info,
 	.res-nightmode .raisedbox,
 	.res-nightmode .login-form-side,
 	.res-nightmode .interstitial-subreddit-description,
 	form.toggle:nth-child(6),
 	.linkinfo,
-	.side * {
+	.side {
+
 		@backdrop-transparent();
-		padding: 0px 0px 5px 5px;
+		padding         : 0px 0px 5px 5px;
+		background-color: @transparentBlack  !important;
+	}
+
+	/* sub name is sidebar */
+	.side>.spacer>.titlebox>.redditname {
+		text-align: center !important
+	}
+
+	.titlebox,
+	.res-nightmode .side .spacer .titlebox .redditname {
+		background: none !important;
 	}
 
 	.side table,
@@ -771,7 +775,7 @@
 
 	div.sidebox.submit.submit-link {
 		align-content: center !important;
-		max-width    : 230px !important;
+
 	}
 
 	.res-nightmode .side * {
@@ -791,6 +795,28 @@
 
 	a.c-btn {
 		.button-style(@backdrop-transparent, @shadow-border)
+	}
+
+	#search>input[type="text"] {
+		margin-left: 0px !important;
+		@shadow-border();
+		border: none !important;
+	}
+
+	/*add subreddit*/
+	form.add-sr>.sr-name {
+		@shadow-border();
+		border: none !important;
+	}
+
+	label>select {
+		background: @transparentBlack  !important;
+		margin    : 4px !important;
+	}
+
+	.spacer>.titlebox>.usertext {
+		text-align : center;
+		padding-top: 4px !important;
 	}
 
 	/*ANCHOR [SUBMIT A NEW LINK]*/
@@ -1262,6 +1288,10 @@
 	/* ANCHOR [INBOX] */
 	.message {
 		.post-style();
+	}
+
+	.content>.sitetable {
+		grid-template-columns: 60px 60px;
 	}
 
 }

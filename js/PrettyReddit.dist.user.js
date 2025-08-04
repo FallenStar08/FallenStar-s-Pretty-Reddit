@@ -10,7 +10,7 @@
 // @grant       GM_xmlhttpRequest
 // @run-at      document-end
 // @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-navbar.user.js?v=1.0
-// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-sidebar.user.js?v=2.1.0
+// @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-sidebar.user.js?v=2.1.1
 // @require     https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-panel.user.js?v=3.1.2
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.dist.user.js
 // @updateURL 	https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/PrettyReddit.dist.user.js

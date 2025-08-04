@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name        Collapsible Sidebar
-// @version     2.1.0
+// @version     2.1.1
 // @description Collapse the sidebar until the mouse is near the edge, with smooth animation and a visible trigger zone
 // @match       https://old.reddit.com/*
 // @author      FallenStar
@@ -135,7 +135,7 @@
 
 	// Sidebar styling
 	sidebar.style.position = "fixed";
-	sidebar.style.top = "0";
+	sidebar.style.top = "60px";
 	sidebar.style.right = "0";
 	sidebar.style.width = "250px";
 	sidebar.style.height = "100%";

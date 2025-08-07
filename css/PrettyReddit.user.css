@@ -680,8 +680,10 @@
 	.res-nightmode #liveupdate-statusbar.complete,
 	.res-nightmode #alert_message input,
 	.commentarea>form {
-		background: @softTransparency  !important;
-		@shadow-border();
+		background   : @softTransparency  !important;
+		border-color : black !important;
+		border-width : 1px !important;
+		border-style : solid solid solid !important;
 		z-index      : 1000;
 		border       : 0px;
 		padding      : 10px;

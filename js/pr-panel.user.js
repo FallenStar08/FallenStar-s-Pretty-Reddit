@@ -6,7 +6,7 @@
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
 // @grant       GM_xmlhttpRequest
-// @version     3.1.2
+// @version     3.1.3
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-panel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-panel.user.js
@@ -166,20 +166,15 @@
 	const subreddit = window.location.pathname.split("/")[2];
 	if (subreddit) {
 		const flairDropdown = document.createElement("div");
-		flairDropdown.style.display = "none";
-		flairDropdown.style.position = "absolute";
-		flairDropdown.style.top = "0";
-		flairDropdown.style.left = "100%";
-		flairDropdown.style.backgroundColor = "rgba(48, 51, 50, .38)";
-		flairDropdown.style.backdropFilter = "blur(10px)";
-		flairDropdown.style.borderRadius = "12px";
-		flairDropdown.style.padding = "10px";
-		flairDropdown.style.boxShadow = "0 0 1px rgba(255, 255, 255, 0.3)";
-		flairDropdown.style.zIndex = "9999";
-		flairDropdown.style.color = "#fff";
-		flairDropdown.style.maxWidth = "15vw";
-		flairDropdown.style.overflow = "auto";
-		flairDropdown.style.maxHeight = "200px";
+		Object.assign(flairDropdown.style, {
+			position: "fixed",
+			backgroundColor: "#0000008c",
+			padding: "10px",
+			boxShadow: "0 0 1px rgba(255, 255, 255, 0.3)",
+			zIndex: "9999",
+			color: "#fff",
+			maxWidth: "15vw",
+		});
 
 		const flairAnchor = document.createElement("a");
 		flairAnchor.href = "#";

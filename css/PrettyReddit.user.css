@@ -1013,6 +1013,7 @@
 		background   : @softTransparency  !important;
 		border-radius: @borderRadius  !important;
 		box-shadow   : 0 0 1px rgba(255, 255, 255, 0.3);
+		margin: 0 0px 8px 10px !important;
 	}
 
 	/* up to 25 levels idk don't need more, probably */

@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://old.reddit.com/*
 // @grant       none
-// @version     1.0.9
+// @version     1.0.10
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand

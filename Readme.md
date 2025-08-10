@@ -18,9 +18,11 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
         ![Panel](resources/Panel.gif)
 
 -   **Enhanced Navbar** with horizontal scrolling (using the mousewheel, not the ugly RES button)
+
     ![Navbar](resources/Navbar.gif)
 
 -   **Hidden sidebar** the navbar sorting buttons can now be found here
+
     ![Sidebar](resources/SideBar.gif)
 
     Configure colors and minor cosmetic changes through Stylus options:

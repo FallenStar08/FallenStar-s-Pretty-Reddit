@@ -3,13 +3,13 @@
 Making old Reddit less ugly and a bit more modern I guess? Supports transparency for firefox & forks
 ![Overview](resources/Overview.png)
 
-## Overview
+## ✨Overview
 
 This repository hosts a collection of CSS and JavaScript files designed to improve the visual appearance and functionality of old.reddit.com.
 
 ### Features
 
--   **Cool floating panel** for sorting, includes a "Go To" subreddit feature
+-  🖱 **Cool floating panel** for sorting, includes a "Go To" subreddit feature
 
     -   It even checks if the subreddit exists!
     -   Draggable for added coolness
@@ -17,11 +17,11 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 
         ![Panel](resources/Panel.gif)
 
--   **Enhanced Navbar** with horizontal scrolling (using the mousewheel, not the ugly RES button)
+-  🧭 **Enhanced Navbar** with horizontal scrolling (using the mousewheel, not the ugly RES button)
 
     ![Navbar](resources/Navbar.gif)
 
--   **Hidden sidebar** the navbar sorting buttons can now be found here
+-  📚 **Hidden sidebar** the navbar sorting buttons can now be found here
 
     ![Sidebar](resources/SideBar.gif)
 
@@ -29,7 +29,7 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 
     ![Stylus Options](resources/StylusOptions.png)
 
-### Installation
+### 📥 Installation
 
 Prerequisites:
 
@@ -48,7 +48,7 @@ To get the fancy bar for collapsing comments, enable this option in the Reddit E
 
 ![Toggle Comments Left Edge](resources/ToggleCommentsLeftEdge.png)
 
-### TODO
+### 🛠 TODO
 
 -   [x] Fix floating video thingy when scrolling in comments (needs more JS to improve, make it draggable)
 -   [ ] Put most of the useless stuff in the sidebar 🚧
@@ -64,11 +64,11 @@ To get the fancy bar for collapsing comments, enable this option in the Reddit E
 -   [x] Add back sorting by comments/posts to user page
 -   [ ] Make compatible without RES nightmode
 
-### Contributing
+### 💡 Contributing
 
 Don't pls
 
-### Credits
+### 🙏 Credits
 
 -   [Snesh](https://github.com/senshastic) ❤️
 -   Loky 🐈

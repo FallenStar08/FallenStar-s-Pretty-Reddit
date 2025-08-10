@@ -6,7 +6,7 @@
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
 // @grant       GM_xmlhttpRequest
-// @version     3.1.3
+// @version     3.1.4
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-panel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-panel.user.js
@@ -180,7 +180,7 @@
 		flairAnchor.href = "#";
 		flairAnchor.textContent = "Flairs >";
 		Object.assign(flairAnchor.style, {
-			display: "block",
+			display: "none",
 			color: "#fff",
 			textDecoration: "none",
 			fontSize: "12px",

@@ -62,7 +62,7 @@ To get the fancy bar for collapsing comments, enable this option in the Reddit E
 -   [ ] Add font options (monaspace?)
 -   [x] Fix ugly expando buttons on posts
 -   [x] Add back sorting by comments/posts to user page
--   [] Make compatible without RES nightmode
+-   [ ] Make compatible without RES nightmode
 
 ### Contributing
 

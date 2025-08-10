@@ -1,6 +1,6 @@
 # FallenStar's Pretty Reddit
 
-Making old Reddit pretty again! (not that it ever was)
+Making old Reddit less ugly and a bit more modern I guess? Supports transparency for firefox & forks
 ![Overview](resources/Overview.png)
 
 ## Overview
@@ -13,14 +13,15 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
 
     -   It even checks if the subreddit exists!
     -   Draggable for added coolness
+    -   Easilly search by flairs!
 
-        ![Panel](resources/Panel.gif)
+        ![Panel](resources/Panel.mp4)
 
 -   **Enhanced Navbar** with horizontal scrolling (using the mousewheel, not the ugly RES button)
-    ![Navbar](resources/Navbar.gif)
+    ![Navbar](resources/Navbar.mp4)
 
--   **Hidden and pretty sidebar** (pretty means transparent)
-    ![Sidebar](resources/SideBar.gif)
+-   **Hidden sidebar** the navbar sorting buttons can now be found here
+    ![Sidebar](resources/SideBar.mp4)
 
     Configure colors and minor cosmetic changes through Stylus options:
 
@@ -36,12 +37,10 @@ Prerequisites:
 
 Easy install links:
 
-| Component                 | Install                                                                                                                                                                                                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Main CSS file             | [![Install CSS](https://img.shields.io/badge/Css_file-INSTALL-blue?style=for-the-badge&logo=css3)](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css)              |
-| Floating Sorting Panel JS | [![Install Panel](https://img.shields.io/badge/Panel-INSTALL-blue?style=for-the-badge&logo=javascript)](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/FloatingPanel.user.js)          |
-| SideBar JS                | [![Install Sidebar](https://img.shields.io/badge/SideBar-INSTALL-blue?style=for-the-badge&logo=javascript)](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/CollapsibleSidebar.user.js) |
-| NavBar JS                 | [![Install Navbar](https://img.shields.io/badge/NavBar-INSTALL-blue?style=for-the-badge&logo=javascript)](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/NavBarFixes.user.js)          |
+| Component            | Install                                                                                                                                                                                                              |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Main CSS file        | [![Install CSS](https://img.shields.io/badge/Css_file-INSTALL-blue?style=for-the-badge&logo=css3)](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/css/PrettyReddit.user.css)         |
+| Main Javascript file | [![Install Panel](https://img.shields.io/badge/Panel-INSTALL-blue?style=for-the-badge&logo=javascript)](https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/PrettyReddit.dist.user.js) |
 
 To get the fancy bar for collapsing comments, enable this option in the Reddit Enhancement Suite dashboard:
 
@@ -57,14 +56,15 @@ To get the fancy bar for collapsing comments, enable this option in the Reddit E
 -   [x] Add sort panel for comment section
 -   [x] Fix flairs
 -   [x] Add option to show/hide vanilla sorting options if using the panel
--   [ ] On top page, make panel become links for past year/months etc.
+-   [x] On top page, make panel become links for past year/months etc.
 -   [ ] Add font options (monaspace?)
 -   [x] Fix ugly expando buttons on posts
 -   [x] Add back sorting by comments/posts to user page
+-   [x] Make compatible without RES nightmode
 
 ### Contributing
 
-Don't 😉
+Don't pls
 
 ### Credits
 

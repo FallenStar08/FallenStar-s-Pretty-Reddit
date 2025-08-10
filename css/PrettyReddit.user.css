@@ -1161,6 +1161,11 @@ font-size       : 12px !important;
 		}
 	}
 
+	/* align comments & top text area */
+	.res-commentBoxes .thing.comment {
+		margin: 0 0 8px 10px !important;
+	}
+
 	/*ANCHOR [MENUS] */
 
 	/* RES gear menus backdrop */

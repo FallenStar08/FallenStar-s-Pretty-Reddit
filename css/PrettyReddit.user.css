@@ -520,10 +520,33 @@ font-size       : 12px !important;
 
 		&.dislikes {
 			color: @downvoteColor  !important;
+
+			&::before {
+				content      : "" !important;
+				position     : absolute !important;
+				left         : 0 !important;
+				top          : 0 !important;
+				bottom       : 0 !important;
+				width        : 4px !important;
+				background   : @downvoteColor  !important;
+				border-radius: 0 0px 0px 0 !important;
+			}
+
 		}
 
 		&.likes {
 			color: @upvoteColor  !important;
+
+			&::before {
+				content      : "" !important;
+				position     : absolute !important;
+				left         : 0 !important;
+				top          : 0 !important;
+				bottom       : 0 !important;
+				width        : 4px !important;
+				background   : @upvoteColor  !important;
+				border-radius: 0 0px 0px 0 !important;
+			}
 		}
 	}
 

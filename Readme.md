@@ -15,13 +15,13 @@ This repository hosts a collection of CSS and JavaScript files designed to impro
     -   Draggable for added coolness
     -   Easilly search by flairs!
 
-        ![Panel](resources/Panel.mp4)
+        ![Panel](resources/Panel.gif)
 
 -   **Enhanced Navbar** with horizontal scrolling (using the mousewheel, not the ugly RES button)
-    ![Navbar](resources/Navbar.mp4)
+    ![Navbar](resources/Navbar.gif)
 
 -   **Hidden sidebar** the navbar sorting buttons can now be found here
-    ![Sidebar](resources/SideBar.mp4)
+    ![Sidebar](resources/SideBar.gif)
 
     Configure colors and minor cosmetic changes through Stylus options:
 
@@ -60,7 +60,7 @@ To get the fancy bar for collapsing comments, enable this option in the Reddit E
 -   [ ] Add font options (monaspace?)
 -   [x] Fix ugly expando buttons on posts
 -   [x] Add back sorting by comments/posts to user page
--   [x] Make compatible without RES nightmode
+-   [] Make compatible without RES nightmode
 
 ### Contributing
 

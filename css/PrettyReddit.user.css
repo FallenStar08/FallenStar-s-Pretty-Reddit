@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        2.0.2
+@version        2.0.3
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/css/PrettyReddit.user.css
@@ -13,7 +13,7 @@
 @var checkbox 	enableBackgroundTransparency "Enable transparent background for supported browsers" 0
 @var color   	gradcolor1 "Gradient Color 1" rgb(43, 1, 91)
 @var color   	gradcolor2 "Gradient Color 2" rgb(122, 2, 54)
-@var color      accentColor "Hover accent color" rgb(51, 153, 255)
+@var color 		accentColor "Hover accent color" rgb(51, 153, 255)
 
 @preprocessor 	less
 ==/UserStyle== */
@@ -33,7 +33,7 @@
 	@creamColorMuted   : #4f4733;
 	@defaultLinkColor  : #8cb3d9;
 	@upvoteColor       : #85ff00;
-	@downvoteColor     : #0f1;
+	@downvoteColor     : #ff4800;
 	@transparentBlack  : #0000008c;
 	@softTransparency  : rgba(0, 0, 0, .1);
 	@navbarHeight      : 28px;
@@ -438,7 +438,7 @@
 		/*Idk how to fix the scrollbar from going over the rounder corner so fuckit*/
 		scrollbar-color : #00000054 #fafafa00;
 		scrollbar-width : none;
-font-size       : 12px !important;
+		font-size       : 12px !important;
 	}
 
 	/* fix missaligned header */
@@ -564,35 +564,11 @@ font-size       : 12px !important;
 		position: relative;
 		.posts-black-borders();
 
-		&:has(.midcol.likes) {
-
-			&::before {
-				content     : '';
-				position    : absolute;
-				top         : 0;
-				right       : 0;
-				width       : 0;
-				height      : 0;
-				border-style: solid;
-				border-width: 0 50px 50px 0;
-				border-color: transparent @upvoteColor transparent transparent;
-			}
-		}
+		&:has(.midcol.likes) {}
 
 		&:has(.midcol.dislikes) {
 			opacity: 50% !important;
 
-			&::before {
-				content     : '';
-				position    : absolute;
-				bottom      : 0;
-				right       : 0;
-				width       : 0;
-				height      : 0;
-				border-style: solid;
-				border-width: 0 0 50px 50px;
-				border-color: transparent transparent @downvoteColor transparent;
-			}
 		}
 	}
 

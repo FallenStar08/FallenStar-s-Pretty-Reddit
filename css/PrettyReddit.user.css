@@ -433,11 +433,12 @@
 		top             : @navbarHeight  !important;
 		box-shadow      : 0 4px 8px rgba(0, 0, 0, 0.1);
 		z-index         : 1000;
-		padding         : 5px !important;
+		padding         : 4px !important;
 		max-height      : 33vh !important;
 		/*Idk how to fix the scrollbar from going over the rounder corner so fuckit*/
 		scrollbar-color : #00000054 #fafafa00;
 		scrollbar-width : none;
+font-size       : 12px !important;
 	}
 
 	/* fix missaligned header */

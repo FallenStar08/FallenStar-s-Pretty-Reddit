@@ -451,10 +451,19 @@ font-size       : 12px !important;
 		border: 0px !important;
 	}
 
-	#srList tr:hover {
-		.hover-effect();
+	#srList tr>td:first-child:hover {
+		.left-hover-bar();
 		background   : transparent !important;
 		border-radius: @borderRadius  !important;
+	}
+
+	#srList>div>input {
+		@shadow-border();
+		padding-top   : 8px !important;
+		padding-bottom: 8px !important;
+		text-align    : center;
+		margin-left   : 25% !important;
+		margin-bottom : 8px !important;
 	}
 
 	/* search bar */

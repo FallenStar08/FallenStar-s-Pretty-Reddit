@@ -6,7 +6,7 @@
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
 // @grant       GM_xmlhttpRequest
-// @version     3.1.4
+// @version     3.1.5
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-panel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/js/pr-panel.user.js
@@ -174,13 +174,16 @@
 			zIndex: "9999",
 			color: "#fff",
 			maxWidth: "15vw",
+			left: "100%",
+			top: "0",
+			display: "none",
 		});
 
 		const flairAnchor = document.createElement("a");
 		flairAnchor.href = "#";
-		flairAnchor.textContent = "Flairs >";
+		flairAnchor.textContent = "Flairs ...";
 		Object.assign(flairAnchor.style, {
-			display: "none",
+			display: "block",
 			color: "#fff",
 			textDecoration: "none",
 			fontSize: "12px",
@@ -358,18 +361,18 @@
 
 	if (isSubredditTopPage || isUserProfilePage) {
 		const topDropdown = document.createElement("div");
-		topDropdown.style.display = "none";
-		topDropdown.style.position = "absolute";
-		topDropdown.style.top = "0";
-		topDropdown.style.left = "100%";
-		topDropdown.style.backgroundColor = "rgba(48, 51, 50, .38)";
-		topDropdown.style.backdropFilter = "blur(10px)";
-		topDropdown.style.borderRadius = "12px";
-		topDropdown.style.padding = "10px";
-		topDropdown.style.boxShadow = "0 0 1px rgba(255, 255, 255, 0.3)";
-		topDropdown.style.zIndex = "9999";
-		topDropdown.style.color = "#fff";
-		topDropdown.style.maxWidth = "15vw";
+		Object.assign(topDropdown.style, {
+			position: "fixed",
+			backgroundColor: "#0000008c",
+			padding: "10px",
+			boxShadow: "0 0 1px rgba(255, 255, 255, 0.3)",
+			zIndex: "9999",
+			color: "#fff",
+			maxWidth: "15vw",
+			left: "100%",
+			top: "0",
+			display: "none",
+		});
 
 		const topOption = sortingOptions.find(
 			(option) => option.text === "Top"
@@ -380,6 +383,9 @@
 				const topAnchor = topElement;
 				topAnchor.href = `${baseUrl}${topOption.sort}`;
 				topAnchor.textContent = topOption.text;
+				if (isSubredditTopPage) {
+					topAnchor.textContent = "Top ...";
+				}
 				Object.assign(topAnchor.style, {
 					display: "block",
 					color: "#fff",

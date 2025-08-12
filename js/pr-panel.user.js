@@ -238,37 +238,57 @@
 	}
 	//!SECTION
 
-	//SECTION TOP MENU
+	//SECTION Top Menu
 	function createTopMenu(panel) {
-		//clean up this abomination
-		const sortingOptions = isUserProfilePage
-			? [
-					{ text: "New", sort: "new" },
-					{ text: "Top", sort: "top" },
-					{ text: "Hot", sort: "hot" },
-			  ]
-			: [
-					isCommentPage
-						? { text: "Best", sort: "confidence" }
-						: { text: "Hot", sort: "hot" },
-					{ text: "New", sort: "new" },
-					isCommentPage ? { text: "Old", sort: "old" } : {},
-					isSubredditTopPage
-						? { text: "Top", sort: "top" }
-						: { text: "Top", sort: "top" },
-					{ text: "Contro", sort: "controversial" },
-					isCommentPage
-						? { text: "Q&A", sort: "qa" }
-						: { text: "Rising", sort: "rising" },
-			  ].filter((option) => Object.keys(option).length > 0);
+		// Configuration for pages
+		const SORTING_CONFIGS = {
+			userProfile: [
+				{ text: "New", sort: "new" },
+				{ text: "Top", sort: "top" },
+				{ text: "Hot", sort: "hot" },
+			],
+			comment: [
+				{ text: "Best", sort: "confidence" },
+				{ text: "New", sort: "new" },
+				{ text: "Old", sort: "old" },
+				{ text: "Top", sort: "top" },
+				{ text: "Contro", sort: "controversial" },
+				{ text: "Q&A", sort: "qa" },
+			],
+			default: [
+				{ text: "Hot", sort: "hot" },
+				{ text: "New", sort: "new" },
+				{ text: "Top", sort: "top" },
+				{ text: "Contro", sort: "controversial" },
+				{ text: "Rising", sort: "rising" },
+			],
+		};
 
-		sortingOptions.forEach((option) => {
+		const TOP_TIME_RANGES = [
+			{ text: "Top - H", sort: "top/?sort=top&t=hour" },
+			{ text: "Top - D", sort: "top/?sort=top&t=day" },
+			{ text: "Top - W", sort: "top/?sort=top&t=week" },
+			{ text: "Top - M", sort: "top/?sort=top&t=month" },
+			{ text: "Top - Y", sort: "top/?sort=top&t=year" },
+			{ text: "Top - A", sort: "top/?sort=top&t=all" },
+		];
+
+		const getSortingOptions = () => {
+			if (isUserProfilePage) return SORTING_CONFIGS.userProfile;
+			if (isCommentPage) return SORTING_CONFIGS.comment;
+			return SORTING_CONFIGS.default;
+		};
+
+		const buildSortUrl = (option) => {
+			if (isCommentPage || isUserProfilePage) {
+				return `${baseUrl}?sort=${option.sort}`;
+			}
+			return `${baseUrl}${option.sort}`;
+		};
+
+		const createSortAnchor = (option) => {
 			const anchor = document.createElement("a");
-			const sortUrl =
-				isCommentPage || isUserProfilePage
-					? `${baseUrl}?sort=${option.sort}`
-					: `${baseUrl}${option.sort}`;
-			anchor.href = sortUrl;
+			anchor.href = buildSortUrl(option);
 			anchor.textContent = option.text;
 			anchor.setAttribute("data-option", option.text);
 			setStyle(anchor, ANCHOR_STYLE);
@@ -282,95 +302,70 @@
 				anchor.style.transform = "translateX(0)";
 			});
 
+			return anchor;
+		};
+
+		const createTopDropdown = () => {
+			const dropdown = document.createElement("div");
+			setStyle(dropdown, DROPDOWN_STYLE);
+			dropdown.style.display = "none";
+
+			TOP_TIME_RANGES.forEach((option) => {
+				const subAnchor = document.createElement("a");
+				subAnchor.href = `${baseUrl}${option.sort}`;
+				subAnchor.textContent = option.text;
+				setStyle(subAnchor, ANCHOR_STYLE);
+				dropdown.appendChild(subAnchor);
+			});
+
+			return dropdown;
+		};
+
+		const setupTopDropdownToggle = (topAnchor, dropdown) => {
+			if (isSubredditTopPage) {
+				topAnchor.textContent = "Top ...";
+			}
+
+			topAnchor.addEventListener("click", (e) => {
+				e.preventDefault();
+				dropdown.style.display =
+					dropdown.style.display === "none" ? "block" : "none";
+			});
+
+			const closeDropdownHandler = (e) => {
+				const isClickInside =
+					topAnchor.contains(e.target) || dropdown.contains(e.target);
+				if (!isClickInside) {
+					dropdown.style.display = "none";
+				}
+			};
+
+			document.removeEventListener("click", closeDropdownHandler);
+			document.addEventListener("click", closeDropdownHandler);
+		};
+
+		const sortingOptions = getSortingOptions();
+		const shouldShowTopDropdown = isSubredditTopPage || isUserProfilePage;
+		let topAnchor = null;
+
+		sortingOptions.forEach((option) => {
+			const anchor = createSortAnchor(option);
+
+			if (option.text === "Top" && shouldShowTopDropdown) {
+				topAnchor = anchor;
+			}
+
 			panel.appendChild(anchor);
 		});
 
-		if (isSubredditTopPage || isUserProfilePage) {
-			const topDropdown = document.createElement("div");
-			setStyle(topDropdown, DROPDOWN_STYLE);
+		if (shouldShowTopDropdown && topAnchor) {
+			const dropdown = createTopDropdown();
+			setupTopDropdownToggle(topAnchor, dropdown);
 
-			const topOption = sortingOptions.find(
-				(option) => option.text === "Top"
-			);
-			if (topOption) {
-				const topElement =
-					document.querySelector(`[data-option="Top"]`);
-				if (topElement) {
-					const topAnchor = topElement;
-					topAnchor.href = `${baseUrl}${topOption.sort}`;
-					topAnchor.textContent = topOption.text;
-					if (isSubredditTopPage) {
-						topAnchor.textContent = "Top ...";
-					}
-					setStyle(topAnchor, ANCHOR_STYLE);
-
-					topAnchor.addEventListener("click", (e) => {
-						e.preventDefault();
-						topDropdown.style.display =
-							topDropdown.style.display === "none"
-								? "block"
-								: "none";
-					});
-
-					// Close the dropdown if clicking outside
-					document.addEventListener("click", (e) => {
-						const isClickInside =
-							topAnchor.contains(e.target) ||
-							topDropdown.contains(e.target);
-						if (!isClickInside) {
-							topDropdown.style.display = "none";
-						}
-					});
-					panel.appendChild(topAnchor);
-					panel.appendChild(topDropdown);
-
-					const topSubOptions =
-						isSubredditTopPage || isUserProfilePage
-							? [
-									{
-										text: "Top - H",
-										sort: "top/?sort=top&t=hour",
-									},
-									{
-										text: "Top - D",
-										sort: "top/?sort=top&t=day",
-									},
-
-									{
-										text: "Top - W",
-										sort: "top/?sort=top&t=week",
-									},
-
-									{
-										text: "Top - M",
-										sort: "top/?sort=top&t=month",
-									},
-
-									{
-										text: "Top - Y",
-										sort: "top/?sort=top&t=year",
-									},
-
-									{
-										text: "Top - A",
-										sort: "top/?sort=top&t=all",
-									},
-							  ]
-							: [{}].filter(
-									(option) => Object.keys(option).length > 0
-							  );
-
-					topSubOptions.forEach((option) => {
-						const subAnchor = document.createElement("a");
-						subAnchor.href = `${baseUrl}${option.sort}`;
-						subAnchor.textContent = option.text;
-						setStyle(subAnchor, ANCHOR_STYLE);
-						topDropdown.appendChild(subAnchor);
-					});
-				}
-			}
+			topAnchor.insertAdjacentElement("afterend", dropdown);
 		}
 	}
+	//!SECTION
 
 	//SECTION Flair Menu
 	function createFlairMenu(panel) {

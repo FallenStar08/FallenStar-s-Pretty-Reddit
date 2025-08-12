@@ -62,7 +62,7 @@
 		color: "#fff",
 		maxWidth: PANEL_MAX_WIDTH,
 		left: "100%",
-		top: "0",
+		top: "-1px",
 		display: "none",
 	};
 	const ANCHOR_STYLE = {

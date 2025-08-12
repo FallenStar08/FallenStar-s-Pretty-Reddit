@@ -6,7 +6,7 @@
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
 // @grant       GM_xmlhttpRequest
-// @version     3.2.1
+// @version     3.2.2
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/pr-panel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/pr-panel.user.js

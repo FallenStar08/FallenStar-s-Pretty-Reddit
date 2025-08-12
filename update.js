@@ -8,7 +8,6 @@ const REQUIRED_SCRIPTS = [
 	"js/pr-navbar.user.js",
 	"js/pr-sidebar.user.js",
 	"js/pr-panel.user.js",
-	"js/pr-grid.user.js",
 ];
 
 // Regex to find @require lines with ?VERSION

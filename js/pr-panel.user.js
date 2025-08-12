@@ -422,7 +422,7 @@
 							const encodedFlair = encodeURIComponent(
 								flair.text.replace(/\s+/g, "+")
 							);
-							flairAnchor.href = `https://old.reddit.com/r/${subreddit}/search?q=flair%3A${encodedFlair}`;
+							flairAnchor.href = `https://old.reddit.com/r/${subreddit}/search?q=flair%3A${encodedFlair}&restrict_sr=on`;
 							//flairAnchor.target = "_blank"; // to open in new tab, maybe an option
 							flairAnchor.textContent = flair.text;
 							moveRightOnHover(flairAnchor);

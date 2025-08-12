@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        2.0.4
+@version        2.0.5
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/css/PrettyReddit.user.css
@@ -590,9 +590,6 @@
 		.left-hover-bar();
 	}
 
-	/* Green glow for stickied posts */
-	.stickied {}
-
 	a.title {
 		padding-left: 3px !important;
 	}
@@ -893,8 +890,6 @@
 		box-shadow: 0 0 5px rgba(255, 255, 255, 0.3) !important;
 	}
 
-	.formtabs-content {}
-
 	.sr-name-row.sr-selected {
 		.hover-effect();
 		background: none;
@@ -1175,13 +1170,6 @@
 		background-color: transparent !important;
 		padding         : 2px !important;
 	}
-
-	/* Hover effects on all the elements of the menus */
-	.res-nightmode .RESDropdownList li a:hover,
-	div[title^="Toggle"]:hover,
-	#SettingsConsole:hover,
-	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(3):hover,
-	body>div.RESHover.RESHoverDropdownList.RESDropdownList>ul>li:nth-child(4):hover {}
 
 	/* Ugly RES gear menu loupe icon */
 	.RESMenuItemButton {

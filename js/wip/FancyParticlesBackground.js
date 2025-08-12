@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Old Reddit Animated Background + Background Ripple on Vote
 // @namespace    http://tampermonkey.net/
-// @version      1.2
+// @version      1.0.1
 // @description  Adds animated transparent background and big background ripple effect on up/downvote clicks on old Reddit
 // @match        https://old.reddit.com/*
 // @grant        none
+// @downloadURL  https://raw.githubusercontent.com/FallenStar08/FallenStar-s-Pretty-Reddit/refs/heads/main/js/wip/FancyParticlesBackground.js
+// @updateURL    https://raw.githubusercontent.com/FallenStar08/FallenStar-s-Pretty-Reddit/refs/heads/main/js/wip/FancyParticlesBackground.js
 // @author       FallenStar
 // ==/UserScript==
 
@@ -80,6 +82,8 @@
 	// Track ripples affecting particles
 	const activeRipples = [];
 	const RIPPLE_STRENGTH = 30;
+	// Speed at which particles get back in place post ripple
+	const BACK_HOME_SPEED = 0.001;
 
 	//!SECTION
 
@@ -174,9 +178,9 @@
 			p.offsetX += pushX * 0.5;
 			p.offsetY += pushY * 0.5;
 
-			// Speed at which particles get back in place post
-			p.offsetX *= 0.999;
-			p.offsetY *= 0.999;
+			// Speed at which particles get back in place post ripple
+			p.offsetX *= 1 - BACK_HOME_SPEED;
+			p.offsetY *= 1 - BACK_HOME_SPEED;
 
 			// Final position = base drifting + persistent offset
 			const finalX = baseX + p.offsetX;

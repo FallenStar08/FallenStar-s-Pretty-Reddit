@@ -11,7 +11,7 @@
 (function () {
 	"use strict";
 
-	//SECTION style
+	//SECTION STYLE
 	const style = document.createElement("style");
 	style.textContent = `
     body {
@@ -104,7 +104,7 @@
 
 	//!SECTION
 
-	//SECTION Particles
+	//SECTION PARTICLES
 	function createParticles(bg) {
 		for (let i = 0; i < PARTICLE_COUNT; i++) {
 			const p = document.createElement("div");
@@ -136,8 +136,9 @@
 		particles.forEach((p) => (p.offsetX = 0));
 		particles.forEach((p) => (p.offsetY = 0));
 	}
+	//!SECTION
 
-	//SECTION animation
+	//SECTION ANIMATION
 
 	function animate(time = 0) {
 		particles.forEach((p) => {
@@ -191,7 +192,6 @@
 
 		requestAnimationFrame(animate);
 	}
-	//!SECTION
 
 	window.addEventListener("resize", () => {
 		particles.forEach((p) => {
@@ -201,6 +201,9 @@
 			p.el.style.top = p.baseY + "px";
 		});
 	});
+	//!SECTION
+
+	//SECTION RIPPLES
 
 	// add ripple data to activeRipples
 	function createBackgroundRipple(rippleContainer, color) {
@@ -266,6 +269,7 @@
 			btn.addEventListener("click", handleVoteClick);
 		});
 	}
+	//!SECTION
 
 	//SECTION INIT
 	const bg = createBackgroundContainer();

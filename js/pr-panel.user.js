@@ -42,14 +42,25 @@
 					/\/(new|top|hot|controversial|rising)\/?$/,
 					"/"
 			  );
+			  //SECTION STYLES
+	const PANEL_STYLE = {
+		position: "fixed",
+		backgroundColor: BG_COLOR,
+		padding: "10px",
+		border: "1px solid black",
+		zIndex: "9999",
+		color: "#fff",
+		maxWidth: PANEL_MAX_WIDTH,
+		cursor: "move",
+	};
 	const DROPDOWN_STYLE = {
 		position: "absolute",
 		backgroundColor: "#0000008c",
 		padding: "10px",
-		boxShadow: "0 0 1px rgba(255, 255, 255, 0.3)",
+		border: "1px solid black",
 		zIndex: "9999",
 		color: "#fff",
-		maxWidth: "15vw",
+		maxWidth: PANEL_MAX_WIDTH,
 		left: "100%",
 		top: "0",
 		display: "none",
@@ -67,6 +78,18 @@
 		whiteSpace: "nowrap",
 		textOverflow: "ellipsis",
 	};
+	const SEARCHINPUT_STYLE = {
+		backgroundColor: "transparent",
+		borderRadius: "0px",
+		margin: "0px",
+		border: "0px",
+		color: "white",
+		padding: "5px",
+		fontSize: "12px",
+		width: "50px",
+		overflow: "auto",
+	};
+	//!SECTION
 	//!SECTION
 	//!SECTION
 
@@ -74,6 +97,15 @@
 
 	function setStyle(el, style) {
 		Object.assign(el.style, style);
+	}
+
+	function moveRightOnHover(el) {
+		el.addEventListener("mouseover", () => {
+			el.style.transform = "translateX(10px)";
+		});
+		el.addEventListener("mouseout", () => {
+			el.style.transform = "translateX(0px)";
+		});
 	}
 
 	//Restore panel position from previous session
@@ -101,16 +133,7 @@
 	function createPanel() {
 		const panel = document.createElement("div");
 		panel.id = "floating-nav-panel";
-		setStyle(panel, {
-			position: "fixed",
-			backgroundColor: BG_COLOR,
-			padding: "10px",
-			boxShadow: "0 0 1px rgba(255, 255, 255, 0.3)",
-			zIndex: "9999",
-			color: "#fff",
-			maxWidth: PANEL_MAX_WIDTH,
-			cursor: "move",
-		});
+		setStyle(panel, PANEL_STYLE);
 
 		const { left, top } = getSavedPos();
 		panel.style.left = typeof left === "number" ? `${left}px` : left;
@@ -165,18 +188,7 @@
 		const searchInput = document.createElement("input");
 		searchInput.classList.add("js-search");
 		searchInput.placeholder = "Go to...";
-		setStyle(searchInput, {
-			backgroundColor: "transparent",
-			borderRadius: "0px",
-			margin: "0px",
-			border: "0px",
-			color: "white",
-			padding: "5px",
-			fontSize: "12px",
-			width: "50px",
-			overflow: "auto",
-		});
-
+		setStyle(searchInput, SEARCHINPUT_STYLE);
 		const iconContainer = document.createElement("div");
 		iconContainer.id = "iconContainer";
 		iconContainer.style.position = "absolute";
@@ -292,16 +304,7 @@
 			anchor.textContent = option.text;
 			anchor.setAttribute("data-option", option.text);
 			setStyle(anchor, ANCHOR_STYLE);
-
-			anchor.addEventListener("mouseover", () => {
-				anchor.style.transform = "translateX(10px)";
-			});
-
-			anchor.addEventListener("mouseout", () => {
-				anchor.style.backgroundColor = "transparent";
-				anchor.style.transform = "translateX(0)";
-			});
-
+			moveRightOnHover(anchor);
 			return anchor;
 		};
 
@@ -315,6 +318,7 @@
 				subAnchor.href = `${baseUrl}${option.sort}`;
 				subAnchor.textContent = option.text;
 				setStyle(subAnchor, ANCHOR_STYLE);
+				moveRightOnHover(subAnchor);
 				dropdown.appendChild(subAnchor);
 			});
 
@@ -385,14 +389,7 @@
 					flairDropdown.style.display === "none" ? "block" : "none";
 			});
 
-			flairAnchor.addEventListener("mouseover", () => {
-				flairAnchor.style.transform = "translateX(10px)";
-			});
-
-			flairAnchor.addEventListener("mouseout", () => {
-				flairAnchor.style.backgroundColor = "transparent";
-				flairAnchor.style.transform = "translateX(0)";
-			});
+			moveRightOnHover(flairAnchor);
 
 			document.addEventListener("click", (e) => {
 				if (
@@ -428,6 +425,7 @@
 							flairAnchor.href = `https://old.reddit.com/r/${subreddit}/search?q=flair%3A${encodedFlair}`;
 							//flairAnchor.target = "_blank"; // to open in new tab, maybe an option
 							flairAnchor.textContent = flair.text;
+							moveRightOnHover(flairAnchor);
 							setStyle(flairAnchor, ANCHOR_STYLE);
 							flairDropdown.appendChild(flairAnchor);
 						});

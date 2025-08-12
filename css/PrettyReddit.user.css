@@ -1229,11 +1229,6 @@
 		border-radius: @borderRadius  !important;
 	}
 
-	/*ANCHOR [JS CREATED ELEMENTS] */
-	#floating-nav-panel:hover {
-		.hover-effect();
-	}
-
 	/*ANCHOR USER PAGE */
 	div.menuarea {
 		display: if((@hideVanillaSort=1), none, "") !important;

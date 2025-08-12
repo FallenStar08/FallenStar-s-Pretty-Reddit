@@ -6,7 +6,7 @@
 // @grant       GM_setValue
 // @grant       GM_registerMenuCommand
 // @grant       GM_xmlhttpRequest
-// @version     3.2.2
+// @version     3.2.3
 // @author      FallenStar
 // @downloadURL https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/pr-panel.user.js
 // @updateURL   https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/main/js/pr-panel.user.js
@@ -42,7 +42,7 @@
 					/\/(new|top|hot|controversial|rising)\/?$/,
 					"/"
 			  );
-			  //SECTION STYLES
+	//SECTION STYLES
 	const PANEL_STYLE = {
 		position: "fixed",
 		backgroundColor: BG_COLOR,

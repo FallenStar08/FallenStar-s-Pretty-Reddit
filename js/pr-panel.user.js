@@ -139,7 +139,7 @@
 				)
 			);
 			let newY = Math.max(
-				0,
+				NAVBAR_HEIGH,
 				Math.min(
 					e.clientY - offset.y,
 					window.innerHeight - panel.offsetHeight

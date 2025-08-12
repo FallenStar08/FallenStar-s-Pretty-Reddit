@@ -5,8 +5,8 @@
 // @description  Adds animated transparent background and big background ripple effect on up/downvote clicks on old Reddit
 // @match        https://old.reddit.com/*
 // @grant        none
-// @downloadURL  https://raw.githubusercontent.com/FallenStar08/FallenStar-s-Pretty-Reddit/refs/heads/main/js/wip/FancyParticlesBackground.js
-// @updateURL    https://raw.githubusercontent.com/FallenStar08/FallenStar-s-Pretty-Reddit/refs/heads/main/js/wip/FancyParticlesBackground.js
+// @downloadURL  https://raw.githubusercontent.com/FallenStar08/FallenStar-s-Pretty-Reddit/refs/heads/main/js/wip/FancyParticlesBackground.user.js
+// @updateURL    https://raw.githubusercontent.com/FallenStar08/FallenStar-s-Pretty-Reddit/refs/heads/main/js/wip/FancyParticlesBackground.user.js
 // @author       FallenStar
 // ==/UserScript==
 

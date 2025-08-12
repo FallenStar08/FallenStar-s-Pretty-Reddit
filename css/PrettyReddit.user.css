@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           FallenStar's reddit prettifier
 @namespace      github.com/openstyles/stylus
-@version        2.0.6
+@version        2.0.7
 @description    A new userstyle
 @author         FallenStar
 @updateURL		https://github.com/FallenStar08/FallenStar-s-Pretty-Reddit/raw/refs/heads/dev/css/PrettyReddit.user.css
@@ -1310,6 +1310,11 @@
 
 	.content>.sitetable {
 		grid-template-columns: 60px 60px;
+	}
+
+	/* ANCHOR [CODE] */
+	code {
+		text-wrap: inherit !important;
 	}
 
 }
